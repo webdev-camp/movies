@@ -15,7 +15,7 @@
       %tr
         %td= movie.title
         %td= movie.summary
-        %td= movie.image
+        %td= movie.avatar
         %td= link_to 'Show', movie
         %td= link_to 'Edit', edit_movie_path(movie)
         %td= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }

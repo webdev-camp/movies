@@ -6,4 +6,7 @@ RSpec.describe "movies/show" do
     visit movie_path(@movie)
   end
 
+  it "shows a movie" do
+    expect(current_path).to eq(movie_path(@movie))
+  end
 end
