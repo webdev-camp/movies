@@ -1,6 +1,6 @@
 %h1 Listing users
 
-%table
+%table.continer-fluid
   %thead
     %tr
       %th Avatar
@@ -9,7 +9,7 @@
       %th
       %th
 
-  %tbody
+  %tbody.container-fluid
     - @users.each do |user|
       %tr
         %td= image_tag user.avatar.url(:thumb)
