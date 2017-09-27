@@ -3,8 +3,8 @@
 %table
   %thead
     %tr
-      %th Email
-      %th Name
+      %th Avatar
+      %th Name/Email
       %th
       %th
       %th
@@ -12,8 +12,11 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.email
-        %td= user.name
+        %td= image_tag user.avatar.url(:thumb)
+        %td
+          = user.name
+          %br
+          = user.email
         %td= link_to 'Show', user
         %td= link_to 'Edit', edit_user_path(user)
         %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
