@@ -1,0 +1,23 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  %a.navbar-brand{:href => "#"} Movie Website
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          Home
+          -# %span.sr-only (current)
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          People
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          Movies
+    %form.form-inline.my-2.my-lg-0
+      %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
+      %button.btn.btn-primary{:type => "submit"} Search
+      .dropdown
+        .button.btn.btn-primary.dropdown-toggle Login
+        .dropdown-menu
+          

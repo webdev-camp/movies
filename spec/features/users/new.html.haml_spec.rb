@@ -1,4 +1,3 @@
-# Test valid email, valid user, image upload, image default if not uploaded, show user page
 require 'rails_helper'
 
 RSpec.describe "users/new" do
