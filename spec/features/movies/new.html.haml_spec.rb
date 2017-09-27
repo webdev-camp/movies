@@ -9,12 +9,12 @@ RSpec.describe "movies/new" do
     fill_in(:movie_summary, with: @movie.summary)
   end
 
-  def new_movie_with_avatar
+  def new_movie_with_poster
     visit new_movie_path
-    @movie = build(:movie_with_avatar)
+    @movie = build(:movie_with_poster)
     fill_in(:movie_title, with: @movie.title)
     fill_in(:movie_summary, with: @movie.summary)
-    attach_file('movie_avatar', 'spec/support/fixtures/thumb.jpg')
+    attach_file('movie_poster', 'spec/support/fixtures/thumb.jpg')
   end
 
   it "renders new movie form" do
@@ -27,24 +27,24 @@ RSpec.describe "movies/new" do
     expect(page).to have_content('Movie was successfully created.')
   end
 
-  it 'Creates a movie with an uploaded avatar' do
-    new_movie_with_avatar
+  it 'Creates a movie with an uploaded poster' do
+    new_movie_with_poster
     click_button('Create Movie')
     expect(page).to have_content('Movie was successfully created.')
   end
 
-  it "Does not create movie with an invaild avatar" do
+  it "Does not create movie with an invaild poster" do
     visit new_movie_path
-    movie = build(:movie_with_avatar)
+    movie = build(:movie_with_poster)
     fill_in(:movie_title, with: movie.title)
     fill_in(:movie_summary, with: movie.summary)
-    attach_file('movie_avatar', 'spec/support/fixtures/invalid.mp3')
+    attach_file('movie_poster', 'spec/support/fixtures/invalid.mp3')
     click_button('Create Movie')
     expect(page).to have_content('Please review the problems below:')
   end
 
   it "sets default image when movie does not specify image" do
     movie = create(:movie)
-    expect(movie.avatar).to_not be nil
+    expect(movie.poster).to_not be nil
   end
 end

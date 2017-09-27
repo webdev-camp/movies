@@ -7,7 +7,7 @@
   %b Summary:
   = @movie.summary
 
-= image_tag @movie.avatar.url(:medium)
+= image_tag @movie.poster.url(:medium)
 
 = link_to 'Edit', edit_movie_path(@movie)
 \|
