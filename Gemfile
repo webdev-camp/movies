@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
