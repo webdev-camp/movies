@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "users/new" do
 
+  before(:each) do
+    @user = sign_admin_in
+  end
+
   def new_user
     visit new_user_path
     @user = build(:user)

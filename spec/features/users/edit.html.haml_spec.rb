@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "users/edit" do
   before(:each) do
+    sign_admin_in
     @user = create(:user)
     visit edit_user_path(@user)
   end

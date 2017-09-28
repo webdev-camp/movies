@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "people/edit" do
   before(:each) do
+    sign_admin_in
     @person = create(:person)
     visit edit_person_path(@person)
   end

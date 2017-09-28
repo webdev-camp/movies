@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "movies/show" do
   before(:each) do
+    sign_admin_in
     @movie = create(:movie)
     visit movie_path(@movie)
   end

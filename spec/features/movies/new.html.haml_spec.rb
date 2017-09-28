@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "movies/new" do
 
+  before(:each) do
+    sign_admin_in
+  end
+
   def new_movie
     visit new_movie_path
     @movie = build(:movie)

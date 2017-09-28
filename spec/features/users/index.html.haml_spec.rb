@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "users/index" do
   before(:each) do
+    sign_admin_in
     @users = create_list(:user, 10)
     visit users_path
   end

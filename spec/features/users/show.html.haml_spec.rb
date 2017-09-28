@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "users/show" do
+feature "users/show" do
   before(:each) do
-    @user = create(:user)
+    @user = sign_admin_in
     visit user_path(@user)
   end
 
