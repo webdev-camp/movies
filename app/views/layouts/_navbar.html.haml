@@ -1,0 +1,32 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  %a.navbar-brand{:href => "#"} Movie Website
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          Home
+          -# %span.sr-only (current)
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          People
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          Movies
+
+    %form.form-inline.my-2.my-lg-0
+      %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
+    %ul.navbar-nav.mr-right
+      - if user_signed_in?
+        %li.nav-item.active
+          =link_to 'Account', edit_user_registration_path, {:class => 'nav-link'}
+        %li.nav-item.active
+          =link_to 'Logout', destroy_user_session_path, {:class => 'nav-link', method: 'delete'}
+      - else
+        %li.nav-item.active
+          %a.nav-link{:href => "#"}
+            Login
+            -# %span.sr-only (current)
+        %li.nav-item.active
+          =link_to 'Sign up', new_user_registration_path, {:class => 'nav-link'}
