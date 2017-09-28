@@ -7,7 +7,7 @@ RSpec.describe "users/new" do
   end
 
   def new_user
-    visit new_user_path
+    visit new_admin_user_path
     @user = build(:user)
     fill_in(:user_email, with: @user.email)
     fill_in(:user_name, with: @user.name)
@@ -15,7 +15,7 @@ RSpec.describe "users/new" do
   end
 
   def new_user_with_avatar
-    visit new_user_path
+    visit new_admin_user_path
     @user = build(:user_with_avatar)
     fill_in(:user_email, with: @user.email)
     fill_in(:user_name, with: @user.name)
@@ -24,7 +24,7 @@ RSpec.describe "users/new" do
   end
 
   it "renders new user form" do
-    visit new_user_path
+    visit new_admin_user_path
   end
 
   it "goes to show user page after creating user" do
@@ -40,7 +40,7 @@ RSpec.describe "users/new" do
   end
 
   it "Does not create user with an invaild avatar" do
-    visit new_user_path
+    visit new_admin_user_path
     user = build(:user_with_avatar)
     fill_in(:user_email, with: user.email)
     fill_in(:user_name, with: user.name)

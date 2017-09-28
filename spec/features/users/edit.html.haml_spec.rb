@@ -4,7 +4,7 @@ RSpec.describe "users/edit" do
   before(:each) do
     sign_admin_in
     @user = create(:user)
-    visit edit_user_path(@user)
+    visit edit_admin_user_path(@user)
   end
 
   it "test user can update information" do

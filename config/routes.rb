@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+  namespace :admin do
+  resources :users
+  end
   scope '/admin' do
-    resources :users
+
     resources :people
     resources :movies
   end
