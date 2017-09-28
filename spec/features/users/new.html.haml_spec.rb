@@ -7,6 +7,7 @@ RSpec.describe "users/new" do
     @user = build(:user)
     fill_in(:user_email, with: @user.email)
     fill_in(:user_name, with: @user.name)
+    fill_in(:user_password, with: @user.password)
   end
 
   def new_user_with_avatar
@@ -14,6 +15,7 @@ RSpec.describe "users/new" do
     @user = build(:user_with_avatar)
     fill_in(:user_email, with: @user.email)
     fill_in(:user_name, with: @user.name)
+    fill_in(:user_password, with: @user.password)
     attach_file('user_avatar', 'spec/support/fixtures/thumb.jpg')
   end
 

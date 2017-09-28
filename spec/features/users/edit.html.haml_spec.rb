@@ -9,6 +9,7 @@ RSpec.describe "users/edit" do
   it "test user can update information" do
     fill_in('user_email', with: 'test@test.com')
     fill_in('user_name', with: 'edited user')
+    fill_in(:user_password, with: @user.password)
     click_button('Update User')
     expect(page).to have_content('User was successfully updated.')
   end

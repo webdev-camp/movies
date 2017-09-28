@@ -14,6 +14,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'simple_form'
 gem "paperclip"
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
