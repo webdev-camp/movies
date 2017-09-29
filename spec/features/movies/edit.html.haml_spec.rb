@@ -4,7 +4,7 @@ RSpec.describe "movies/edit" do
   before(:each) do
     sign_admin_in
     @movie = create(:movie)
-    visit edit_movie_path(@movie)
+    visit edit_admin_movie_path(@movie)
   end
   it "test movie can update information" do
     fill_in('movie_title', with: 'movie title')

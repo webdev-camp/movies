@@ -10,4 +10,4 @@ RSpec.describe Movie, type: :model do
   it 'checks the movie has a summary' do
     expect(build(:movie, summary: "").save).to be false
   end
-end
+end 

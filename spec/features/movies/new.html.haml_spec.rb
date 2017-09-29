@@ -7,14 +7,14 @@ RSpec.describe "movies/new" do
   end
 
   def new_movie
-    visit new_movie_path
+    visit new_admin_movie_path
     @movie = build(:movie)
     fill_in(:movie_title, with: @movie.title)
     fill_in(:movie_summary, with: @movie.summary)
   end
 
   def new_movie_with_poster
-    visit new_movie_path
+    visit new_admin_movie_path
     @movie = build(:movie_with_poster)
     fill_in(:movie_title, with: @movie.title)
     fill_in(:movie_summary, with: @movie.summary)
@@ -22,7 +22,7 @@ RSpec.describe "movies/new" do
   end
 
   it "renders new movie form" do
-    visit new_movie_path
+    visit new_admin_movie_path
   end
 
   it "goes to show movie page after creating movie" do
@@ -38,7 +38,7 @@ RSpec.describe "movies/new" do
   end
 
   it "Does not create movie with an invaild poster" do
-    visit new_movie_path
+    visit new_admin_movie_path
     movie = build(:movie_with_poster)
     fill_in(:movie_title, with: movie.title)
     fill_in(:movie_summary, with: movie.summary)

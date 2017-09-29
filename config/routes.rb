@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   namespace :admin do
   resources :users
   resources :people
+  resources :movies
   end
   scope '/admin' do
-    resources :movies
+
   end
-  root 'movies#index'
+  root 'admin/movies#index'
 end
