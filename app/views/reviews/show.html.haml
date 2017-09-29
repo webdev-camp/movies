@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Plot score:
+  = @review.plot_score
+%p
+  %b Plot comment:
+  = @review.plot_comment
+%p
+  %b Acting score:
+  = @review.acting_score
+%p
+  %b Acting comment:
+  = @review.acting_comment
+%p
+  %b Summary:
+  = @review.summary
+
+= link_to 'Edit', edit_review_path(@review)
+\|
+= link_to 'Back', reviews_path
