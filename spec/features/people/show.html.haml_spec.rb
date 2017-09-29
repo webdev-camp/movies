@@ -6,6 +6,6 @@ RSpec.describe "people/show" do
   end
 
   it "renders person show page" do
-    visit person_path(@person)
+    visit admin_person_path(@person)
   end
 end

@@ -6,6 +6,6 @@ RSpec.describe "people/index" do
   end
 
   it "renders a list of people" do
-    visit people_path
+    visit admin_people_path
   end
 end
