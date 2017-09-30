@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :roles
   resources :reviews
   devise_for :users
   namespace :admin do
