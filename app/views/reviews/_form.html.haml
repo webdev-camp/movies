@@ -2,9 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :plot_score
+    = f.input :plot_score, input_html: { min: '0', max: '100'}
     = f.input :plot_comment
-    = f.input :acting_score
+    = f.input :acting_score, input_html: { min: '0', max: '100'}
     = f.input :acting_comment
     = f.input :summary
 
