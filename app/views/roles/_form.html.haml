@@ -1,0 +1,11 @@
+= simple_form_for(@role) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :person_name
+    = f.input :character_name
+    = f.input :person_id
+    = f.input :movie_id
+
+  .form-actions
+    = f.button :submit
