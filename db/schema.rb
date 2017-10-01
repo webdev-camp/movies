@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930142811) do
+ActiveRecord::Schema.define(version: 20170930180627) do
 
-  create_table "movies", force: :cascade do |t|
-    t.string "title"
-    t.string "summary"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "poster_file_name"
-    t.string "poster_content_type"
-    t.integer "poster_file_size"
-    t.datetime "poster_updated_at"
-  end
+# Could not dump table "movies" because of following StandardError
+#   Unknown type 'attachment' for column 'backdrop'
 
   create_table "people", force: :cascade do |t|
     t.string "name"
