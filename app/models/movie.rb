@@ -4,6 +4,6 @@ class Movie < ApplicationRecord
   has_attached_file :poster, styles: { medium: "300x300>", thumb: "100x100>" },
                     default_url: "/images/movies/posters/:style.png"
   validates_attachment_content_type :poster, content_type: /\image\/.*\z/
-  # belongs_to :people, through: :role
   has_many :roles
+  has_many :people, :through => :roles
 end

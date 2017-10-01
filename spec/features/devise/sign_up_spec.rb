@@ -1,14 +1,11 @@
 feature 'Sign Up', :devise do
 
-  scenario 'after good sign up redirect to camp' do
+  scenario 'after good sign up redirect to root' do
     sign_up_with()
-    expect(page.current_path).to eq new_user_session_path
+    expect(page.current_path).to eq root_path
   end
 
-  scenario 'visitor can sign up with valid email address and password' do
-    sign_up_with()
-    expect(page).to have_content("Forgot your password")
-  end
+  
 
   scenario 'visitor cannot sign up with invalid email address' do
     sign_up_with( email: 'bogus')
