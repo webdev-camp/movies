@@ -19,7 +19,18 @@ RSpec.describe Movie, type: :model do
       expect(@movie.roles).not_to be nil
       expect(@movie.roles.length).to be 0
     end
-    
+
+    it 'movie has people' do
+      expect(@movie.people).not_to be nil
+      expect(@movie.people.length).to be 0
+    end
+
+    it 'accesses people correctly'do
+      role = create(:role, movie: @movie)
+      expect(@movie.people.length).to be 1
+      expect(@movie.people.first).to eq role.person
+    end
+
     it 'check a role for a movie is in the movie roles'do
       role = create(:role, movie: @movie)
       expect(@movie.roles.length).to be 1
