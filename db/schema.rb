@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(version: 20171001072303) do
     t.datetime "picture_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tmdb_id"
+    t.string "imdb_id"
+    t.date "birthday"
+    t.string "born_in"
   end
 
   create_table "reviews", force: :cascade do |t|
