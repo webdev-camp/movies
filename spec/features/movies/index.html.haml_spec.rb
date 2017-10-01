@@ -6,16 +6,16 @@ RSpec.describe "movies/index" do
     @movies = create_list(:movie, 10)
     visit admin_movies_path
   end
-  it "checks the empty index page works" do
+  it "the empty index page works" do
     expect(page).to have_content("Listing")
   end
 
-  it "checks the index page with one movie works" do
+  it "the index page with one movie works" do
     movie = @movies.first
     expect(page).to have_link("Show", href: admin_movie_path(movie))
   end
 
-  it "checks the index page edit link works" do
+  it "the index page edit link works" do
     movie = @movies.first
     expect(page).to have_link("Edit", href: edit_admin_movie_path(movie))
   end

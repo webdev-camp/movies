@@ -31,13 +31,13 @@ RSpec.describe "movies/new" do
     expect(page).to have_content('Movie was successfully created.')
   end
 
-  it 'Creates a movie with an uploaded poster' do
+  it 'creates a movie with an uploaded poster' do
     new_movie_with_poster
     click_button('Create Movie')
     expect(page).to have_content('Movie was successfully created.')
   end
 
-  it "Does not create movie with an invaild poster" do
+  it "does not create movie with an invaild poster" do
     visit new_admin_movie_path
     movie = build(:movie_with_poster)
     fill_in(:movie_title, with: movie.title)
