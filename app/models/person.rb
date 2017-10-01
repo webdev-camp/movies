@@ -4,4 +4,5 @@ class Person < ApplicationRecord
                     default_url: "/images/person/picture/:style.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
   has_one :movie, through: :role
+  #TODO Add validation for new columns
 end

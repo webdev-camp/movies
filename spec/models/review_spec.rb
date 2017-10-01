@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# TODO Rename tests to a valid ...
 RSpec.describe Review, type: :model do
   before(:each) do
     @review = build(:review)

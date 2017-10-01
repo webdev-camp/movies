@@ -16,6 +16,6 @@ RSpec.describe Role, type: :model do
 
   it 'checks person_id is not empty' do
     role = create(:role)
-    expect(role.person_id).to_not be nil
+    expect(role.person_id).to be nil
   end
 end
