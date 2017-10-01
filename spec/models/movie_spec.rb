@@ -10,4 +10,22 @@ RSpec.describe Movie, type: :model do
   it 'checks the movie has a summary' do
     expect(build(:movie, summary: "").save).to be false
   end
-end 
+
+  describe "roles" do
+    before :each do
+      @movie = create :movie
+    end
+    it 'checks movie has roles' do
+      expect(@movie.roles).not_to be nil
+      expect(@movie.roles.length).to be 0
+    end
+    
+    it 'check a role for a movie is in the movie roles'do
+      role = create(:role, movie: @movie)
+      expect(@movie.roles.length).to be 1
+      expect(@movie.roles.first).to eq role
+    end
+
+  end
+
+end

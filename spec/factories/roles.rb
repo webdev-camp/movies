@@ -3,7 +3,7 @@ FactoryGirl.define do
     person_name "MyString"
     character_name "MyString"
 
-    association :person, factory: :person
-    association :movie, factory: :movie
+    person
+    movie
   end
 end
