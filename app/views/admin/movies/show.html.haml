@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @movie.title
+%p
+  %b Summary:
+  = @movie.summary
+
+= image_tag @movie.poster.url(:medium)
+
+= link_to 'Edit', edit_admin_movie_path(@movie)
+\|
+= link_to 'Back', admin_movies_path

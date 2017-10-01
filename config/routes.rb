@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  root 'home#index' 
+  root 'home#index'
   get 'home/index'
-
   get 'home/movie'
 
-  scope '/admin' do
+  resources :roles
+  resources :reviews
+  devise_for :users
+  
+  namespace :admin do
     resources :users
+    resources :people
     resources :movies
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

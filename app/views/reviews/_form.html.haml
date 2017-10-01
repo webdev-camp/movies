@@ -1,0 +1,12 @@
+= simple_form_for(@review) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :plot_score, input_html: { min: '0', max: '100'}
+    = f.input :plot_comment
+    = f.input :acting_score, input_html: { min: '0', max: '100'}
+    = f.input :acting_comment
+    = f.input :summary
+
+  .form-actions
+    = f.button :submit

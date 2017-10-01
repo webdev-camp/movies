@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Person name:
+  = @role.person_name
+%p
+  %b Character name:
+  = @role.character_name
+%p
+  %b Person:
+  = @role.person_id
+%p
+  %b Movie:
+  = @role.movie_id
+
+= link_to 'Edit', edit_role_path(@role)
+\|
+= link_to 'Back', roles_path
