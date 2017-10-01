@@ -1,6 +1,6 @@
 class AddColumnNameToMovie < ActiveRecord::Migration[5.1]
   def change
-    add_column :movies, :backdrop, :attachment
+    add_attachment :movies, :backdrop
     add_column :movies, :language, :string
     add_column :movies, :imdb_id, :string
     add_column :movies, :tmdb_id, :integer

@@ -12,8 +12,27 @@
 
 ActiveRecord::Schema.define(version: 20170930180627) do
 
-# Could not dump table "movies" because of following StandardError
-#   Unknown type 'attachment' for column 'backdrop'
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.string "summary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "poster_file_name"
+    t.string "poster_content_type"
+    t.integer "poster_file_size"
+    t.datetime "poster_updated_at"
+    t.string "backdrop_file_name"
+    t.string "backdrop_content_type"
+    t.integer "backdrop_file_size"
+    t.datetime "backdrop_updated_at"
+    t.string "language"
+    t.string "imdb_id"
+    t.integer "tmdb_id"
+    t.date "release_date"
+    t.integer "tmdb_vote"
+    t.integer "revenue"
+    t.integer "budget"
+  end
 
   create_table "people", force: :cascade do |t|
     t.string "name"
