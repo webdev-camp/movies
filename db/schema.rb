@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20170930175934) do
     t.datetime "picture_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "tmdb_id"
+    t.integer "tmdb_id"
     t.string "imdb_id"
-    t.string "birthday"
+    t.date "birthday"
     t.string "born_in"
   end
 
