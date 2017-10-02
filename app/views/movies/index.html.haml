@@ -1,0 +1,11 @@
+%h1 Listing movies
+
+%table
+
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.title
+        %td= link_to 'Show', movie_path(movie)
+
+%br
