@@ -11,4 +11,10 @@ class Movie < ApplicationRecord
   has_many :people, :through => :roles
   has_many :reviews
   has_many :users, through: :reviews
+  def imdb_link
+    "http://www.imdb.com/title/#{self.imdb_id}"
+  end
+  def tmdb_link
+    "https://www.themoviedb.org/movie/#{self.tmdb_id}"
+  end
 end

@@ -16,9 +16,9 @@
 %table
   %thead
     %tr
+      %th Image
       %th= sort_link(@q, :title)
       %th Summary
-      %th Image
       %th Language
       %th imdb_id
       %th Tmdb Id
@@ -28,12 +28,12 @@
   %tbody
     - @movies.each do |movie|
       %tr
-        %td= movie.title
-        %td= movie.summary
         %td= image_tag movie.poster.url(:thumb)
+        %td= movie.title
+        %td= movie.summary[0..200]
         %td= movie.language
-        %td= movie.imdb_id
-        %td= movie.tmdb_id
+        %td= link_to 'imdb', movie.imdb_link, target: :blank
+        %td= link_to 'tmdb', movie.tmdb_link, target: :blank
         %td= movie.budget
         %td= movie.revenue
         %td= link_to 'Show', admin_movie_path(movie)

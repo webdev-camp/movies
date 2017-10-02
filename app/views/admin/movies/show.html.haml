@@ -1,28 +1,32 @@
 %p#notice= notice
-
-%p
-  %b Title:
-  = @movie.title
-%p
-  %b Summary:
-  = @movie.summary
-%p
-  %b Language:
-  = @movie.language
-%p
-  %b imdb_id:
-  = @movie.imdb_id
-%p
-  %b tmdb_id:
-  = @movie.tmdb_id
-%p
-  %b Budget:
-  = @movie.budget
-%p
-  %b Revenue:
-  = @movie.revenue
-
-= image_tag @movie.poster.url(:medium)
+.row
+  .col-3
+    = image_tag @movie.poster.url(:medium)
+  .col-9
+    %p
+      %b Title:
+      = @movie.title
+    %p
+      %b Summary:
+      = @movie.summary
+    %p
+      %b Language:
+      = @movie.language
+    %p
+      %b imdb_id:
+      = @movie.imdb_id
+    %p
+      %b tmdb_id:
+      = @movie.tmdb_id
+    %p
+      %b Budget:
+      = @movie.budget
+    %p
+      %b Revenue:
+      = @movie.revenue
+.row
+  -@movie.roles.each do |role|
+    = image_tag role.person.picture.url(:thumb)
 
 = link_to 'Edit', edit_admin_movie_path(@movie)
 \|
