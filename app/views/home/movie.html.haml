@@ -1,77 +1,50 @@
 .movie_show
   %h2 MOVIE SHOW
   %p Find me at /home/movie on browser
-
-.container.text-center
+.div
   .row
-    .col-sm-4.well{:style => "background-color:darkblue;"}
-      .well
-        %a{:href => "#"} Link To...
+    .col-sm-3{:style => "background-color:black;"}
       =image_tag("TombRaider2001.jpg", size: "220x315", alt: "Lara Croft Poster")
-      .well
-        %p CAST
-        %p 1 as Shrek
-        %p 2 as Donkey
-        %p 3 as Puss in boots
-        %p DIRECTOR
-        %p (Link to iMDB?)
+    .col-sm-7{:style => "background-color:grey;"}
+      %object{:data => "https://www.youtube.com/embed/osvQ1qRSc3s", :height => "315", :width => "600"}
+      %h5 Lara Croft: Tomb Raider (2001)
+      .row
+      %ul.list-inline
+        %li R
+        %li 1h 30min
+        %li Animation | Comedy
+        %li ☆☆☆☆☆ 7.3
+        %li Rate This
+    .col-sm-2{:style => "background-color:lavender;"}
+      %ul
+        %li Review
+        %li Buy Button
+        %li Add to Watchlist
+        %li Put on Shelf
+        %li Want to watch
+        %li Release Information
+        %li The Collection
+        %li Language: en
+        %li tmdb_id: 808
+        %li Our Vote
+        %li Social Feedback
 
-    .col-sm-7.well{:style => "background-color:darkgrey;"}
-      .row
-        .col-sm-12
-        %object{:data => "https://www.youtube.com/embed/osvQ1qRSc3s", :height => "315", :width => "600", :float => "right"}
-      .row
-        .col-sm-12
-          %p Lara Croft: Tomb Raider (2001)
-      .row
-        .col-sm-9
-          %h6 R | 1h 05min | Animation Comedy |
-        .col-sm-3
-          %span ☆
-          %span ☆
-          %span ☆
-          %span ☆
-          %span ☆
-    .col-sm-2.well
-      .row
-        %td
-          %a{:href => "#"} Viewers Score
-        %td
-          %a{:href => "#"} Play Trailer
-        %td
-          %a{:href => "#"} Buy/Rent Now
-        %td
-          %a{:href => "#"} People page
-        %td
-          %a{:href => "#"} Put on shelf
-      %br
-        %nav
-          %td
-            %a{:href => "#"} Add to watched
-          %td
-            %a{:href => "#"} Want to watch
-  -# .row
-  -#   .col-sm-12.well
-  -#     %p English aristocrat Lara Croft is skilled in hand-to-hand combat and in the middle of a battle with a secret society. The shapely archaeologist moonlights as a tomb raider to recover lost antiquities and meets her match in the evil Powell, who's in search of a powerful relic.
-  -#     %ul
-  -#       %li Runtime
-  -#       %li Rating
-  -#       %li Cast
-  -#       %li Director
-  -#       %li Release Information
-  -#       %li The Collection
-  -#       %li Language: en
-  -#       %li imdb_id: tt0126029
-  -#       %li tmdb_id: 808
-  -#       %li Our Vote
-  -#       %li Other movies by actor
-  -#       %li Social Feedback
-  -#       %li View cinema times near you
-  -#
-  -# .row
-  -#   .col-sm-6{:style => "background-color:lightcyan;"}
-  -#     %h3 Review section
-  -#     %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  -#   .col-sm-6{:style => "background-color:lightgray;"}
-  -#     %h3 Buy/Rent/Sell-Shelf section
-  -#     %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+.div
+  .row
+    .col-sm-3{:style => "background-color:lightyellow;"}
+      %ul
+        %li Cast
+        %li Director
+        %li Other movies by actor
+        %li See more on iMDB (imdb_id: tt0126029)
+    .col-sm-7{:style => "background-color:lightgrey;"} English aristocrat Lara Croft is skilled in hand-to-hand combat and in the middle of a battle with a secret society. The shapely archaeologist moonlights as a tomb raider to recover lost antiquities and meets her match in the evil Powell, who's in search of a powerful relic.
+    .col-sm-2{:style => "background-color:darkgrey;"} SHARE links
+
+.div
+  .row
+    .col-sm-6{:style => "background-color:lightcyan;"}
+      %h3 Review section
+      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .col-sm-6{:style => "background-color:lightpink;"}
+      %h3 Shelf w sell section
+      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
