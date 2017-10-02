@@ -1,10 +1,9 @@
 .authform
   %h5 Sign up to get access to all the movie goodies!
   %p url path: /users/sign_up
-.div
   .row
-    .col-sm-3{}
-    .col-sm-6{}
+    .col-sm-1.col-lg-3
+    .col-sm-10.col-lg-6
       %a{:href => "#", :title => "Signup with facebook"}
         %button Signup with facebook
       %br
@@ -21,4 +20,4 @@
           = f.button :submit, "Sign up"
       = render "devise/shared/links"
 
-    .col-sm-3{}
+    .col-sm-1.col-lg-3
