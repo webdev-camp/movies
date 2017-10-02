@@ -4,7 +4,12 @@
   .form-inputs
     = f.input :title
     = f.input :summary
+    = f.input :language
+    = f.input :imdb_id
+    = f.input :tmdb_id
+    = f.input :tmdb_vote
+    = f.input :revenue
+    = f.input :budget
     = f.input :poster, as: :file
-
   .form-actions
     = f.button :submit

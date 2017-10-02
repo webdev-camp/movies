@@ -11,6 +11,12 @@ RSpec.describe "movies/new" do
     @movie = build(:movie)
     fill_in(:movie_title, with: @movie.title)
     fill_in(:movie_summary, with: @movie.summary)
+    fill_in(:movie_language, with: @movie.language)
+    fill_in(:movie_imdb_id, with: @movie.imdb_id)
+    fill_in(:movie_tmdb_id, with: @movie.tmdb_id)
+    fill_in(:movie_tmdb_vote, with: @movie.tmdb_vote)
+    fill_in(:movie_revenue, with: @movie.revenue)
+    fill_in(:movie_budget, with: @movie.budget)
   end
 
   def new_movie_with_poster
@@ -18,6 +24,12 @@ RSpec.describe "movies/new" do
     @movie = build(:movie_with_poster)
     fill_in(:movie_title, with: @movie.title)
     fill_in(:movie_summary, with: @movie.summary)
+    fill_in(:movie_language, with: @movie.language)
+    fill_in(:movie_imdb_id, with: @movie.imdb_id)
+    fill_in(:movie_tmdb_id, with: @movie.tmdb_id)
+    fill_in(:movie_tmdb_vote, with: @movie.tmdb_vote)
+    fill_in(:movie_revenue, with: @movie.revenue)
+    fill_in(:movie_budget, with: @movie.budget)
     attach_file('movie_poster', 'spec/support/fixtures/thumb.jpg')
   end
 
@@ -50,5 +62,12 @@ RSpec.describe "movies/new" do
   it "sets default image when movie does not specify image" do
     movie = create(:movie)
     expect(movie.poster).to_not be nil
+  end
+
+  it "creates a new movie without a language field" do
+    new_movie
+    fill_in(:movie_language, with: "")
+    click_button('Create Movie')
+    expect(page).to have_content('Movie was successfully created')
   end
 end

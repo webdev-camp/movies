@@ -6,9 +6,11 @@
       %th Title
       %th Summary
       %th Image
-      %th
-      %th
-      %th
+      %th Language
+      %th Imdb Id
+      %th Tmdb Id
+      %th Budget
+      %th Revenue
 
   %tbody
     - @movies.each do |movie|
@@ -16,6 +18,11 @@
         %td= movie.title
         %td= movie.summary
         %td= image_tag movie.poster.url(:thumb)
+        %td= movie.language
+        %td= movie.imdb_id
+        %td= movie.tmdb_id
+        %td= movie.budget
+        %td= movie.revenue
         %td= link_to 'Show', admin_movie_path(movie)
         %td= link_to 'Edit', edit_admin_movie_path(movie)
         %td= link_to 'Destroy', admin_movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' }

@@ -6,6 +6,21 @@
 %p
   %b Summary:
   = @movie.summary
+%p
+  %b Language:
+  = @movie.language
+%p
+  %b imdb_id:
+  = @movie.imdb_id
+%p
+  %b tmdb_id:
+  = @movie.tmdb_id
+%p
+  %b Budget:
+  = @movie.budget
+%p
+  %b Revenue:
+  = @movie.revenue
 
 = image_tag @movie.poster.url(:medium)
 
