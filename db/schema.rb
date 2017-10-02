@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171001072303) do
+ActiveRecord::Schema.define(version: 20171001124550) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20171001072303) do
     t.integer "tmdb_id"
     t.date "release_date"
     t.integer "tmdb_vote"
-    t.integer "revenue"
-    t.integer "budget"
+    t.integer "revenue", limit: 8
+    t.integer "budget", limit: 8
   end
 
   create_table "people", force: :cascade do |t|
