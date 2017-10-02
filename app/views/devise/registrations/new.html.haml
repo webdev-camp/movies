@@ -1,12 +1,23 @@
 .authform
-  %h2 Sign up
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = f.error_notification
-    .form-inputs
-      = f.input :name, required: true, autofocus: true
-      = f.input :email, required: true
-      = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-      = f.input :password_confirmation, required: true
-    .form-actions
-      = f.button :submit, "Sign up"
-  = render "devise/shared/links"
+  %h5 Sign up to get access to all the movie goodies!
+  %p url path: /users/sign_up
+  .row
+    .col-sm-1.col-lg-3
+    .col-sm-10.col-lg-6
+      %a{:href => "#", :title => "Signup with facebook"}
+        %button Signup with facebook
+      %br
+      %p OR
+      %p fill in the fields below:
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :name, required: true, autofocus: true
+          = f.input :email, required: true
+          = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+          = f.input :password_confirmation, required: true
+        .form-actions
+          = f.button :submit, "Sign up"
+      = render "devise/shared/links"
+
+    .col-sm-1.col-lg-3

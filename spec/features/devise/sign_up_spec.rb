@@ -5,7 +5,7 @@ feature 'Sign Up', :devise do
     expect(page.current_path).to eq root_path
   end
 
-  
+
 
   scenario 'visitor cannot sign up with invalid email address' do
     sign_up_with( email: 'bogus')

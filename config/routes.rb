@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   root 'visitor#index'
   get 'home/movie'
-
+  resources :movies, only: [:show, :index] do
+    resources :reviews
+  end
   resources :roles
-  resources :reviews
   devise_for :users
 
   namespace :admin do
