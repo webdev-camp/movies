@@ -36,7 +36,30 @@ RSpec.describe Movie, type: :model do
       expect(@movie.roles.length).to be 1
       expect(@movie.roles.first).to eq role
     end
+  end
 
+  describe 'reviews' do
+    before :each do
+      @movie = create(:movie)
+    end
+    it 'checks movie has reviews' do
+      expect(@movie.reviews).to_not be nil
+      expect(@movie.reviews.length).to be 0
+    end
+    it 'checks movie has users' do
+      expect(@movie.users).not_to be nil
+      expect(@movie.users.length).to be 0
+    end
+    it 'accesses users correctly'do
+      review = create(:review, movie: @movie)
+      expect(@movie.users.length).to be 1
+      expect(@movie.users.first).to eq review.user
+    end
+    it 'check a review for a movie is in the movie review'do
+      review = create(:review, movie: @movie)
+      expect(@movie.reviews.length).to be 1
+      expect(@movie.reviews.first).to eq review
+    end
   end
 
 end
