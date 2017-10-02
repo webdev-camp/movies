@@ -1,13 +1,19 @@
-require 'rails_helper'
-
-RSpec.describe "movies/show" do
+RSpec.describe "movies/index" do
   before(:each) do
-    sign_admin_in
+    sign_user_in
     @movie = create(:movie)
-    visit admin_movie_path(@movie)
+    visit movie_path(@movie)
+  end
+  it 'shows movie' do
+    expect(page).to have_content(@movie.title)
+  end
+  it 'has a working link to add review' do
+    click_link('Add a Review')
+    expect(page).to have_content('New review')
+  end
+  it 'has a working link to the list of movies' do
+    click_link('Back')
+    expect(page).to have_content('Listing movies')
   end
 
-  it "shows a movie" do
-    expect(current_path).to eq(admin_movie_path(@movie))
-  end
 end
