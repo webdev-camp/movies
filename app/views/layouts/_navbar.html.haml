@@ -5,14 +5,11 @@
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          Home
+        =link_to 'Home', root_path, :class => 'nav-link'
       %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          People
+        =link_to 'People', root_path, :class => 'nav-link'
       %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          Movies
+        =link_to 'Movies', root_path, :class => 'nav-link'
 
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
