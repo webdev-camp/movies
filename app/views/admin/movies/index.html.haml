@@ -5,6 +5,14 @@
   = f.search_field :title_cont
   = f.submit
 
+  = f.label :imdb_id_cont
+  = f.search_field :imdb_id_cont
+  = f.submit
+
+  = f.label :tmdb_id_cont
+  = f.search_field :tmdb_id_cont
+  = f.submit
+
 %table
   %thead
     %tr
@@ -12,10 +20,10 @@
       %th Summary
       %th Image
       %th Language
-      %th Imdb Id
+      %th imdb_id
       %th Tmdb Id
-      %th Budget
-      %th Revenue
+      %th= sort_link(@q, :budget)
+      %th= sort_link(@q, :revenue)
 
   %tbody
     - @movies.each do |movie|
@@ -29,8 +37,6 @@
         %td= movie.budget
         %td= movie.revenue
         %td= link_to 'Show', admin_movie_path(movie)
-        %td= link_to 'Edit', edit_admin_movie_path(movie)
-        %td= link_to 'Destroy', admin_movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 = paginate @movies
