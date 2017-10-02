@@ -1,9 +1,14 @@
 %h1 Listing movies
 = paginate @movies
+= search_form_for [:admin, @q] do |f|
+  = f.label :title_cont
+  = f.search_field :title_cont
+  = f.submit
+
 %table
   %thead
     %tr
-      %th Title
+      %th= sort_link(@q, :title)
       %th Summary
       %th Image
       %th Language
@@ -28,5 +33,5 @@
         %td= link_to 'Destroy', admin_movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
-
+= paginate @movies
 = link_to 'New Movie', new_admin_movie_path
