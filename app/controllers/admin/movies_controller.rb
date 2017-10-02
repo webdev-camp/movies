@@ -5,7 +5,8 @@ class Admin:: MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.order(:title).page params[:page]
+    @q = Movie.ransack(params[:q])
+    @movies = @q.result(distinct: true).order(:title).page params[:page]
   end
 
   # GET /movies/1
