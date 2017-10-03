@@ -35,7 +35,7 @@
           %br
           = r.summary
           %br
-  .row
+  .row{style: 'margin-top: 20px'}
     - @movie.people.limit(12).each do |person|
       .col-1
         = image_tag person.picture(:thumb), title: person.name
