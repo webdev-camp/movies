@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  get 'visitor/index'
+  devise_for :users
+  authenticated :user do
+    root 'movies#index', as: :authenticated_root
+  end
+  get 'movies/index'
   get 'recommendations/index'
-  root 'visitor#index'
   get 'home/movie'
+  root 'visitor#index'
   resources :movies, only: [:show, :index] do
     resources :reviews
   end
   resources :roles
-  devise_for :users
-
   namespace :admin do
     resources :users
     resources :people

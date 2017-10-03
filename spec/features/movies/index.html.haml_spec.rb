@@ -5,6 +5,6 @@ RSpec.describe "movies/index" do
     visit movies_path
   end
   it "the empty index page works" do
-    expect(page).to have_content("Listing")
+    expect(page).to have_content("Home")
   end
 end

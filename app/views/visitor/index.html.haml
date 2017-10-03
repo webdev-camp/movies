@@ -1,58 +1,7 @@
-.public_page
-  %h2 PUBLIC PAGE
-  .container-fluid
-    %header
-      %h6 Links to input some data to generate movie search
-
-    %nav{:style => "background-color:black;"}
-      %tr
-        %td
-        %a{:href => "#"} 1 Preferences
-        %td
-        %a{:href => "#"} 2 Criteria
-        %td
-        %a{:href => "#"} 3 Movie Genre
-      %br
-
-    .row
-      .col-sm-8{:style => "background-color:lavender;"}
-        %h3 Recommended movies!
-        %p Include title and rating
-        %br
-        %a{:href => home_movie_path}
-          =image_tag("TombRaider2001.jpg", size: "180x250", alt: "Lara Croft Poster")
-        %a{:href => home_movie_path}
-          =image_tag("TombRaider2001.jpg", size: "180x250", alt: "Lara Croft Poster")
-        %a{:href => home_movie_path}
-          =image_tag("TombRaider2001.jpg", size: "180x250", alt: "Lara Croft Poster")
-        %a{:href => home_movie_path}
-          =image_tag("TombRaider2001.jpg", size: "180x250", alt: "Lara Croft Poster")
-        %a{:href => home_movie_path}
-          =image_tag("TombRaider2001.jpg", size: "180x250", alt: "Lara Croft Poster")
-        %a{:href => home_movie_path}
-          =image_tag("TombRaider2001.jpg", size: "180x250", alt: "Lara Croft Poster")
-        %a{:href => home_movie_path}
-          =image_tag("TombRaider2001.jpg", size: "180x250", alt: "Lara Croft Poster")
-        %a{:href => home_movie_path}
-          =image_tag("TombRaider2001.jpg", size: "180x250", alt: "Lara Croft Poster")
-      .col-sm-4{:style => "background-color:lavenderblush;"}
-        .box
-          %u SOCIAL FEEDS
-          %br/
-          %marquee{:direction => "down"}
-            Social feed X
-            %br/
-            Social feed Y
-            %br/
-            Social feed Z
-    .row
-      .col-sm-6{:style => "background-color:lightcyan;"}
-        %h3 Shelf section
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      .col-sm-6{:style => "background-color:lightgray;"}
-        %h3 Contribution section
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  %br
-
-
-%footer Copyright © WebDev-Camp.com
+.jumbotron
+  %h1.display-3 Hello, world!
+  %p.lead This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+  %hr.my-4/
+  %p It uses utility classes for typography and spacing to space content out within the larger container.
+  %p.lead
+    %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Learn more
