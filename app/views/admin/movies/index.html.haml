@@ -3,11 +3,9 @@
 = search_form_for [:admin, @q] do |f|
   = f.label :title_cont
   = f.search_field :title_cont
-  = f.submit
 
   = f.label :imdb_id_cont
   = f.search_field :imdb_id_cont
-  = f.submit
 
   = f.label :tmdb_id_eq
   = f.search_field :tmdb_id_eq
