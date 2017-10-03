@@ -1,0 +1,50 @@
+.person_page
+  %h1= @person.name
+  .row
+    .col
+      = image_tag @person.picture.url(:medium)
+    .col-6{:style => "background-color:grey;"}
+      = @person.name
+      = @person.bio
+      %a.btn.btn-primary.btn-sm{:href => "#"} Back to user's page
+      %a.btn.btn-primary.btn-sm{:href => "#"} Go to
+      %a.btn.btn-primary.btn-sm{:href => "#"} Contribute
+    .col{:style => "background-color:lavender;"}
+      .row
+        .box
+          %u Person's news & interviews Feed
+          %br/
+          %marquee{:direction => "down"}
+            News feed X
+            %br/
+            Interview Y
+            %br/
+            Twitter feed Z
+      .row
+        %h4 Info
+        %ul
+          %li
+            Born in
+            = @person.born_in
+          %li
+            Born on
+            = @person.birthday
+          %li
+            Acted in
+            = @person.movies.length
+            movies
+
+  .row
+    .col{:style => "background-color:lightyellow;"}
+      %h4 Filmography / Highest Rated Movies
+      .row
+        -@person.movies.limit(12).each do |movie|
+          .col-1
+            = image_tag movie.poster.url(:thumb) , title: movie.title
+  .row
+    %br
+    .col{:style => "background-color:lightgrey;"}
+      %h6 Stream of Pictures Found Online (Are we doing this?)
+      =image_tag("Shrek_(character).png", size: "90x125", alt: "Shrek picture")
+      =image_tag("Shrek_(character).png", size: "90x125", alt: "Shrek picture")
+      =image_tag("Shrek_(character).png", size: "90x125", alt: "Shrek picture")

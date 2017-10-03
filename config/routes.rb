@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'recommendations/index'
   root 'visitor#index'
   get 'home/movie'
+  get 'person/:id', to: 'person#show'
+
   resources :movies, only: [:show, :index] do
     resources :reviews
   end
