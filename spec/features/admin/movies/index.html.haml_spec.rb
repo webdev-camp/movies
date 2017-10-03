@@ -14,12 +14,6 @@ RSpec.describe "movies/index" do
     movie = @movies.first
     expect(page).to have_link("Show", href: admin_movie_path(movie))
   end
-
-  it "checks the index page edit link works" do
-    movie = @movies.first
-    expect(page).to have_link("Edit", href: edit_admin_movie_path(movie))
-  end
-
 end
 
 describe "movies/index" do

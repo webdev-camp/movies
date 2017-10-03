@@ -10,6 +10,10 @@ RSpec.describe Movie, type: :model do
   it 'the movie has a summary' do
     expect(build(:movie, summary: "").save).to be false
   end
+  it 'generates imdb link' do
+    movie = create :movie
+    expect(movie.imdb_link).to start_with "http"
+  end
 
   describe "roles" do
     before :each do
@@ -37,6 +41,7 @@ RSpec.describe Movie, type: :model do
       expect(@movie.roles.first).to eq role
     end
   end
+
 
   describe 'reviews' do
     before :each do

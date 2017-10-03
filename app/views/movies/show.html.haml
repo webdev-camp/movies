@@ -1,21 +1,41 @@
-%p Movie Reviews
-
-%p
-  %b Title:
-  = @movie.title
-  %br
-  - @movie.reviews.each do |r|
-    = r.user.name
-    %br
-    = r.plot_score
-    = r.plot_comment
-    %br
-    = r.acting_score
-    = r.acting_comment
-    %br
-    = r.summary
-    %br
-
-
-= link_to 'Add a Review', new_movie_review_path(@movie)
-= link_to 'Back', movies_path
+.movie_show
+  %h1= @movie.title
+.div
+  .row
+    .col-3
+      =image_tag @movie.poster(:medium)
+    .col-sm-5
+      %p= @movie.summary
+      .row
+        .col-4
+          %ul.list-inline
+            %li= "Language: #{@movie.language}"
+            %li= "Release Date #{@movie.release_date}"
+        .col-4
+          %ul.list-inline
+            %li= link_to "View on TMDB"
+            %li= link_to "View on IMDB"
+        .col-4
+          = link_to 'Add a Review', new_movie_review_path(@movie), class: 'btn btn-primary'
+          = link_to 'Back', movies_path, class: 'btn btn-primary', style: 'margin-top: 5px'
+    .col-4
+      %h3 Movie Reviews
+      %p
+        %b Title:
+        = @movie.title
+        %br
+        - @movie.reviews.each do |r|
+          = r.user.name
+          %br
+          = r.plot_score
+          = r.plot_comment
+          %br
+          = r.acting_score
+          = r.acting_comment
+          %br
+          = r.summary
+          %br
+  .row
+    - @movie.people.limit(12).each do |person|
+      .col-1
+        = image_tag person.picture(:thumb), title: person.name
