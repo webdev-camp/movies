@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'visitor/index'
-
+  get 'recommendations/index'
   root 'visitor#index'
   get 'home/movie'
   resources :movies, only: [:show, :index] do

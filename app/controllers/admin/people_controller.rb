@@ -5,7 +5,8 @@ class Admin:: PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @q = Person.ransack(params[:q])
+    @people = @q.result(distinct: true).order(:name).page params[:page]
   end
 
   # GET /people/1
