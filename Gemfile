@@ -17,6 +17,7 @@ gem "paperclip"
 gem 'devise'
 gem 'kaminari'
 gem 'ransack'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

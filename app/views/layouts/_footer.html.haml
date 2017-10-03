@@ -1,7 +1,15 @@
-.row.container.bg-primary
-  .col-4
-    copyright
-  .col-4
-    social
-  .col-4
-    link
+.footer-container
+  .row.align-center
+    .col-4
+      copyright &copy;
+      %br
+      =link_to image_tag("tmdbicon.png"), "https://www.themoviedb.org/", target: :blank
+    .col-4
+      Links
+    .col-4
+      %a{:href => "https://github.com/webdev-camp/movies", target: :blank}
+        %i.fa.fa-github.fa-3x.social-icons
+      %a{:href => "https://twitter.com/", target: :blank}
+        %i.fa.fa-twitter.fa-3x.social-icons
+      %a{:href => "https://www.facebook.com/", target: :blank}
+        %i.fa.fa-facebook.fa-3x.social-icons
