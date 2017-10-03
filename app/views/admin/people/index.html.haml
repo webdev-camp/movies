@@ -1,4 +1,6 @@
 %h1 Listing people
+
+%p on browser... /admin/people
 = paginate @people
 = search_form_for [:admin, @q] do |f|
   = f.label :name_cont
@@ -8,20 +10,18 @@
 %table
   %thead
     %tr
+      %th Picture
       %th Name
       %th Bio
-      %th
-      %th
-      %th
 
   %tbody
     - @people.each do |person|
       %tr
+        %td= image_tag person.picture.url(:thumb)
         %td= person.name
-        %td= person.bio
+        %td= person.bio.to_s[0..200]
         %td= link_to 'Show', admin_person_path(person)
-        %td= link_to 'Edit', edit_admin_person_path(person)
-        %td= link_to 'Destroy', admin_person_path(person), method: :delete, data: { confirm: 'Are you sure?' }
+
 
 %br
 

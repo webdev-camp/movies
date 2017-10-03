@@ -1,11 +1,12 @@
-class Admin:: UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).order(:name).page params[:page]
   end
 
   # GET /users/1
