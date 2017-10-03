@@ -4,13 +4,15 @@
     I am looking for:
 .row
   .col-8
+    %br
     %h3 Recommended movies
     .row
-      - @movies.limit(3).each do |m|
+      - @movies.limit(3).each do |movie|
         .col-3
-          =link_to image_tag(m.poster(:medium), title: m.title), m
-    %br= paginate @movies
-  .col-4{style: 'overflow-y'}
+          =link_to movie_path(movie) do
+            %br=image_tag(movie.poster(:medium), title: movie.title)
+    %br
+  .col-4
     %h3 Feed
     %ul
       %li Review
@@ -21,11 +23,12 @@
 .row
   .col-12
     %h3 Your Shelf
+    %br
     .row
       - @movies.limit(4).each do |m|
         .col-3
           =link_to image_tag(m.poster(:medium), title: m.title), m
-    %br= paginate @movies
+    %br
 .row
   .col-6
     %h3 Contribution section
