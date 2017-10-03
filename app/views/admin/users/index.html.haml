@@ -1,5 +1,10 @@
 %h1 Listing users
-
+= search_form_for [:admin, @q] do |f|
+  = f.label :name_cont
+  = f.search_field :name_cont
+  = f.label :email_cont
+  = f.search_field :email_cont
+  = f.submit
 %table
   %thead
     %tr
@@ -8,7 +13,6 @@
       %th
       %th
       %th
-
   %tbody
     - @users.each do |user|
       %tr
@@ -22,5 +26,6 @@
         %td= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
+= paginate @users
 
 = link_to 'New User', new_admin_user_path
