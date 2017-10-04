@@ -12,9 +12,7 @@
         .card
           = image_tag movie.poster.url(:medium) , class: "card-img-top"
           .card-block
-            %h4.card-title Card title
-            %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
-            %a.btn.btn-link.btn-sm{:href => "#"} Buy
-            %a.btn.btn-link.btn-sm{:href => "#"} Add to
-            %a.btn.btn-link.btn-sm{:href => "#"} Go to
-            %a.btn.btn-link.btn-sm{:href => "#"} Rate
+            %h4.card-title= movie.title
+            %p.card-text= movie.summary[0..75]+'...'
+            = link_to 'View', movie_path(movie), class: 'btn btn-primary'
+            = link_to 'Add to shelf', new_movie_dvds_path(movie), class: 'btn btn-primary'
