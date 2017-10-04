@@ -8,5 +8,6 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @disc = @movie.disc(current_user)
   end
 end

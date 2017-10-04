@@ -8,9 +8,14 @@ class User < ApplicationRecord
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
                     default_url: "/images/users/avatars/:style.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
   has_many :reviews
   has_many :movies, through: :reviews
-  has_many :dvds
   has_many :discs
 
+  def add_dvd_for_movie(dvd, movie)
+    disc = Disc.where(user: self, movie: movie).first
+    disc.dvd = dvd
+    disc.save
+  end
 end

@@ -11,7 +11,7 @@ class Movie < ApplicationRecord
   has_many :people, :through => :roles
   has_many :reviews
   has_many :users, through: :reviews
-  has_many :dvds
+  has_many :discs
 
   def imdb_link
     "http://www.imdb.com/title/#{self.imdb_id}"
@@ -21,5 +21,8 @@ class Movie < ApplicationRecord
   end
   def review(user)
     Review.where(user: user, movie: self).first
+  end
+  def disc(user)
+    Disc.where(user: user, movie: self).first
   end
 end

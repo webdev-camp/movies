@@ -5,10 +5,6 @@ RSpec.describe "dvds/new" do
     @dvd = build(:dvd, movie: @movie, user: @user)
     visit new_movie_dvd_path(@movie)
   end
-
-  it "renders new dvd form" do
-
-  end
 end
 #
 #   it 'will not save invalid data' do

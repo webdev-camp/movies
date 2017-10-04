@@ -9,6 +9,6 @@ describe 'discs' do
   end
   it 'adds a disc to shelf' do
     click_link('I own this')
-    expect(page).to have_content('On shelf')
+    expect(page).to have_content('Sell this')
   end
 end

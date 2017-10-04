@@ -44,12 +44,15 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'dvds' do
-    before :each do
+  describe 'discs' do
+    it 'the user has disc association' do
       @user = create(:user)
+      expect(@user.discs).not_to be nil
     end
     it 'the user has dvds' do
-      expect(@user.dvds).not_to be nil
+      user = create(:user)
+      disc = create(:disc, user: user)
+      expect(user.discs).not_to be nil
     end
   end
 end

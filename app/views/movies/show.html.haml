@@ -25,8 +25,11 @@
           - else
             = link_to 'Add a Review', new_movie_review_path(@movie), class: 'btn btn-primary'
           = link_to 'Back', movies_path, class: 'btn btn-primary', style: 'margin-top: 5px'
-          - if own?(@movie)
-            = link_to 'On shelf.', movies_path
+          - if @disc
+            - if @disc.dvd
+              = link_to 'edit sale', edit_movie_dvd_path(@movie)
+            - else
+              = link_to 'Sell this dvd', new_movie_dvd_path(@movie)
           - else
             = link_to 'I own this', new_movie_disc_path(@movie), class: 'btn btn-primary'
     .col-4

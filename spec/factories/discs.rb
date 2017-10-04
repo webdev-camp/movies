@@ -3,5 +3,9 @@ FactoryGirl.define do
     user
     movie
     owns false
+    factory :disc_for_sale do
+      dvd
+      owns true
+    end
   end
 end
