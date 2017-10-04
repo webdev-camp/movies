@@ -25,6 +25,10 @@
           - else
             = link_to 'Add a Review', new_movie_review_path(@movie), class: 'btn btn-primary'
           = link_to 'Back', movies_path, class: 'btn btn-primary', style: 'margin-top: 5px'
+          - if own?(@movie)
+            = link_to 'On shelf.', movies_path
+          - else
+            = link_to 'I own this', new_movie_dvd_path(@movie), class: 'btn btn-primary'
     .col-4
       %h3 Movie Reviews
       %p
@@ -46,4 +50,3 @@
     - @movie.people.limit(12).each do |person|
       .col-1
         = image_tag person.picture(:thumb), title: person.name
-        = link_to 'Add to shelf', new_movie_dvds_path(@movie)
