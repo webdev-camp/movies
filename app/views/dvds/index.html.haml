@@ -1,0 +1,29 @@
+%h1 Shelf
+
+%table
+  %thead
+    %tr
+      %th Price
+      %th Condition
+      %th
+      %th
+      %th
+      %th
+      %th
+      %th
+
+  %tbody
+    - @dvds.each do |dvd|
+      %tr
+        %td= dvd.price
+        %td= dvd.condition
+        %td=
+        %td=
+        %td=
+        %td= link_to 'Show', dvd
+        %td= link_to 'Edit', edit_dvd_path(dvd)
+        %td= link_to 'Destroy', dvd, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'Movies', movies_path(@movie)
