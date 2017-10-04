@@ -50,4 +50,3 @@
     - @movie.people.limit(12).each do |person|
       .col-1
         = image_tag person.picture(:thumb), title: person.name
-        = link_to 'Add to shelf', new_movie_dvd_path(@movie)
