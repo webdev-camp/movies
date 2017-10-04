@@ -7,9 +7,6 @@ class Movie < ApplicationRecord
   has_attached_file :poster, styles: { medium: "300x300>", thumb: "100x100>" },
                     default_url: "/images/movies/posters/:style.png"
   validates_attachment_content_type(:poster, content_type: /\image\/.*\z/)
-  has_attached_file :backdrop, styles: { medium: "300x300>", thumb: "100x100>" },
-                    default_url: "/images/movies/backdrops/:style.png"
-  validates_attachment_content_type(:backdrop, content_type: /\image\/.*\z/)
   has_many :roles
   has_many :people, :through => :roles
   has_many :reviews

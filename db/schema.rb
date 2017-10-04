@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171001124550) do
+ActiveRecord::Schema.define(version: 20171004061709) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -21,10 +21,6 @@ ActiveRecord::Schema.define(version: 20171001124550) do
     t.string "poster_content_type"
     t.integer "poster_file_size"
     t.datetime "poster_updated_at"
-    t.string "backdrop_file_name"
-    t.string "backdrop_content_type"
-    t.integer "backdrop_file_size"
-    t.datetime "backdrop_updated_at"
     t.string "language"
     t.string "imdb_id"
     t.integer "tmdb_id"
