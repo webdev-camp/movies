@@ -1,0 +1,9 @@
+= simple_form_for([@movie, @dvd]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :price
+    = f.input :condition
+  
+  .form-actions
+    = f.button :submit

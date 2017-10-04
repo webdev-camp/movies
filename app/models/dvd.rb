@@ -1,5 +1,6 @@
 class Dvd < ApplicationRecord
-  validates :condition, presence: true
-  validates :price, :numericality => true
-            # :format => { :with => /^\d{1,4}(\.\d{0,2})?$/ }
+  validates :condition, presence: true, if: :price
+  validates :price, :numericality => true, if: :condition
+  belongs_to :user
+  belongs_to :movie
 end

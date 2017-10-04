@@ -1,6 +1,10 @@
 FactoryGirl.define do
   factory :dvd do
-    price 10
-    condition "good"
+    user
+    movie
+    factory :dvd_for_sale do
+      price 10
+      condition 'good'
+    end
   end
 end
