@@ -7,7 +7,10 @@ class DvdsController < ApplicationController
   end
 
   def new
-    @dvd = Dvd.new(user: current_user, movie: @movie)
+    @dvd = Dvd.create(user: current_user, movie: @movie)
+    respond_to do |format|
+      format.html { redirect_to movie_path(@movie), notice: 'Added to shelf.' }
+    end
   end
 
   def show

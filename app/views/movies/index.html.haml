@@ -23,12 +23,12 @@
       %li Review
 .row
   .col-12
-    %h3 Your Shelf
+    %h3  Your Shelf
     %br
     .row
-      - @movies.limit(4).each do |m|
+      - current_user.dvds.each do |dvd|
         .col-3
-          =link_to image_tag(m.poster(:medium), title: m.title), m
+          =link_to image_tag(dvd.movie.poster(:medium), title: dvd.movie.title), dvd.movie
     %br
 .row
   .col-6
