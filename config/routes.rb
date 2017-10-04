@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root 'visitor#index'
 
   resources :movies, only: [:show, :index] do
-    resources :reviews
+    resource :review
   end
   resources :roles
   namespace :admin do

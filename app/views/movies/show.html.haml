@@ -16,7 +16,14 @@
             %li= link_to "View on TMDB"
             %li= link_to "View on IMDB"
         .col-4
-          = link_to 'Add a Review', new_movie_review_path(@movie), class: 'btn btn-primary'
+          - if review = @movie.review(current_user)
+            plot
+            =review.plot_score
+            %br
+            acting
+            =review.acting_score
+          - else
+            = link_to 'Add a Review', new_movie_review_path(@movie), class: 'btn btn-primary'
           = link_to 'Back', movies_path, class: 'btn btn-primary', style: 'margin-top: 5px'
     .col-4
       %h3 Movie Reviews

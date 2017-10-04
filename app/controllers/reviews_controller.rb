@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_movie
 
   # GET /reviews
@@ -15,7 +14,12 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new(user: current_user, movie: @movie)
+    if @review
+      redirect_to edit_movie_review_path(@movie)
+    else
+      @review = Review.new(user: current_user, movie: @movie)
+    end
+
   end
 
   # GET /reviews/1/edit
@@ -44,7 +48,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to movie_path(@movie), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -64,13 +68,10 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_review
-      @review = Review.find(params[:id])
-    end
-
+    # Use callbacks to share common setup or constraints between actions
     def set_movie
       @movie = Movie.find(params[:movie_id])
+      @review = Review.where(user: current_user, movie: @movie).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

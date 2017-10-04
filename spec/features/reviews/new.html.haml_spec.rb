@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "reviews/new" do
   before(:each) do
-    @user = create(:user)
-    sign_user_in
+    @user = sign_user_in
     @movie = create(:movie)
     visit new_movie_review_path(@movie)
-    @review = create(:review, movie: @movie, user: @user)
+    @review = build(:review, movie: @movie, user: @user)
   end
 
   it "renders new review form" do
+    expect(current_path).to eq new_movie_review_path(@movie)
   end
 
   it 'will not save invalid data' do
@@ -29,6 +29,22 @@ RSpec.describe "reviews/new" do
     fill_in(:review_acting_comment, with: @review.acting_comment)
     fill_in(:review_summary, with: @review.summary)
     click_button('Create Review')
-    expect(page).to have_content('Review was successfully created.')
+    expect(current_path).to eq movie_path(@movie)
+    expect(page).to have_content('plot')
+    expect(page).to have_content('acting')
+  end
+
+end
+
+describe "reviews/new" do
+  before(:each) do
+    @user = sign_user_in
+    @movie = create(:movie)
+    @review = create(:review, movie: @movie, user: @user)
+    visit new_movie_review_path(@movie)
+  end
+
+  it 'does not create two new reviews' do
+    expect(current_path).to eq edit_movie_review_path(@movie)
   end
 end

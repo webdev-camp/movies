@@ -17,4 +17,7 @@ class Movie < ApplicationRecord
   def tmdb_link
     "https://www.themoviedb.org/movie/#{self.tmdb_id}"
   end
+  def review(user)
+    Review.where(user: user, movie: self).first
+  end
 end

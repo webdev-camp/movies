@@ -1,4 +1,4 @@
-= simple_form_for([@movie, @review]) do |f|
+= simple_form_for([@movie, @review], url: movie_review_path(@movie)) do |f|
   = f.error_notification
 
   .form-inputs

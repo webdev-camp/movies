@@ -6,6 +6,9 @@ class Review < ApplicationRecord
                                                       less_than_or_equal_to: 100 }
   validates :plot_comment, :acting_comment, length: {minimum: 3, maximum: 240}
   validates :summary, length: {minimum: 3, maximum: 720}
+  validates :movie_id, uniqueness: { scope: :user_id, message: "You've reviewed this movie!" }
+
   belongs_to :user
   belongs_to :movie
+
 end
