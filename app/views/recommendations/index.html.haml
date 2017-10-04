@@ -10,7 +10,8 @@
     - @movies.each do |movie|
       .col-2
         .card
-          = image_tag movie.poster.url(:medium) , class: "card-img-top"
+          =link_to movie_path(movie) do
+            = image_tag movie.poster.url(:medium) , class: "card-img-top"
           .card-block
             %h4.card-title= movie.title
             %p.card-text= movie.summary[0..75]+'...'
