@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :movies, only: [:show, :index] do
     resources :reviews
+    resource :dvds
   end
   resources :roles
   namespace :admin do
