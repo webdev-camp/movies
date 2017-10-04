@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   has_many :reviews
   has_many :movies, through: :reviews
+  has_many :dvds
 end

@@ -6,6 +6,7 @@
   .col-8
     %br
     %h3 Recommended movies
+    -# TODO make recommended movies a link
     .row
       - @movies.limit(3).each do |movie|
         .col-3
