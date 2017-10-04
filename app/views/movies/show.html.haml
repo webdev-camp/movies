@@ -28,7 +28,7 @@
           - if own?(@movie)
             = link_to 'On shelf.', movies_path
           - else
-            = link_to 'I own this', new_movie_dvd_path(@movie), class: 'btn btn-primary'
+            = link_to 'I own this', new_movie_disc_path(@movie), class: 'btn btn-primary'
     .col-4
       %h3 Movie Reviews
       %p

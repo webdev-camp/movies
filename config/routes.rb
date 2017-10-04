@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :movies, only: [:show, :index] do
     resource :review
     resource :dvd
+    resource :disc
   end
 
   resources :roles

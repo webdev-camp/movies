@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004065614) do
+ActiveRecord::Schema.define(version: 20171004131722) do
+
+  create_table "discs", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "movie_id"
+    t.boolean "owns"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_discs_on_movie_id"
+    t.index ["user_id"], name: "index_discs_on_user_id"
+  end
 
   create_table "dvds", force: :cascade do |t|
     t.string "condition"

@@ -26,7 +26,7 @@
     %h3  Your Shelf
     %br
     .row
-      - current_user.dvds.each do |dvd|
+      - current_user.discs.each do |dvd|
         .col-3
           =link_to image_tag(dvd.movie.poster(:medium), title: dvd.movie.title), dvd.movie
     %br
