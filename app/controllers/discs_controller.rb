@@ -2,8 +2,8 @@ class DiscsController < ApplicationController
   before_action :set_disc, except: [:index, :new]
 
   def index
-    @q = Movie.ransack(params[:q])
-    @movies = @q.result(distinct: true).order(:title).page params[:page]
+    @q = Disc.ransack(params[:q])
+    @discs = @q.result(distinct: true).page params[:page]
   end
 
   def show
@@ -29,6 +29,7 @@ class DiscsController < ApplicationController
   private
     def set_disc
       @disc = Disc.find(params[:id])
+      #disc user is the current user
     end
 
     def disc_params

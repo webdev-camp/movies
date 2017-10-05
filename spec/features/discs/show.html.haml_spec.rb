@@ -12,3 +12,4 @@ RSpec.describe "disc/show" do
     expect(page).to have_content('New review')
   end
 end
+#when creating disc not for current user should go to disc path must redirect
