@@ -22,6 +22,7 @@ class DiscsController < ApplicationController
     @disc = Disc.new(disc_params)
     @disc.user = current_user
     @disc.movie = @movie
+    @disc.review = @review
     respond_to do |format|
       if @disc.save
         format.html { redirect_to movie_path(@movie), notice: 'Disc was successfully created.' }

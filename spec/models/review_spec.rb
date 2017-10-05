@@ -28,17 +28,4 @@ RSpec.describe Review, type: :model do
     expect(build(:review, summary: 'hello'*500).save).to be false
   end
 
-  it 'has a user assigned to review' do
-    review = create(:review)
-    expect(review.user).not_to be nil
-  end
-
-  it 'has users' do
-    expect(@review.user.password).to_not be nil
-  end
-
-  it 'has movies' do
-    expect(@review.movie.title).not_to be nil
-  end
-
 end

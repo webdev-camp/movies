@@ -5,7 +5,7 @@ RSpec.describe "reviews/new" do
     @user = sign_user_in
     @disc = create(:disc, user: @user)
     visit new_disc_review_path(@disc)
-    @review = build(:review, movie: @movie, user: @user)
+    @review = build(:review, disc: @disc)
   end
 
   it "renders new review form" do
@@ -22,7 +22,7 @@ RSpec.describe "reviews/new" do
     expect(page).to have_content('Please review the problems below:')
   end
 
-  xit 'goes to the movies page after a review is created' do
+  it 'goes to the movies page after a review is created' do
     fill_in(:review_plot_score, with: @review.plot_score)
     fill_in(:review_plot_comment, with: @review.plot_comment)
     fill_in(:review_acting_score, with: @review.acting_score)
@@ -30,8 +30,7 @@ RSpec.describe "reviews/new" do
     fill_in(:review_summary, with: @review.summary)
     click_button('Create Review')
     expect(current_path).to eq disc_path(@disc)
-    expect(page).to have_content('plot')
-    expect(page).to have_content('acting')
+    expect(page).to have_content('Edit Review')
   end
 
 end
@@ -39,8 +38,7 @@ end
 describe "reviews/new" do
   before(:each) do
     @user = sign_user_in
-    @disc = create(:disc, user: @user)
-    @review = create(:review, movie: @disc.movie, user: @user)
+    @disc = create(:disc_with_review, user: @user)
     visit new_disc_review_path(@disc)
   end
 
