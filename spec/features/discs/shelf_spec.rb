@@ -11,4 +11,10 @@ describe 'discs' do
     click_link('I own this')
     expect(page).to have_content('Sell this')
   end
+
+  it 'forbids adding the same disc twice to shelf' do
+    visit own_disc_path(@disc)
+    expect(page).to have_content('Sell this')
+  end
+
 end
