@@ -36,4 +36,8 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
+group :test do
+  gem "codeclimate-test-reporter", require: nil  
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
