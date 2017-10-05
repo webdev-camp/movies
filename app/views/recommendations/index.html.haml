@@ -16,4 +16,4 @@
             %h4.card-title= movie.title
             %p.card-text= movie.summary[0..75]+'...'
             = link_to 'View', movie_path(movie), class: 'btn btn-primary'
-            = link_to 'Add to shelf', new_movie_dvds_path(movie), class: 'btn btn-primary'
+            = link_to 'Add to shelf', new_disc_dvds_path(movie), class: 'btn btn-primary'
