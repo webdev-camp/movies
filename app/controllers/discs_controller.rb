@@ -18,7 +18,6 @@ class DiscsController < ApplicationController
   def edit
   end
 
-<<<<<<< HEAD
   def create
     @disc = Disc.new(disc_params)
     @disc.user = current_user
@@ -47,8 +46,6 @@ class DiscsController < ApplicationController
     end
   end
 
-=======
->>>>>>> 5077b8b5eb4d09b56e6c07faf7823ef59530995e
   def destroy
     @disc.destroy
     respond_to do |format|
