@@ -2,7 +2,7 @@ language: ruby
 cache: bundler
 script:
   - RAILS_ENV=test bundle exec rake db:migrate
-  - CODECLIMATE_REPO_TOKEN=195beb08234d6e502b4bba1bb717bc241f803757f4fb237719e906c50f4c836f bundle exec rspec
+  - bundle exec rspec && CODECLIMATE_REPO_TOKEN=195beb08234d6e502b4bba1bb717bc241f803757f4fb237719e906c50f4c836f bundle exec codeclimate-test-reporter
 rvm:
   - 2.3.4
   - 2.4.1
