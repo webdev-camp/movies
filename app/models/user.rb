@@ -13,9 +13,4 @@ class User < ApplicationRecord
   has_many :movies, through: :reviews
   has_many :discs
 
-  def add_dvd_for_movie(dvd, movie)
-    disc = Disc.where(user: self, movie: movie).first
-    disc.dvd = dvd
-    disc.save
-  end
 end

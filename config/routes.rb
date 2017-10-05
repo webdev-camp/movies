@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   authenticated :user do
-    root 'movies#index', as: :authenticated_root
+    root 'discs#index', as: :authenticated_root
   end
-  get 'movies/index'
+  get 'discs/index'
   get 'recommendations/index'
   get 'home/movie'
 
@@ -12,10 +12,12 @@ Rails.application.routes.draw do
 
   root 'visitor#index'
 
-  resources :movies, only: [:show, :index] do
+  resources :discs do
+    member do
+      get :own
+    end
     resource :review
     resource :dvd
-    resource :disc
   end
 
   resources :roles

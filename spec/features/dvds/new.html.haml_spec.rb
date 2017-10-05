@@ -3,7 +3,7 @@ RSpec.describe "dvds/new" do
     @user = sign_user_in
     @movie = create(:movie)
     @dvd = build(:dvd, movie: @movie, user: @user)
-    visit new_movie_dvd_path(@movie)
+    visit new_disc_dvd_path(@movie)
   end
 end
 #

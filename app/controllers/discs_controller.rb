@@ -1,14 +1,18 @@
 class DiscsController < ApplicationController
-  before_action :set_movie
+  before_action :set_disc, except: [:index, :new]
+
+  def index
+    @q = Movie.ransack(params[:q])
+    @movies = @q.result(distinct: true).order(:title).page params[:page]
+  end
 
   def show
   end
 
-  def new
-    unless @disc
-      @disc = Disc.create(user: current_user, movie: @movie, owns: true)
-    end
-    redirect_to movie_path(@movie)
+  def own
+    @disc.owns = true
+    @disc.save
+    redirect_to disc_path(@disc)
   end
 
   def edit
@@ -50,9 +54,8 @@ class DiscsController < ApplicationController
   end
 
   private
-    def set_movie
-      @movie = Movie.find(params[:movie_id])
-      @disc = Disc.where(user: current_user, movie: @movie).first
+    def set_disc
+      @disc = Disc.find(params[:id])
     end
 
     def disc_params

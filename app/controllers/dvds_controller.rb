@@ -1,5 +1,5 @@
 class DvdsController < ApplicationController
-  before_action :set_movie
+  before_action :set_disc
 
   def new
     @dvd = Dvd.new
@@ -13,8 +13,8 @@ class DvdsController < ApplicationController
     @dvd = Dvd.new(review_params)
     respond_to do |format|
       if @dvd.save
-        current_user.add_dvd_for_movie(@dvd, @movie)
-        format.html { redirect_to movie_path(@movie), notice: 'DVD sale was successfully created.' }
+        @disc.add_dvd(@dvd)
+        format.html { redirect_to disc_path(@disc), notice: 'DVD sale was successfully created.' }
         format.json { render :show, status: :created, location: @dvd }
       else
         format.html { render :new }
@@ -27,8 +27,8 @@ class DvdsController < ApplicationController
     @dvd = @disc.dvd
     respond_to do |format|
       if @dvd.update(review_params)
-        current_user.add_dvd_for_movie(@dvd, @movie)
-        format.html { redirect_to movie_path(@movie), notice: 'DVD sale was successfully updated.' }
+        @disc.add_dvd(@dvd)
+        format.html { redirect_to disc_path(@disc), notice: 'DVD sale was successfully updated.' }
         format.json { render :show, status: :created, location: @dvd }
       else
         format.html { render :new }
@@ -39,9 +39,8 @@ class DvdsController < ApplicationController
 
   private
 
-    def set_movie
-      @movie = Movie.find(params[:movie_id])
-      @disc = @movie.disc(current_user)
+    def set_disc
+      @disc = Disc.find(params[:disc_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

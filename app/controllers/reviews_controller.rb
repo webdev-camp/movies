@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_movie
+  before_action :set_disc
 
   # GET /reviews
   # GET /reviews.json
@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     if @review
-      redirect_to edit_movie_review_path(@movie)
+      redirect_to edit_disc_review_path(@disc)
     else
       @review = Review.new(user: current_user, movie: @movie)
     end
@@ -69,9 +69,9 @@ class ReviewsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions
-    def set_movie
-      @movie = Movie.find(params[:movie_id])
-      @review = Review.where(user: current_user, movie: @movie).first
+    def set_disc
+      @disc = Disc.find(params[:disc_id])
+      @review = Review.where(user: current_user, movie: @disc.movie).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

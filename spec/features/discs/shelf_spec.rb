@@ -1,8 +1,8 @@
 describe 'discs' do
   before(:each) do
-    @movie = create(:movie)
+    @disc = create(:disc)
     sign_user_in
-    visit movie_path(@movie)
+    visit disc_path(@disc)
   end
   it 'adds to shelf link exists' do
     expect(page).to have_content('I own this')

@@ -8,10 +8,10 @@
     %h3 Recommended movies
     -# TODO make recommended movies a link
     .row
-      - @movies.limit(3).each do |movie|
+      - current_user.discs.limit(3).each do |disc|
         .col-3
-          =link_to movie_path(movie) do
-            %br=image_tag(movie.poster(:medium), title: movie.title)
+          =link_to disc_path(disc) do
+            %br=image_tag(disc.movie.poster(:medium), title: disc.movie.title)
     %br
   .col-4
     %h3 Feed
@@ -26,9 +26,9 @@
     %h3  Your Shelf
     %br
     .row
-      - current_user.discs.each do |dvd|
+      - current_user.discs.each do |disc|
         .col-3
-          =link_to image_tag(dvd.movie.poster(:medium), title: dvd.movie.title), dvd.movie
+          =link_to image_tag(disc.movie.poster(:medium), title: disc.movie.title), disc
     %br
 .row
   .col-6
