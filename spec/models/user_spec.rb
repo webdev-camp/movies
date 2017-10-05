@@ -21,29 +21,6 @@ RSpec.describe User, type: :model do
     expect(user.email).not_to eq(phoney.email)
   end
 
-  describe 'reviews' do
-    before :each do
-      @user = create(:user)
-    end
-    it 'checks the user has a review' do
-      expect(@user.reviews).not_to be nil
-    end
-    it 'checks the user has a movie' do
-      expect(@user.movies).not_to be nil
-      expect(@user.movies.length).to be 0
-    end
-    it 'accesses movies correctly' do
-      review = create(:review, user: @user)
-      expect(@user.movies.length).to be 1
-      expect(@user.movies.first).to eq review.movie
-    end
-    it 'check a review for a user is in the user review'do
-      review = create(:review, user: @user)
-      expect(@user.reviews.length).to be 1
-      expect(@user.reviews.first).to eq review
-    end
-  end
-
   describe 'discs' do
     it 'the user has disc association' do
       @user = create(:user)

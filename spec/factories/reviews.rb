@@ -5,7 +5,5 @@ FactoryGirl.define do
     acting_score 50
     acting_comment "MyString"
     summary "MyString"
-    movie
-    user
   end
 end

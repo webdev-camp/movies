@@ -7,5 +7,8 @@ FactoryGirl.define do
       dvd
       owns true
     end
+    factory :disc_with_review do
+      review
+    end
   end
 end

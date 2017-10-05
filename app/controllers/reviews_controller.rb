@@ -1,40 +1,31 @@
 class ReviewsController < ApplicationController
   before_action :set_disc
 
-  # GET /reviews
-  # GET /reviews.json
   def index
     @reviews = Review.all
   end
 
-  # GET /reviews/1
-  # GET /reviews/1.json
   def show
   end
 
-  # GET /reviews/new
   def new
-    if @review
+    if @disc.review
       redirect_to edit_disc_review_path(@disc)
     else
-      @review = Review.new(user: current_user, movie: @movie)
+      @review = Review.new
     end
-
   end
 
-  # GET /reviews/1/edit
   def edit
+    @review = @disc.review
   end
 
-  # POST /reviews
-  # POST /reviews.json
   def create
     @review = Review.new(review_params)
-    @review.user = current_user
-    @review.movie = @movie
     respond_to do |format|
       if @review.save
-        format.html { redirect_to movie_path(@movie), notice: 'Review was successfully created.' }
+        @disc.add_review(@review)
+        format.html { redirect_to disc_path(@disc), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -43,12 +34,12 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reviews/1
-  # PATCH/PUT /reviews/1.json
   def update
+    @review = @disc.review
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to movie_path(@movie), notice: 'Review was successfully updated.' }
+        @disc.add_review(@review)
+        format.html { redirect_to disc_path(@disc), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -57,8 +48,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # DELETE /reviews/1
-  # DELETE /reviews/1.json
   def destroy
     @review.destroy
     respond_to do |format|
@@ -68,13 +57,10 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions
     def set_disc
       @disc = Disc.find(params[:disc_id])
-      @review = Review.where(user: current_user, movie: @disc.movie).first
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:plot_score, :plot_comment, :acting_score, :acting_comment, :summary)
     end
