@@ -16,12 +16,8 @@
             %li= link_to "View on TMDB"
             %li= link_to "View on IMDB"
         .col-4
-          - if review = @disc.movie.review(current_user)
-            plot
-            =review.plot_score
-            %br
-            acting
-            =review.acting_score
+          - if review = @disc.review()
+            =link_to 'Edit Review', edit_disc_review_path(@disc)
           - else
             = link_to 'Add a Review', new_disc_review_path(@disc), class: 'btn btn-primary'
           = link_to 'Back', discs_path, class: 'btn btn-primary', style: 'margin-top: 5px'
@@ -38,7 +34,7 @@
         %b Title:
         = @disc.movie.title
         %br
-        - @disc.movie.reviews.each do |r|
+        - @disc.review do |r|
           = r.user.name
           %br
           = r.plot_score

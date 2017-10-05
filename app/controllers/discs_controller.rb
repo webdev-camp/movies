@@ -18,6 +18,34 @@ class DiscsController < ApplicationController
   def edit
   end
 
+  def create
+    @disc = Disc.new(disc_params)
+    @disc.user = current_user
+    @disc.movie = @movie
+    @disc.review = @review
+    respond_to do |format|
+      if @disc.save
+        format.html { redirect_to movie_path(@movie), notice: 'Disc was successfully created.' }
+        format.json { render :show, status: :created, location: @disc }
+      else
+        format.html { render :new }
+        format.json { render json: @disc.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @disc.update(disc_params)
+        format.html { redirect_to movie_path(@movie), notice: 'Disc was successfully updated.' }
+        format.json { render :show, status: :ok, location: @disc }
+      else
+        format.html { render :edit }
+        format.json { render json: @disc.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @disc.destroy
     respond_to do |format|
