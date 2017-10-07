@@ -1,0 +1,14 @@
+.col-3
+  .card.bg-info.mb-3
+    =link_to disc_path(disc) do
+      = image_tag disc.movie.poster.url(:medium) , class: "card-img-top"
+    .card-body
+      %h4.card-title= disc.movie.title
+      %p.card-text= disc.movie.summary[0..75]+'...'
+      %ul.list-group.list-group-flush
+        %li.list-group-item= link_to 'I own this', own_disc_path(disc), class: 'btn btn-primary'
+        %li.list-group-item= link_to 'Add to shelf', new_disc_dvd_path(disc), class: 'btn btn-primary'
+        %li.list-group-item SELL NOW!
+      .card-body
+        %a.card-link.text-white{:href => "#"} Card link
+        %a.card-link.text-white{:href => "#"} Another link
