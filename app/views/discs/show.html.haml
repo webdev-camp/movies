@@ -7,27 +7,11 @@
     .col-sm-5
       %p= @disc.movie.summary
       .row
-        .col-4
-          %ul.list-inline
-            %li= "Language: #{@disc.movie.language}"
-            %li= "Release Date #{@disc.movie.release_date}"
-        .col-4
-          %ul.list-inline
-            %li= link_to "View on TMDB"
-            %li= link_to "View on IMDB"
-        .col-4
-          - if review = @disc.review()
-            =link_to 'Edit Review', edit_disc_review_path(@disc)
-          - else
-            = link_to 'Add a Review', new_disc_review_path(@disc), class: 'btn btn-primary'
-          = link_to 'Back', discs_path, class: 'btn btn-primary', style: 'margin-top: 5px'
-          - if @disc.owns?
-            - if @disc.dvd
-              = link_to 'edit sale', edit_disc_dvd_path(@disc)
-            - else
-              = link_to 'Sell this dvd', new_disc_dvd_path(@disc)
-          - else
-            = link_to 'I own this', own_disc_path(@disc), class: 'btn btn-primary'
+        %ul.list-inline
+          %li= "Language: #{@disc.movie.language}"
+          %li= "Release Date #{@disc.movie.release_date}"
+        = render 'actions', disc: @disc
+
     .col-4
       %h3 Movie Reviews
       %p

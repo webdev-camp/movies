@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :discs, path: 'movies', except: [:create, :update] do
     member do
       get :own
+      get :hide
     end
     resource :review
     resource :dvd

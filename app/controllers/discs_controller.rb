@@ -2,8 +2,7 @@ class DiscsController < ApplicationController
   before_action :set_disc, except: [:index, :new]
 
   def index
-    @q = Disc.ransack(params[:q])
-    @discs = @q.result(distinct: true).page params[:page]
+    @discs = Disc.where(hidden: nil).limit(20)
   end
 
   def show
@@ -13,6 +12,12 @@ class DiscsController < ApplicationController
     @disc.owns = true
     @disc.save
     redirect_to disc_path(@disc)
+  end
+
+  def hide
+    @disc.hidden = Date.new
+    @disc.save
+    redirect_to discs_path
   end
 
   def edit
@@ -50,7 +55,13 @@ class DiscsController < ApplicationController
   end
 
   private
-    def set_disc
-      @disc = Disc.find(params[:id])
+  def set_disc
+    @disc = Disc.find(params[:id])
+    if @disc.user != current_user
+      redirect_to discs_url
     end
+  end
+  def disc_params
+     params.require(:disc).permit(:plot_score, :plot_comment, :acting_score, :acting_comment, :summary)
+   end
 end
