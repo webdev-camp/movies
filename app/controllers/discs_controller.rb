@@ -19,7 +19,7 @@ class DiscsController < ApplicationController
   end
 
   def create
-    @disc = Disc.new(disc_params)
+    @disc = Disc.new
     @disc.user = current_user
     @disc.movie = @movie
     @disc.review = @review
@@ -52,10 +52,5 @@ class DiscsController < ApplicationController
   private
     def set_disc
       @disc = Disc.find(params[:id])
-      #disc user is the current user
-    end
-
-    def disc_params
-      params.require(:disc).permit(:plot_score, :plot_comment, :acting_score, :acting_comment, :summary)
     end
 end
