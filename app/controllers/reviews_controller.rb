@@ -26,10 +26,8 @@ class ReviewsController < ApplicationController
       if @review.save
         @disc.add_review(@review)
         format.html { redirect_to disc_path(@disc), notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,10 +38,8 @@ class ReviewsController < ApplicationController
       if @review.update(review_params)
         @disc.add_review(@review)
         format.html { redirect_to disc_path(@disc), notice: 'Review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +48,6 @@ class ReviewsController < ApplicationController
     @review.destroy
     respond_to do |format|
       format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
