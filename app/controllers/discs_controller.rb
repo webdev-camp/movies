@@ -24,7 +24,7 @@ class DiscsController < ApplicationController
   end
 
   def create
-    @disc = Disc.new(disc_params)
+    @disc = Disc.new
     @disc.user = current_user
     @disc.movie = @movie
     @disc.review = @review
@@ -55,14 +55,10 @@ class DiscsController < ApplicationController
   end
 
   private
-    def set_disc
-      @disc = Disc.find(params[:id])
-      if @disc.user != current_user
-        redirect_to discs_url
-      end
+  def set_disc
+    @disc = Disc.find(params[:id])
+    if @disc.user != current_user
+      redirect_to discs_url
     end
-
-    def disc_params
-      params.require(:disc).permit(:plot_score, :plot_comment, :acting_score, :acting_comment, :summary)
-    end
+  end
 end

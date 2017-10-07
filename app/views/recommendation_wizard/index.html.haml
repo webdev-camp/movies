@@ -1,0 +1,12 @@
+.row.wizard
+  .col-12
+    %br
+    %h3 Get started, add recommended movies:
+    %br
+    .row
+      - @movies.each do |movie|
+        .col-3.card
+          = image_tag movie.poster(:medium), class:'image-card'
+          =link_to 'Add to shelf',recommendation_wizard_create_path(movie), class: 'btn btn-primary'
+          %br
+          = movie.title
