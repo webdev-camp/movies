@@ -1,7 +1,7 @@
 describe 'discs' do
   before(:each) do
-    @disc = create(:disc)
-    sign_user_in
+    user = sign_user_in
+    @disc = create(:disc, user: user)
     visit disc_path(@disc)
   end
   it 'adds to shelf link exists' do
