@@ -8,4 +8,7 @@ class Review < ApplicationRecord
   validates :summary, length: {minimum: 3, maximum: 720}
 
   has_one :disc
+  def string_summary
+    "#{plot_score}/#{acting_score}/#{summary}"
+  end
 end

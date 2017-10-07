@@ -1,4 +1,4 @@
-.col-3
+.col-2
   .card.bg-info.mb-3
     =link_to disc_path(disc) do
       = image_tag disc.movie.poster.url(:medium) , class: "card-img-top"
@@ -6,11 +6,4 @@
       %h4.card-title= disc.movie.title
       %p.card-text= disc.movie.summary[0..75]+'...'
       %p
-        = link_to own_disc_path(disc) do
-          = image_tag 'dvd_add'
-        = link_to new_disc_dvd_path(disc) do
-          = image_tag 'sell_dvd'
-
-      .card-body
-        %a.card-link.text-white{:href => "#"} Card link
-        %a.card-link.text-white{:href => "#"} Another link
+        = render 'actions', disc: disc

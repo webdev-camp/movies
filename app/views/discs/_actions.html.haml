@@ -1,0 +1,17 @@
+- if review = disc.review()
+  = link_to edit_disc_review_path(disc) do
+    = image_tag 'gold_star', title: disc.review.string_summary
+- else
+  = link_to new_disc_review_path(disc) do
+    = image_tag 'empty_star'
+
+- if disc.owns?
+  - if disc.dvd
+    = link_to edit_disc_dvd_path(disc) do
+      = image_tag 'sell_dvd'
+  - else
+    = link_to new_disc_dvd_path(disc) , title: "Sell Dvd" do
+      = image_tag 'sell_dvd'
+- else
+  = link_to own_disc_path(disc) do
+    = image_tag 'dvd_add'

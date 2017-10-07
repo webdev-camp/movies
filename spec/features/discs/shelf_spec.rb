@@ -5,16 +5,17 @@ describe 'discs' do
     visit disc_path(@disc)
   end
   it 'adds to shelf link exists' do
-    expect(page).to have_content('I own this')
+    expect(page).to have_link(nil , href: own_disc_path(@disc))
   end
+
   it 'adds a disc to shelf' do
-    click_link('I own this')
-    expect(page).to have_content('Sell this')
+    click_link(nil , href: own_disc_path(@disc))
+    expect(page).to have_link(nil , href: new_disc_dvd_path(@disc))
   end
 
   it 'forbids adding the same disc twice to shelf' do
     visit own_disc_path(@disc)
-    expect(page).to have_content('Sell this')
+    expect(page).to have_link(nil , href: new_disc_dvd_path(@disc))
   end
 
 end
