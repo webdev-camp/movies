@@ -5,10 +5,12 @@
     .card-body
       %h4.card-title= disc.movie.title
       %p.card-text= disc.movie.summary[0..75]+'...'
-      %ul.list-group.list-group-flush
-        %li.list-group-item= link_to 'I own this', own_disc_path(disc), class: 'btn btn-primary'
-        %li.list-group-item= link_to 'Add to shelf', new_disc_dvd_path(disc), class: 'btn btn-primary'
-        %li.list-group-item SELL NOW!
+      %p
+        = link_to own_disc_path(disc) do
+          = image_tag 'dvd_add'
+        = link_to new_disc_dvd_path(disc) do
+          = image_tag 'sell_dvd'
+
       .card-body
         %a.card-link.text-white{:href => "#"} Card link
         %a.card-link.text-white{:href => "#"} Another link
