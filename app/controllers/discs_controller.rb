@@ -61,7 +61,4 @@ class DiscsController < ApplicationController
       redirect_to discs_url
     end
   end
-  def disc_params
-     params.require(:disc).permit(:plot_score, :plot_comment, :acting_score, :acting_comment, :summary)
-   end
 end
