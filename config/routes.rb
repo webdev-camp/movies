@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root 'visitor#index'
 
-  resources :discs, except: [:create, :update] do
+  resources :discs, path: 'movies', except: [:create, :update] do
     member do
       get :own
     end
