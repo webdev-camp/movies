@@ -15,10 +15,8 @@ class DvdsController < ApplicationController
       if @dvd.save
         @disc.add_dvd(@dvd)
         format.html { redirect_to disc_path(@disc), notice: 'DVD sale was successfully created.' }
-        format.json { render :show, status: :created, location: @dvd }
       else
         format.html { render :new }
-        format.json { render json: @dvd.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -29,10 +27,8 @@ class DvdsController < ApplicationController
       if @dvd.update(review_params)
         @disc.add_dvd(@dvd)
         format.html { redirect_to disc_path(@disc), notice: 'DVD sale was successfully updated.' }
-        format.json { render :show, status: :created, location: @dvd }
       else
         format.html { render :new }
-        format.json { render json: @dvd.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,7 +39,6 @@ class DvdsController < ApplicationController
       @disc = Disc.find(params[:disc_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:dvd).permit(:price, :condition)
     end
