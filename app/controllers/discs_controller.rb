@@ -57,7 +57,9 @@ class DiscsController < ApplicationController
   private
     def set_disc
       @disc = Disc.find(params[:id])
-      #disc user is the current user
+      if @disc.user != current_user
+        redirect_to discs_url
+      end
     end
 
     def disc_params
