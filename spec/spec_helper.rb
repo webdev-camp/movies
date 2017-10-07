@@ -13,9 +13,10 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-
-require 'simplecov'
-SimpleCov.start
+if ENV["CODECLIMATE_REPO_TOKEN"]
+  require 'simplecov'
+  SimpleCov.start
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
