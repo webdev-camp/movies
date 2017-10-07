@@ -14,7 +14,8 @@
               %ul.list-group.list-group-flush
                 %li.list-group-item= link_to 'I own this', own_disc_path(disc), class: 'btn btn-primary'
                 %li.list-group-item= link_to 'Add to shelf', new_disc_dvd_path(disc), class: 'btn btn-primary'
-                %li.list-group-item SELL NOW!
+                %li.list-group-item= link_to 'Hide', hide_disc_path(disc), class: 'btn btn-primary'
+                %li.list-group-item= disc.hidden 
               .card-body
                 %a.card-link.text-white{:href => "#"} Card link
                 %a.card-link.text-white{:href => "#"} Another link

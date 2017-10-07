@@ -1,4 +1,4 @@
-RSpec.describe "movies/index" do
+RSpec.describe "discs/index" do
   before(:each) do
     sign_user_in
     @discs = create_list(:disc, 10)
