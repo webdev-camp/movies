@@ -1,8 +1,5 @@
 = link_to 'Hide', hide_disc_path(disc), class: 'btn btn-primary'
-= link_to 'https://www.imdb.com' do
-  = image_tag 'imdb_small'
-= link_to 'https://www.themoviedb.org' do
-  = image_tag 'tmdb_small'
+
 - if review = disc.review()
   = link_to edit_disc_review_path(disc) do
     = image_tag 'gold_star', title: disc.review.string_summary

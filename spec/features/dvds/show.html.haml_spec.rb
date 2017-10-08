@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "reviews/edit" do
+RSpec.describe "dvds/show" do
   before(:each) do
   end
 end
