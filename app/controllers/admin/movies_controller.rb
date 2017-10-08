@@ -1,5 +1,4 @@
-class Admin:: MoviesController < ApplicationController
-  before_action :authenticate_user!
+class Admin::MoviesController < AuthenticatedController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,12 +18,10 @@ class Admin:: MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    respond_to do |format|
-      if @movie.save
-        format.html { redirect_to admin_movie_path(@movie), notice: 'Movie was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @movie.save
+      redirect_to admin_movie_path(@movie), notice: 'Movie was successfully created.'
+    else
+      render :new
     end
   end
 

@@ -1,4 +1,4 @@
-class RolesController < ApplicationController
+class Admin::RolesController < AuthenticatedController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
   def index

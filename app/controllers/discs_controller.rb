@@ -1,24 +1,20 @@
-class DiscsController < ApplicationController
+class DiscsController < AuthenticatedController
   before_action :set_disc, except: [:index, :new]
-  before_action :authenticate_user!
 
   def index
     @discs = Disc.where(user_id: current_user.id).limit(20).where(hidden: nil)
-
   end
 
   def show
   end
 
   def own
-    @disc.owns = true
-    @disc.save
+    @disc.update owns: true
     redirect_to disc_path(@disc)
   end
 
   def hide
-    @disc.hidden = Date.new
-    @disc.save
+    @disc.update hidden: DateTime.new
     redirect_to discs_path
   end
 
@@ -26,10 +22,7 @@ class DiscsController < ApplicationController
   end
 
   def create
-    @disc = Disc.new
-    @disc.user = current_user
-    @disc.movie = @movie
-    @disc.review = @review
+    @disc = Disc.new(user: current_user, movie: @movie)
     respond_to do |format|
       if @disc.save
         format.html { redirect_to movie_path(@movie), notice: 'Disc was successfully created.' }

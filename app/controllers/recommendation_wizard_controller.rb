@@ -1,5 +1,4 @@
-class RecommendationWizardController < ApplicationController
-  before_action :authenticate_user!
+class RecommendationWizardController < AuthenticatedController
   def index
     disc_ids = Disc.where(user_id: current_user.id).pluck(:movie_id)
     @movies = Movie.where.not(id: disc_ids)

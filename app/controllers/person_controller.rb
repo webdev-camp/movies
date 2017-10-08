@@ -1,4 +1,4 @@
-class PersonController < ApplicationController
+class PersonController < AuthenticatedController
 
   def show
     @person = Person.find(params[:id])

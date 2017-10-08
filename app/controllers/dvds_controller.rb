@@ -1,4 +1,4 @@
-class DvdsController < ApplicationController
+class DvdsController < AuthenticatedController
   before_action :set_disc
 
   def new

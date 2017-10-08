@@ -1,5 +1,4 @@
-class Admin:: PeopleController < ApplicationController
-  before_action :authenticate_user!
+class Admin::PeopleController < AuthenticatedController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index

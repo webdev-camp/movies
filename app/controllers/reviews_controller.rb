@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class ReviewsController < AuthenticatedController 
   before_action :set_disc
 
   def index
