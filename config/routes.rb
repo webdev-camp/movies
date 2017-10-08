@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     resource :dvd
   end
 
-  resources :roles
   namespace :admin do
+    resources :roles
     resources :users
     resources :people
     resources :movies

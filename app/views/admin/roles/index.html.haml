@@ -1,5 +1,5 @@
 %h1 Listing roles
-
+= paginate @roles
 %table
   %thead
     %tr
@@ -7,9 +7,6 @@
       %th Character name
       %th Person
       %th Movie
-      %th
-      %th
-      %th
 
   %tbody
     - @roles.each do |role|
@@ -18,10 +15,9 @@
         %td= role.character_name
         %td= role.person_id
         %td= role.movie_id
-        %td= link_to 'Show', role
-        %td= link_to 'Edit', edit_role_path(role)
-        %td= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Show', admin_role_path(role)
+        %td= link_to 'Edit', edit_admin_role_path(role)
 
 %br
 
-= link_to 'New Role', new_role_path
+= link_to 'New Role', new_admin_role_path

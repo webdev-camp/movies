@@ -2,7 +2,8 @@ class Admin::RolesController < AuthenticatedController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
   def index
-    @roles = Role.all
+    @q = Role.ransack(params[:q])
+    @roles = @q.result(distinct: true).order(:person_name).page params[:page]
   end
 
   def show
@@ -20,7 +21,7 @@ class Admin::RolesController < AuthenticatedController
 
     respond_to do |format|
       if @role.save
-        format.html { redirect_to @role, notice: 'Role was successfully created.' }
+        format.html { redirect_to admin_role_path(@role), notice: 'Role was successfully created.' }
       else
         format.html { render :new }
       end
@@ -30,7 +31,7 @@ class Admin::RolesController < AuthenticatedController
   def update
     respond_to do |format|
       if @role.update(role_params)
-        format.html { redirect_to @role, notice: 'Role was successfully updated.' }
+        format.html { redirect_to admin_role_path(@role), notice: 'Role was successfully updated.' }
       else
         format.html { render :edit }
       end
