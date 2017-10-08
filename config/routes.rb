@@ -3,18 +3,19 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'discs#index', as: :authenticated_root
   end
-  get 'discs/index'
-  get 'recommendations/index'
-  get 'home/movie'
-
-  get 'person/:id', to: 'person#show'
-
-
   root 'visitor#index'
+
+  get 'discs/index'
+  get 'home/movie'
+  get 'recommendations/index'
+  get 'recommendation_wizard/index'
+  get 'recommendation_wizard/create/:id', to: 'recommendation_wizard#create', as: 'recommendation_wizard_create'
+  get 'person/:id', to: 'person#show'
 
   resources :discs, path: 'movies', except: [:create, :update] do
     member do
       get :own
+      get :hide
     end
     resource :review
     resource :dvd

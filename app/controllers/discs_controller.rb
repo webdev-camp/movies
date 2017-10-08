@@ -3,7 +3,7 @@ class DiscsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @discs = Disc.where(user_id: current_user.id).limit(20)
+    @discs = Disc.where(user_id: current_user.id).limit(20)  
   end
 
   def show
@@ -15,11 +15,17 @@ class DiscsController < ApplicationController
     redirect_to disc_path(@disc)
   end
 
+  def hide
+    @disc.hidden = Date.new
+    @disc.save
+    redirect_to discs_path
+  end
+
   def edit
   end
 
   def create
-    @disc = Disc.new(disc_params)
+    @disc = Disc.new
     @disc.user = current_user
     @disc.movie = @movie
     @disc.review = @review
@@ -50,14 +56,10 @@ class DiscsController < ApplicationController
   end
 
   private
-    def set_disc
-      @disc = Disc.find(params[:id])
-      if @disc.user != current_user
-        redirect_to discs_url
-      end
+  def set_disc
+    @disc = Disc.find(params[:id])
+    if @disc.user != current_user
+      redirect_to discs_url
     end
-
-    def disc_params
-      params.require(:disc).permit(:plot_score, :plot_comment, :acting_score, :acting_comment, :summary)
-    end
+  end
 end

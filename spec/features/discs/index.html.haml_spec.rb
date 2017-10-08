@@ -1,4 +1,4 @@
-RSpec.describe "movies/index" do
+RSpec.describe "discs/index" do
   before(:each) do
     @discs = create_list(:disc, 10, user: sign_user_in)
     visit discs_path
