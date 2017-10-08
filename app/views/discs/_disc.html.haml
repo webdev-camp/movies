@@ -1,9 +1,10 @@
-.col-2
-  .card.bg-info.mb-3
-    =link_to disc_path(disc) do
-      = image_tag disc.movie.poster.url(:medium) , class: "card-img-top"
+.col-3
+  .card.mb-3
+    .card-header
+      =link_to disc_path(disc) do
+        = image_tag disc.movie.poster.url(:medium) , class: "card-img-top"
     .card-body
       %h4.card-title= disc.movie.title
       %p.card-text= disc.movie.summary[0..75]+'...'
-      %p
+      .card-footer
         = render 'actions', disc: disc
