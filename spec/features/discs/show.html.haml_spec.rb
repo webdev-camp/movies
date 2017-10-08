@@ -15,13 +15,37 @@ RSpec.describe "disc/show" do
   end
 end
 
-  describe "disc/show" do
-    before(:each) do
-      user = sign_user_in
-    end
-    it "doesn't show other users discs" do
-      @disc = create(:disc)
-      visit disc_path(@disc)
-      expect(current_path).to eq discs_path
-    end
+describe "disc/show" do
+  before(:each) do
+    sign_user_in
   end
+  it "doesn't show other users discs" do
+    @disc = create(:disc)
+    visit disc_path(@disc)
+    expect(current_path).to eq discs_path
+  end
+end
+
+describe "discs/show" do
+  before(:each) do
+    user = sign_user_in
+    @disc = create(:disc, user: user)
+    visit disc_path(@disc)
+  end
+
+  it 'has a working link to add dvd sale' do
+    click_link(nil , href: own_disc_path(@disc))
+    click_link(nil, href: new_disc_dvd_path(@disc))
+    expect(page).to have_content('Sell dvd')
+  end
+
+  it 'has a working link to edit dvd sale' do
+    click_link(nil , href: own_disc_path(@disc))
+    click_link(nil, href: new_disc_dvd_path(@disc))
+    fill_in(:dvd_price, with: "12")
+    fill_in(:dvd_condition, with: "good")
+    click_button('Create Dvd')
+    click_link(nil, href: edit_disc_dvd_path(@disc))
+    expect(page).to have_content('Edit dvd')
+  end
+end
