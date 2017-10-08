@@ -11,5 +11,10 @@ FactoryGirl.define do
       sequence( :email) { |n| "admin#{n}@test.com" }
       role :admin
     end
+    factory :user_with_5_discs do
+      after(:create) do |user|
+        create_list(:disc, 5, user: user)
+      end
+    end
   end
 end

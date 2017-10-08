@@ -2,7 +2,13 @@ class DiscsController < AuthenticatedController
   before_action :set_disc, except: [:index, :new]
 
   def index
-    @discs = Disc.where(user_id: current_user.id).limit(20).where(hidden: nil)
+    disc_amount = current_user.discs.length
+    if disc_amount < 5
+      notice = flash.notice
+      redirect_to recommendation_wizard_index_path, notice: "#{notice} Add #{5 - disc_amount} movies to get started!"
+    else
+      @discs = Disc.where(user_id: current_user.id).limit(20).where(hidden: nil)
+    end
   end
 
   def show

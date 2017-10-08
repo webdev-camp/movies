@@ -3,10 +3,10 @@ RSpec.describe "recommendations/index" do
   before (:each) do
     @movie = create_list(:movie, 10)
     @user = sign_user_in
-    visit recommendation_wizard_index_path
   end
 
   it 'goes to recommendation wizard page' do
+    expect(current_path).to eq recommendation_wizard_index_path
   end
 
   it 'adds a movie to shelf for the user' do
