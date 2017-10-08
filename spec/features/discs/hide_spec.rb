@@ -1,7 +1,7 @@
 RSpec.describe "hiding discs" do
   before(:each) do
-    sign_user_in
-    @disc = create(:disc)
+    user = sign_user_in
+    @disc = create(:disc, user: user)
     visit discs_path
   end
   it "the hide disc button shows" do

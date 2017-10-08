@@ -3,7 +3,8 @@ class DiscsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @discs = Disc.where(user_id: current_user.id).limit(20)  
+    @discs = Disc.where(user_id: current_user.id).limit(20).where(hidden: nil)
+
   end
 
   def show
