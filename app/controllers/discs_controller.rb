@@ -1,9 +1,9 @@
 class DiscsController < ApplicationController
   before_action :set_disc, except: [:index, :new]
+  before_action :authenticate_user!
 
   def index
-    @q = Disc.ransack(params[:q])
-    @discs = @q.result(distinct: true).page params[:page]
+    @discs = Disc.where(user_id: current_user.id).limit(20)
   end
 
   def show
