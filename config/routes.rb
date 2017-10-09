@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   get 'recommendations/create/:id', to: 'recommendations#create', as: 'recommendations_create'
   get 'recommendation_wizard/index'
   get 'recommendation_wizard/create/:id', to: 'recommendation_wizard#create', as: 'recommendation_wizard_create'
-  get 'person/:id', to: 'person#show'
-
+  get 'person/:id', to: 'person#show', as: 'person'
   resources :discs, path: 'movies', except: [:create, :update] do
     member do
       get :own
