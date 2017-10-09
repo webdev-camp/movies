@@ -2,9 +2,10 @@
   %h1= @disc.movie.title
 .div
   .row
-    .col-3
-      =image_tag @disc.movie.poster(:medium)
-    .col-sm-5
+    .col-4
+      = image_tag @disc.movie.poster.url(:medium), class: "img-fluid" if @disc.movie.poster?
+
+    .col-5.form-control
       %p= @disc.movie.summary
       .row
         %ul.list-inline
@@ -18,7 +19,7 @@
 
         = render 'actions', disc: @disc
 
-    .col-4
+    .col-3
       %h3 Movie Reviews
       %p
         %b Title:
@@ -35,7 +36,8 @@
           %br
           = r.summary
           %br
-  .row{style: 'margin-top: 20px'}
+
+  .row.people
     - @disc.movie.people.limit(12).each do |person|
-      .col-1
-        = link_to image_tag(person.picture(:thumb), title: person.name), person_path(person)  
+      = link_to person_path(person) do
+        =image_tag(person.picture(:thumb), title: person.name )
