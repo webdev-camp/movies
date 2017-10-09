@@ -7,7 +7,7 @@ class DiscsController < AuthenticatedController
       notice = flash.notice
       redirect_to recommendation_wizard_index_path, notice: "#{notice} Add #{5 - disc_amount} movies to get started!"
     else
-      @discs = Disc.where(user_id: current_user.id).limit(20).where(hidden: nil)
+      @discs = Disc.includes(:movie).where(user_id: current_user.id).limit(20).where(hidden: nil)
     end
   end
 

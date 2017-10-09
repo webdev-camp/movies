@@ -5,7 +5,14 @@
 = search_form_for [:admin, @q] do |f|
   = f.label :name_cont
   = f.search_field :name_cont
+
+  = f.label :imdb_id_cont
+  = f.search_field :imdb_id_cont
+
+  = f.label :tmdb_id_eq
+  = f.search_field :tmdb_id_eq
   = f.submit
+
 
 %table
   %thead
@@ -13,6 +20,10 @@
       %th Picture
       %th Name
       %th Bio
+      %th imdb_id
+      %th Tmdb Id
+      %th Birthday
+      %th born_in
 
   %tbody
     - @people.each do |person|
@@ -20,9 +31,12 @@
         %td= image_tag person.picture.url(:thumb)
         %td= person.name
         %td= person.bio.to_s[0..200]
+        %td= link_to 'imdb', person.imdb_link, target: :blank
+        %td= link_to 'tmdb', person.tmdb_link, target: :blank
+        %td= person.birthday
+        %td= person.born_in
         %td= link_to 'Show', admin_person_path(person)
 
-
 %br
-
+= paginate @people
 = link_to 'New Person', new_admin_person_path

@@ -9,7 +9,7 @@ class Movie < ApplicationRecord
                                       large: "600X900!"},
                     default_url: "/images/movies/posters/:style.png"
   validates_attachment_content_type(:poster, content_type: /\image\/.*\z/)
-  has_many :roles
+  has_many :roles, -> {includes :person}
   has_many :people, :through => :roles
   has_many :reviews
   has_many :users, through: :reviews
