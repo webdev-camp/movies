@@ -10,10 +10,12 @@
         %ul.list-inline
           %li= "Language: #{@disc.movie.language}"
           %li= "Release Date #{@disc.movie.release_date}"
-        = link_to 'https://www.imdb.com' do
+
+        = link_to @disc.movie.imdb_link, target: 'blank' do
           = image_tag 'imdb_small'
-        = link_to 'https://www.themoviedb.org' do
+        = link_to @disc.movie.tmdb_link, target: 'blank' do
           = image_tag 'tmdb_small'
+
         = render 'actions', disc: @disc
 
     .col-4
