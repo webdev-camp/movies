@@ -1,5 +1,5 @@
 class DiscsController < AuthenticatedController
-  before_action :set_disc, except: [:index, :new, :wishlist]
+  before_action :set_disc, except: [:index, :new, :wishlist, :shelf]
 
   def index
     disc_amount = current_user.discs.length
@@ -60,7 +60,7 @@ class DiscsController < AuthenticatedController
   end
 
   def shelf
-    @discs = Disc.where(user_id: current_user.id, owns: true).where(hidden: nil)    
+    @discs = Disc.where(user_id: current_user.id, owns: true).where(hidden: nil)
   end
 
   private

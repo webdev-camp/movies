@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'visitor#index'
 
   get 'discs/wishlist', to:'discs#wishlist', as: 'discs_wishlist'
+  get 'discs/shelf', to:'discs#shelf', as: 'discs_shelf'
   get 'discs/index'
   get 'home/movie'
   get 'recommendations/index'
