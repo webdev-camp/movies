@@ -8,11 +8,7 @@ RSpec.describe "discs/index" do
     expect(current_path).to eq discs_path
   end
 
-  it "the index page has links to disc" do
-    expect(page).to have_link(nil, href: disc_path(@discs.first))
-  end
-
-  it "the index page has links to disc" do
+  it "the index page has links to recommendations" do
     expect(page).to have_link(nil, href: recommendations_index_path)
   end
 end

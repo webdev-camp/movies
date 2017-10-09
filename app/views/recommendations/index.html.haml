@@ -5,6 +5,8 @@
     - @movies.each do |movie|
       .col-3.card
         =image_tag movie.poster(:medium), class:'image-card'
-        =link_to 'Save Recommendation',recommendations_create_path(movie), class: 'btn btn-primary'
+        =link_to 'Add to wishlist',recommendations_create_path(movie), class: 'btn btn-primary'
+        =link_to 'Add to shelf',recommendations_shelf_path(movie), class: 'btn btn-primary'
+        =link_to 'Hide recommendationBROKE', discs_path, class: 'btn btn-primary'
         %br
         = movie.title

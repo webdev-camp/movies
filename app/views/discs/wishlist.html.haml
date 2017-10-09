@@ -1,0 +1,8 @@
+%h1 Wishlist
+%br
+.row
+  - @discs.each do |disc|
+    .col-3
+      =link_to disc_path(disc) do
+        %br=image_tag(disc.movie.poster(:medium), title: disc.movie.title)
+%br

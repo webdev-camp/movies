@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   end
   root 'visitor#index'
 
+  get 'discs/wishlist', to:'discs#wishlist', as: 'discs_wishlist'
   get 'discs/index'
   get 'home/movie'
   get 'recommendations/index'
   get 'recommendations/create/:id', to: 'recommendations#create', as: 'recommendations_create'
+  get 'recommendations/shelf/:id', to: 'recommendations#shelf', as: 'recommendations_shelf'
   get 'recommendation_wizard/index'
   get 'recommendation_wizard/create/:id', to: 'recommendation_wizard#create', as: 'recommendation_wizard_create'
   get 'person/:id', to: 'person#show', as: 'person'

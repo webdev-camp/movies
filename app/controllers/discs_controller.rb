@@ -1,5 +1,5 @@
 class DiscsController < AuthenticatedController
-  before_action :set_disc, except: [:index, :new]
+  before_action :set_disc, except: [:index, :new, :wishlist]
 
   def index
     disc_amount = current_user.discs.length
@@ -53,6 +53,14 @@ class DiscsController < AuthenticatedController
     respond_to do |format|
       format.html { redirect_to discs_url, notice: 'Disc was successfully destroyed.' }
     end
+  end
+
+  def wishlist
+    @discs = Disc.where(user_id: current_user.id, owns: false).where(hidden: nil)
+  end
+
+  def shelf
+    @discs = Disc.where(user_id: current_user.id, owns: true).where(hidden: nil)    
   end
 
   private
