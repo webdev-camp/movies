@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008134553) do
+ActiveRecord::Schema.define(version: 20171009125921) do
 
   create_table "discs", force: :cascade do |t|
     t.integer "user_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171008134553) do
     t.integer "review_id"
     t.date "hidden"
     t.integer "recommendation_id"
+    t.boolean "selling"
     t.index ["dvd_id"], name: "index_discs_on_dvd_id"
     t.index ["movie_id"], name: "index_discs_on_movie_id"
     t.index ["recommendation_id"], name: "index_discs_on_recommendation_id"

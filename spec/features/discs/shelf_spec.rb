@@ -4,6 +4,7 @@ describe 'discs' do
     @disc = create(:disc, user: user)
     visit disc_path(@disc)
   end
+
   it 'adds to shelf link exists' do
     expect(page).to have_link(nil , href: own_disc_path(@disc))
   end
