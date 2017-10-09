@@ -1,25 +1,15 @@
 .person_page
   %h1= @person.name
   .row
-    .col
+    .col-3
       = image_tag @person.picture.url(:medium)
-    .col-6{:style => "background-color:grey;"}
+    .col-6
       = @person.name
       = @person.bio
-      %a.btn.btn-primary.btn-sm{:href => "#"} Back to user's page
-      %a.btn.btn-primary.btn-sm{:href => "#"} Go to
-      %a.btn.btn-primary.btn-sm{:href => "#"} Contribute
-    .col{:style => "background-color:lavender;"}
+    .col-3
       .row
         .box
           %u Person's news & interviews Feed
-          %br/
-          %marquee{:direction => "down"}
-            News feed X
-            %br/
-            Interview Y
-            %br/
-            Twitter feed Z
       .row
         %h4 Info
         %ul
@@ -33,15 +23,10 @@
             Acted in
             = @person.movies.length
             movies
-
   .row
-    .col{:style => "background-color:lightyellow;"}
+    .col
       %h4 Filmography / Highest Rated Movies
       .row
         -@person.movies.limit(12).each do |movie|
           .col-1
             = image_tag movie.poster.url(:thumb) , title: movie.title
-  .row
-    %br
-    .col{:style => "background-color:lightgrey;"}
-      %h6 Stream of Pictures Found Online 

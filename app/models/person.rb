@@ -9,4 +9,11 @@ class Person < ApplicationRecord
   has_one :movie, through: :role
   has_many :roles
   has_many :movies, :through => :roles
+
+  def imdb_link
+    "http://www.imdb.com/name/#{self.imdb_id}"
+  end
+  def tmdb_link
+    "https://www.themoviedb.org/person/#{self.tmdb_id}"
+  end
 end

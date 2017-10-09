@@ -1,16 +1,26 @@
 %p#notice= notice
-
-%p
-  %b Name:
-  = @person.name
-%p
-  %b Bio:
-  = @person.bio
-
-%p
-  %b Picture:
-  -@person.roles.each do |role|
-    = image_tag role.person.picture.url(:thumb)
+.row
+  .col-3
+    = image_tag @person.picture.url(:medium)
+  .col-9
+    %p
+      %b Name:
+      = @person.name
+    %p
+      %b Bio:
+      = @person.bio
+    %p
+      %b imdb_id:
+      = @person.imdb_id
+    %p
+      %b tmdb_id:
+      = @person.tmdb_id
+    %p
+      %b Birthday:
+      = @person.birthday
+    %p
+      %b Born In:
+      = @person.born_in
 
 = link_to 'Edit', edit_admin_person_path(@person)
 \|
