@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005140601) do
+ActiveRecord::Schema.define(version: 20171008134553) do
 
   create_table "discs", force: :cascade do |t|
     t.integer "user_id"
@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20171005140601) do
     t.integer "dvd_id"
     t.integer "review_id"
     t.date "hidden"
+    t.integer "recommendation_id"
     t.index ["dvd_id"], name: "index_discs_on_dvd_id"
     t.index ["movie_id"], name: "index_discs_on_movie_id"
+    t.index ["recommendation_id"], name: "index_discs_on_recommendation_id"
     t.index ["review_id"], name: "index_discs_on_review_id"
     t.index ["user_id"], name: "index_discs_on_user_id"
   end
@@ -65,6 +67,10 @@ ActiveRecord::Schema.define(version: 20171005140601) do
     t.string "imdb_id"
     t.date "birthday"
     t.string "born_in"
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.string "recommended_by"
   end
 
   create_table "reviews", force: :cascade do |t|

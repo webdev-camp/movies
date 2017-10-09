@@ -3,8 +3,7 @@
 .row
   .col-8
     %br
-    %h3 Recommended movies
-    -# TODO make recommended movies a link
+    %h3=link_to "Recommended movies", recommendations_index_path
     .row
       - current_user.discs.limit(3).each do |disc|
         .col-3

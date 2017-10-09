@@ -11,4 +11,8 @@ RSpec.describe "discs/index" do
   it "the index page has links to disc" do
     expect(page).to have_link(nil, href: disc_path(@discs.first))
   end
+
+  it "the index page has links to disc" do
+    expect(page).to have_link(nil, href: recommendations_index_path)
+  end
 end
