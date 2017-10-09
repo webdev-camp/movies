@@ -1,19 +1,10 @@
 .recommendations_page
-  %h2 RECOMMENDATIONS
-  %button.btn{:type => "button"} Social 1
-  %button.btn{:type => "button"} Social 2
-  %button.btn{:type => "button"} Social 3
-  %button.btn{:type => "button"} Social 4
-  %button.btn{:type => "button"} Social 5
-
+  %h1 Recommendations
+  %br
   .row
     - @movies.each do |movie|
-      .col-2
-        .card
-          =link_to movie_path(movie) do
-            = image_tag movie.poster.url(:medium) , class: "card-img-top"
-          .card-block
-            %h4.card-title= movie.title
-            %p.card-text= movie.summary[0..75]+'...'
-            = link_to 'View', movie_path(movie), class: 'btn btn-primary'
-            = link_to 'Add to shelf', new_disc_dvds_path(movie), class: 'btn btn-primary'
+      .col-3.card
+        =image_tag movie.poster(:medium), class:'image-card'
+        =link_to 'Save Recommendation',recommendations_create_path(movie), class: 'btn btn-primary'
+        %br
+        = movie.title
