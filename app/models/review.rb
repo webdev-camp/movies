@@ -11,4 +11,5 @@ class Review < ApplicationRecord
   def string_summary
     "#{plot_score}/#{acting_score}/#{summary}"
   end
+
 end
