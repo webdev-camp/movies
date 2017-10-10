@@ -1,15 +1,11 @@
 .row
-  = render @discs
-.row
   .col-8
     %br
-    %h3=link_to "Recommended movies", recommendations_index_path
+    %h3=link_to "Wishlist", discs_wishlist_path
     .row
-      - current_user.discs.limit(3).each do |disc|
-        .col-3
-          =link_to disc_path(disc) do
-            %br=image_tag(disc.movie.poster(:medium), title: disc.movie.title)
-    %br
+      = render wishlist.order("RANDOM()").limit(3)
+    %h3=link_to 'Recommended Movies', recommendations_index_path
+  %br
   .col-4
     %h3 Feed
     %ul
@@ -20,13 +16,12 @@
       %li Review
 .row
   .col-12.bg
-    %h3  Your Shelf
+    %br
+    %h3=link_to 'Shelf', discs_shelf_path
     %br
     .row
-      - current_user.discs.each do |disc|
-        .col-3
-          =link_to image_tag(disc.movie.poster(:medium), title: disc.movie.title), disc
-    %br
+      = render shelf.limit(4)
+%br
 .row
   .col-6
     %h3 Contribution section

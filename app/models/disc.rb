@@ -8,8 +8,10 @@ class Disc < ApplicationRecord
 
   def add_dvd(dvd)
     self.dvd = dvd
+    self.selling = true if self.dvd.price > 0
     save
   end
+  
   def add_review(review)
     self.review = review
     save

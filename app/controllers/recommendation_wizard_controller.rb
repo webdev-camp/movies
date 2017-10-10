@@ -4,7 +4,7 @@ class RecommendationWizardController < AuthenticatedController
     @movies = Movie.where.not(id: disc_ids)
     @movies= @movies.limit(12).order(tmdb_vote: :desc)
   end
-
+ 
   def create
     movie = Movie.find(params[:id])
     disc_length = Disc.where(user_id: current_user.id, movie: movie).length

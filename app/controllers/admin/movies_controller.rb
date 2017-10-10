@@ -1,4 +1,4 @@
-class Admin::MoviesController < AuthenticatedController
+class Admin::MoviesController < Admin::AdminsController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index

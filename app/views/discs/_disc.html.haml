@@ -1,10 +1,8 @@
-.col-3
-  .card.mb-3
-    .card-header
-      =link_to disc_path(disc) do
-        = image_tag disc.movie.poster.url(:medium) , class: "card-img-top"
-    .card-body
+.card
+  =link_to disc_path(disc) do
+    = image_tag disc.movie.poster.url(:medium) , class: "img-fluid rounded"
+    .overlay
       %h4.card-title= disc.movie.title
-      %p.card-text= disc.movie.summary[0..75]+'...'
-      .card-footer
-        = render 'actions', disc: disc
+      %p.card-text= disc.movie.summary[0..350]+'...'
+  .card-footer
+    = render 'actions', disc: disc

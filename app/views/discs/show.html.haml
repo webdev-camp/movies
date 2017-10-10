@@ -2,38 +2,42 @@
   %h1= @disc.movie.title
 .div
   .row
-    .col-3
-      =image_tag @disc.movie.poster(:medium)
-    .col-sm-5
+    .col-4
+      = image_tag @disc.movie.poster.url(:medium), class: "img-fluid" if @disc.movie.poster?
+
+    .col-5.form-control
       %p= @disc.movie.summary
       .row
         %ul.list-inline
           %li= "Language: #{@disc.movie.language}"
           %li= "Release Date #{@disc.movie.release_date}"
-        = link_to 'https://www.imdb.com' do
+
+        = link_to @disc.movie.imdb_link, target: 'blank' do
           = image_tag 'imdb_small'
-        = link_to 'https://www.themoviedb.org' do
+        = link_to @disc.movie.tmdb_link, target: 'blank' do
           = image_tag 'tmdb_small'
+
         = render 'actions', disc: @disc
 
-    .col-4
-      %h3 Movie Reviews
+    .col-3
+      %h3 User rating for this movie on top
       %p
-        %b Title:
-        = @disc.movie.title
-        %br
-        - @disc.review do |r|
-          = r.user.name
-          %br
-          = r.plot_score
-          = r.plot_comment
-          %br
-          = r.acting_score
-          = r.acting_comment
-          %br
-          = r.summary
-          %br
-  .row{style: 'margin-top: 20px'}
+        = render "review" if @disc.review
+
+        -#   %br
+        -# - @disc.review do |r|
+        -#   = r.user.name
+        -#   %br
+        -#   = r.plot_score
+        -#   = r.plot_comment
+        -#   %br
+        -#   = r.acting_score
+        -#   = r.acting_comment
+        -#   %br
+        -#   = r.summary
+        -#   %br
+
+  .row.people
     - @disc.movie.people.limit(12).each do |person|
-      .col-1
-        = link_to image_tag(person.picture(:thumb), title: person.name), person_path(person)  
+      = link_to person_path(person) do
+        =image_tag(person.picture(:thumb), title: person.name)
