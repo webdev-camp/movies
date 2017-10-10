@@ -7,7 +7,7 @@ class Person < ApplicationRecord
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
   validates :tmdb_id, numericality:{ only_integer: true, greater_than_or_equal_to: 0 }
   has_one :movie, through: :role
-  has_many :roles
+  has_many :roles, -> {includes :movie}
   has_many :movies, :through => :roles
 
   def imdb_link
