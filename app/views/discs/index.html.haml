@@ -3,7 +3,7 @@
     %br
     %h3=link_to "Wishlist", discs_wishlist_path
     .row
-      = render @discs.where(owns: false).order("RANDOM()").limit(3)
+      = render wishlist.order("RANDOM()").limit(3)
     %h3=link_to 'Recommended Movies', recommendations_index_path
   %br
   .col-4
@@ -20,7 +20,7 @@
     %h3=link_to 'Shelf', discs_shelf_path
     %br
     .row
-      = render @discs.where(owns: true).limit(4)
+      = render shelf.limit(4)
 %br
 .row
   .col-6

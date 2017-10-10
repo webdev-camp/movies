@@ -1,4 +1,4 @@
-class Admin::PeopleController < AuthenticatedController
+class Admin::PeopleController < Admin::AdminsController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index

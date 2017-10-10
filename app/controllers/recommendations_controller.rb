@@ -1,6 +1,8 @@
 class RecommendationsController < AuthenticatedController
   def index
-    @movies = Movie.all.limit(24).order(revenue: :desc)
+    disc_ids = Disc.where(user_id: current_user.id).pluck(:movie_id)
+    @movies = Movie.where.not(id: disc_ids)
+    @movies = @movies.all.limit(24).order(revenue: :desc)
   end
 
   def create

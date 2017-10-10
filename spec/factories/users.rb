@@ -9,7 +9,7 @@ FactoryGirl.define do
     end
     factory :admin do
       sequence( :email) { |n| "admin#{n}@test.com" }
-      role :admin
+      role 'admin'
     end
     factory :user_with_5_discs do
       after(:create) do |user|

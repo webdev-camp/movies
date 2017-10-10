@@ -10,8 +10,13 @@ RSpec.describe "recommendations/index" do
   it 'goes to recommendation page' do
   end
 
-  it 'adds a recommendation to shelf for the user' do
+  it 'adds a recommendation to wishlist for the user' do
     first('.card').click_link('Add to wishlist')
+    expect(page).to have_content('You have')
+  end
+
+  it 'adds a recommendation to shelf for the user' do
+    first('.card').click_link('Add to shelf')
     expect(page).to have_content('You have')
   end
 
