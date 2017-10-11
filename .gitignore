@@ -20,6 +20,8 @@
 /node_modules
 /yarn-error.log
 /coverage/*
+/public/asset
+vendor/
 
 .byebug_history
 

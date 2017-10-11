@@ -300,14 +300,11 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
     temple (0.8.0)
-<<<<<<< HEAD
+    themoviedb-api (1.2.0)
+      rest-client (~> 2.0, >= 2.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
-=======
-    themoviedb-api (1.2.0)
-      rest-client (~> 2.0, >= 2.0)
->>>>>>> 69adc1292bdd56c49583973e88034fb8f698bbfc
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -363,11 +360,8 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   sqlite3
-<<<<<<< HEAD
-  therubyracer
-=======
   themoviedb-api
->>>>>>> 69adc1292bdd56c49583973e88034fb8f698bbfc
+  therubyracer
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
