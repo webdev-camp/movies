@@ -18,6 +18,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'ransack'
 gem 'font-awesome-sass'
+gem 'themoviedb-api'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
