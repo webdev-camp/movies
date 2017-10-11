@@ -1,28 +1,29 @@
 .movie_show
-  %h1= @disc.movie.title
+  %h1= @movie.title
 .div
   .row
     .col-4
-      = image_tag @disc.movie.poster.url(:medium), class: "img-fluid" if @disc.movie.poster?
+      = image_tag @movie.poster.url(:medium), class: "img-fluid" if @movie.poster?
 
     .col-5.form-control
-      %p= @disc.movie.summary
+      %p= @movie.summary
       .row
         %ul.list-inline
-          %li= "Language: #{@disc.movie.language}"
-          %li= "Release Date #{@disc.movie.release_date}"
+          %li= "Language: #{@movie.language}"
+          %li= "Release Date #{@movie.release_date}"
 
-        = link_to @disc.movie.imdb_link, target: 'blank' do
+        = link_to @movie.imdb_link, target: 'blank' do
           = image_tag 'imdb_small'
-        = link_to @disc.movie.tmdb_link, target: 'blank' do
+        = link_to @movie.tmdb_link, target: 'blank' do
           = image_tag 'tmdb_small'
 
-        = render 'actions', disc: @disc
-
+        = render('discs/actions', disc: @disc) if @disc
     .col-3
+      .example_class
+        %h3 Click
       %h3 User rating for this movie on top
       %p
-        = render "review" if @disc.review
+        = render("discs/review") if @disc && @disc.review
 
         -#   %br
         -# - @disc.review do |r|
@@ -38,6 +39,6 @@
         -#   %br
 
   .row.people
-    - @disc.movie.people.limit(12).each do |person|
+    - @movie.people.limit(12).each do |person|
       = link_to person_path(person) do
         =image_tag(person.picture(:thumb), title: person.name)

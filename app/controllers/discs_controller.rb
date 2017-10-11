@@ -16,7 +16,7 @@ class DiscsController < AuthenticatedController
 
   def own
     @disc.update owns: true
-    redirect_to disc_path(@disc)
+    redirect_to movie_path(@disc.movie)
   end
 
   def hide

@@ -6,8 +6,8 @@ describe "disc/authorisation" do
 
   it "doesn't show other users discs" do
     @disc = create(:disc)
-    visit disc_path(@disc)
-    expect(current_path).to eq discs_path
+    visit movie_path(@disc.movie)
+    expect(page).not_to have_link(nil, href: own_disc_path(@disc))
   end
 end
 
@@ -19,6 +19,6 @@ describe "discs/authorisation" do
   end
 
   it "the index page to not have links to other user's disc" do
-    expect(page).not_to have_link(nil, href: disc_path(@discs.first))
+    expect(page).not_to have_link(nil, href: movie_path(@discs.first.movie))
   end
 end

@@ -1,8 +1,8 @@
 %p#notice= notice
 .row
-  .col-3
-    = image_tag @person.picture.url(:medium)
-  .col-9
+  .col-12.col-sm-6.col-md-4.col-lg-3.col-xl-2
+    = image_tag @person.picture.url(:medium), class: 'img-fluid'
+  .col-12.col-sm-6.col-md-8.col-lg-9.col-xl-10
     %p
       %b Name:
       = @person.name
@@ -21,6 +21,19 @@
     %p
       %b Born In:
       = @person.born_in
+.row
+  -@person.roles.each do |role|
+    = link_to image_tag(role.movie.poster(:thumb), title: role.movie.title), admin_movie_path(role.movie_id)
+  %table
+    %thead
+      %tr
+        %th Film
+        %th Role
+    %tbody
+      - @person.roles.each do |role|
+        %tr
+          %td= role.movie.title
+          %td= role.character_name
 
 = link_to 'Edit', edit_admin_person_path(@person)
 \|

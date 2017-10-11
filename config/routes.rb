@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get 'recommendations/shelf/:id', to: 'recommendations#shelf', as: 'recommendations_shelf'
   get 'recommendation_wizard/index'
   get 'recommendation_wizard/create/:id', to: 'recommendation_wizard#create', as: 'recommendation_wizard_create'
+  resources :movies, only: [:show]
   resources :people, only: [:show]
-  resources :discs, path: 'movies', except: [:create, :update] do
+  resources :discs, path: 'movies', except: [:create, :show, :update] do
     member do
       get :own
       get :hide
