@@ -19,6 +19,8 @@
 
         = render('discs/actions', disc: @disc) if @disc
     .col-3
+      .example_class
+        %h3 Click
       %h3 User rating for this movie on top
       %p
         = render("discs/review") if @disc && @disc.review
