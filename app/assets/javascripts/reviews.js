@@ -1,11 +1,15 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
+$(function rating() {
+  $('input[name="plot-rating"]').prop('checked', false);
+    $('.plot-review').on('change','[name="plot-rating"]',function(){
+  	   $('.plot-count').text($('[name="plot-rating"]:checked').val());
+  	   document.getElementById('review_plot_score').value = $('[name="plot-rating"]:checked').val();
+     });
+   });
 
-$(function() {
-  return $('.example_class').click(function() {
-    return $.get(window.location.href, function() {
-      return $('.example_class').append("Successfully got the page.");
-    });
-  });
-});
+   $(function rating() {
+     $('input[name="acting-rating"]').prop('checked', false);
+       $('.acting-review').on('change','[name="acting-rating"]',function(){
+     	   $('.acting-count').text($('[name="acting-rating"]:checked').val());
+         document.getElementById('review_acting_score').value = $('[name="acting-rating"]:checked').val();
+        });
+      });

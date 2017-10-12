@@ -2,11 +2,35 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :plot_score, input_html: { min: '0', max: '100'}
-    = f.input :plot_comment
-    = f.input :acting_score, input_html: { min: '0', max: '100'}
-    = f.input :acting_comment
-    = f.input :summary
+    .row
+      .col-4.review-wrapper
+        %br
+        %h3 Plot Score
+        = f.hidden_field :plot_score
+        = render 'star_rating', {myclass: 'plot-review',
+                                                  countclass: 'plot-count',
+                                                  starclass: 'plot-rating'}
+        = f.input :plot_comment, label: false, class: 'comment-box'
 
-  .form-actions
-    = f.button :submit
+      .col-4.img-wrapper-review
+        = link_to disc_path(@disc) do
+          = image_tag @disc.movie.poster.url(:medium) , class: "img-fluid rounded"
+
+      .col-4.review-wrapper
+        %br
+        %h3 Acting Score
+        = f.hidden_field :acting_score
+        = render 'star_rating', {myclass: 'acting-review',
+                                                  countclass: 'acting-count',
+                                                  starclass: 'acting-rating'}
+        = f.input :acting_comment, label: false, class: 'comment-box'
+
+    .row
+      &nbsp
+    .row
+      .col-12.summary-wrapper
+        %br
+        %h3 Summary
+        = f.input :summary, label: false, class: 'summary-box'
+        .form-actions
+          = f.button :submit, class: 'review-button'
