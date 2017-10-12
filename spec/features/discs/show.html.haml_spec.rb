@@ -2,7 +2,7 @@ RSpec.describe "disc/show" do
   before(:each) do
     user = sign_user_in
     @disc = create(:disc, user: user)
-    visit disc_path(@disc)
+    visit movie_path(@disc.movie)
   end
 
   it 'shows disc' do

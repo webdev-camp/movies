@@ -35,5 +35,5 @@
   %tbody
     - @person.roles.each do |role|
       %tr
-        %td= link_to role.movie.title
+        %td= link_to role.movie.title, movie_path(role.movie)
         %td= role.character_name

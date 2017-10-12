@@ -1,8 +1,9 @@
 class Movie < ApplicationRecord
   validates :title, presence: true
   validates :summary, presence: true
+  validates :tmdb_id, presence:true
   validates :language, length: { maximum: 30}, allow_blank: true
-  validates :tmdb_id, :revenue, :budget, numericality:{ only_integer: true, greater_than_or_equal_to: 0 }, allow_blank: true
+  validates :revenue, :budget, numericality:{ only_integer: true, greater_than_or_equal_to: 0 }, allow_blank: true
   validates :tmdb_vote, numericality:{ only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }, allow_blank: true
   has_attached_file :poster, styles: { thumb: "100x150!",
                                       medium: "300x450!",

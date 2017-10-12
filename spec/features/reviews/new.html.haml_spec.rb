@@ -33,7 +33,7 @@ RSpec.describe "reviews/new" do
     fill_in(:review_acting_comment, with: @review.acting_comment)
     fill_in(:review_summary, with: @review.summary)
     click_button('Create Review')
-    expect(current_path).to eq disc_path(@disc)
+    expect(current_path).to eq movie_path(@disc.movie)
     expect(page).to have_link(nil , href: edit_disc_review_path(@disc))
   end
 

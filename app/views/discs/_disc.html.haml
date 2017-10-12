@@ -1,6 +1,6 @@
 .card
   .card-block
-    =link_to disc_path(disc) do
+    =link_to movie_path(disc.movie) do
       = image_tag disc.movie.poster.url(:medium) , class: "img-fluid rounded"
       .overlay
         %h4= disc.movie.title

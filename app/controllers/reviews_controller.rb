@@ -1,4 +1,4 @@
-class ReviewsController < AuthenticatedController 
+class ReviewsController < AuthenticatedController
   before_action :set_disc
 
   def index
@@ -25,7 +25,7 @@ class ReviewsController < AuthenticatedController
     respond_to do |format|
       if @review.save
         @disc.add_review(@review)
-        format.html { redirect_to disc_path(@disc), notice: 'Review was successfully created.' }
+        format.html { redirect_to movie_path(@disc.movie), notice: 'Review was successfully created.' }
       else
         format.html { render :new }
       end
@@ -37,7 +37,7 @@ class ReviewsController < AuthenticatedController
     respond_to do |format|
       if @review.update(review_params)
         @disc.add_review(@review)
-        format.html { redirect_to disc_path(@disc), notice: 'Review was successfully updated.' }
+        format.html { redirect_to movie_path(@disc.movie), notice: 'Review was successfully updated.' }
       else
         format.html { render :edit }
       end
