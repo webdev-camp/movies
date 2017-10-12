@@ -7,6 +7,7 @@ class MoviesController < AuthenticatedController
 
   def sale_list
     @movie = Movie.find(params[:id])
-    @discs = Disc.where(movie_id: @movie.id).where.not(dvd_id: nil)
+    @q = Disc.where(movie_id: @movie.id).where.not(dvd_id: nil).ransack(params[:q])
+    @discs = @q.result(distinct: true).page params[:page]
   end
 end

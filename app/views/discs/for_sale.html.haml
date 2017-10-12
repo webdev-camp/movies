@@ -6,7 +6,7 @@
       .col-3.card.bg-light.border-dark
         .row
           .col-5
-            =link_to disc_path(disc) do
+            =link_to movie_path(disc.movie) do
               =image_tag(disc.movie.poster(:medium), class:'img-fluid rounded')
           .col-7
             .card-block
