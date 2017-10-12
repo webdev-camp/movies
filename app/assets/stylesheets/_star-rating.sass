@@ -1,0 +1,42 @@
+.user-rating
+  direction: rtl
+  font-size: 20px
+  unicode-bidi: bidi-override
+  padding: 10px 30px
+  display: inline-block
+  input
+    opacity: 0
+    position: relative
+    left: -15px
+    z-index: 2
+    cursor: pointer
+  span
+    &.star
+      &:before
+        color: #777777
+        content: "ï€†"
+        /*padding-right: 5px;
+        color: #777777
+        content: "\f006"
+        /*padding-right: 5px;
+      display: inline-block
+      font-family: FontAwesome
+      font-style: normal
+      font-weight: normal
+      position: relative
+      z-index: 1
+    margin-left: -15px
+  input
+    &:hover + span.star
+      &:before, ~ span.star:before
+        color: #ffd100
+        content: "\f005"
+    &:checked + span.star
+      &:before, ~ span.star:before
+        color: #ffd100
+        content: "\f005"
+
+.selected-rating
+  color: #ffd100
+  font-weight: bold
+  font-size: 3em

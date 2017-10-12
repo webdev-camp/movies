@@ -11,7 +11,7 @@ RSpec.describe "disc/show" do
 
   it 'has a working link to add review' do
     click_link(nil, href: new_disc_review_path(@disc))
-    expect(page).to have_content('New review')
+    expect(page).to have_content('Review')
   end
 
   it 'has a working link to add dvd sale' do
