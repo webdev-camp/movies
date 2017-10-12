@@ -1,0 +1,36 @@
+%h4
+  Buy:
+  = @movie.title
+.first.row
+  .col-2
+    = image_tag @movie.poster.url(:thumb), class: "img-fluid" if @movie.poster?
+  .col-8
+    = @movie.summary
+  .col-2
+    = search_form_for @q,url: sale_list_movie_path(@movie) do |f|
+      = f.label :price_cont
+      = f.search_field :dvd_price_cont
+
+      = f.label :condition_cont
+      = f.search_field :dvd_condition_cont
+
+      = f.submit
+%br
+%table
+  %thead
+    %tr
+      %th Movie format
+      %th Language
+      %th= sort_link(@q, :dvd_price)
+      %th= sort_link(@q, :dvd_condition)
+      %th Review of user
+
+  %tbody
+    - @discs.each do |disc|
+      %tr
+        %td DVD/Blueray/VHS
+        %td English/Finnish/Swedish
+        %td= disc.dvd.price
+        %td= disc.dvd.condition
+        %td ReviewOfUser
+        %td= link_to 'Buy', disc_dvd_path(disc.dvd)

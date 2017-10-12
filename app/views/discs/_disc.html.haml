@@ -3,7 +3,7 @@
     =link_to movie_path(disc.movie) do
       = image_tag disc.movie.poster.url(:medium) , class: "img-fluid rounded"
       .overlay
-        %h4= disc.movie.title
-        %p= disc.movie.summary[0..350]+'...'
-    .card-footer
+        %h5= disc.movie.title
+        %p= disc.movie.summary[0..200]+'...'
+    .actions
       = render 'actions', disc: disc

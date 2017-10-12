@@ -11,7 +11,7 @@
         = f.input :plot_comment, label: false, class: 'comment-box'
 
       .col-4.img-wrapper-review
-        = link_to disc_path(@disc) do
+        = link_to movie_path(@disc.movie) do
           = image_tag @disc.movie.poster.url(:medium) , class: "img-fluid rounded"
 
       .col-4.review-wrapper

@@ -6,8 +6,8 @@ class Movie < ApplicationRecord
   validates :revenue, :budget, numericality:{ only_integer: true, greater_than_or_equal_to: 0 }, allow_blank: true
   validates :tmdb_vote, numericality:{ only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }, allow_blank: true
   has_attached_file :poster, styles: { thumb: "100x150!",
-                                      medium: "300x450!",
-                                      large: "600X900!"},
+                                      medium: "200x300!",
+                                      large: "300X450!"},
                     default_url: "/images/movies/posters/:style.png"
   validates_attachment_content_type(:poster, content_type: /\image\/.*\z/)
   has_many :roles, -> {includes :person}

@@ -20,3 +20,16 @@ RSpec.describe "discs/index" do
     expect(page).to have_link(nil, href: recommendations_index_path)
   end
 end
+
+describe 'discs/index' do
+  before(:each) do
+    user = sign_user_in
+    @disc = create(:disc, user: user)
+    visit movie_path(@disc.movie)
+  end
+
+  it 'index page has link to the sale list page' do
+    expect(page).to have_link(nil, href: sale_list_movie_path(@disc.movie))
+  end
+
+end
