@@ -1,29 +1,35 @@
-.row
-  .col-8
-    %br
-    %h3=link_to "Wishlist", discs_wishlist_path
-    .row
-      = render wishlist.order("RANDOM()").limit(3)
-    %h3=link_to 'Recommended Movies', recommendations_index_path
-  %br
-  .col-4
-    %h3 Feed
-    %ul
-      %li Review
-      %li Review
-      %li Review
-      %li Review
-      %li Review
-.row
-  .col-12.bg
-    %br
-    %h3=link_to 'Shelf', discs_shelf_path
-    %br
-    .row
-      = render shelf
-%br
-.row
-  .col-6
-    %h3 Contribution section
-    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%br
+.container
+  .row
+    .col-10
+      %h4 Wishlist
+      =link_to "[View All]", discs_wishlist_path
+      .row
+        = render wishlist.order("RANDOM()").limit(3)
+
+    .col-2
+      %h4 Feed
+      %ul
+        %li Review
+        %li Review
+        %li Review
+        %li Review
+        %li Review
+
+  .row.bg-light
+    %h4=link_to 'Recommend me some movies', recommendations_index_path
+
+  .row.bg-light
+    %p=link_to 'Edit search criteria', recommendations_index_path
+
+  .row
+    .col-12
+      %br
+      %h4 On your shelf
+      =link_to '[View all]', discs_shelf_path
+      .row
+        = render shelf.order("RANDOM()").limit(6)
+
+  .row
+    .col-6
+      %h4 Contribution section
+      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

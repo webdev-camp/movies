@@ -19,13 +19,12 @@ gem 'kaminari'
 gem 'ransack'
 gem 'font-awesome-sass'
 gem "therubyracer"
+gem 'best_in_place'
+gem 'themoviedb-api'
 
 group :production do
   gem 'mysql2'
 end
-
-gem 'themoviedb-api'
-
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

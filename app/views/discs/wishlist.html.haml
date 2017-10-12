@@ -2,7 +2,7 @@
 %br
 .row
   - @discs.each do |disc|
-    .col-3
+    .col-3.card
+      %h6.card-title=disc.movie.title
       =link_to movie_path(disc.movie) do
-        %br=image_tag(disc.movie.poster(:medium), title: disc.movie.title)
-%br
+        =image_tag(disc.movie.poster(:medium))
