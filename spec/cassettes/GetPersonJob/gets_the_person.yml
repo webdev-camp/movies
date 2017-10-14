@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/53862?api_key=<api_key_is_hidden>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 14 Oct 2017 07:23:27 GMT
+      Etag:
+      - 8ebda540cbcc4d7336496819a46a1b68
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1507965817'
+      Content-Length:
+      - '611'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"birthday":"1985-11-30","deathday":null,"id":53862,"name":"Kaley Cuoco","also_known_as":["Kaley
+        Cuoco-Sweeting","Kaley Christine Cuoco-Sweeting","Kaley Christine Cuoco"],"gender":1,"biography":"Kaley
+        Cuoco is an American film and television actress and singer. She is best known
+        for her roles as Bridget Hennessy on the sitcom 8 Simple Rules, Billie Jenkins
+        on the supernatural drama Charmed, and Penny on the sitcom The Big Bang Theory.","popularity":5.135431,"place_of_birth":"Camarillo,
+        California, USA","profile_path":"\/rlt7XJ0dWik2oReZlxOPLI1L7Vt.jpg","adult":false,"imdb_id":"nm0192505","homepage":null}'
+    http_version: 
+  recorded_at: Sat, 14 Oct 2017 07:23:27 GMT
+recorded_with: VCR 3.0.3

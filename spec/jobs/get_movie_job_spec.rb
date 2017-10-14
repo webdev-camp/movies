@@ -1,4 +1,4 @@
-RSpec.describe GetMovieJob, type: :job do
+RSpec.describe GetMovieJob, :vcr, type: :job do
 
   it 'gets the movie'do
     GetMovieJob.perform_now(500)

@@ -1,4 +1,4 @@
-RSpec.describe GetCastJob, type: :job do
+RSpec.describe GetCastJob, :vcr, type: :job do
 
   it 'gets the cast member'do
     GetCastJob.perform_now(53862)
