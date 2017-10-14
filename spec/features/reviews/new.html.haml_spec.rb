@@ -13,9 +13,11 @@ RSpec.describe "reviews/new" do
   end
 
   it 'will not save invalid data' do
-    fill_in(:review_plot_score, with: '')
+    plot_score = page.find_by_id('review_plot_score', visible: false)
+    acting_score = page.find_by_id('review_acting_score', visible: false)
+    plot_score.set ''
     fill_in(:review_plot_comment, with: '')
-    fill_in(:review_acting_score, with: '')
+    acting_score.set ''
     fill_in(:review_acting_comment, with: '')
     fill_in(:review_summary, with: '')
     click_button('Create Review')
@@ -23,9 +25,11 @@ RSpec.describe "reviews/new" do
   end
 
   it 'goes to the movies page after a review is created' do
-    fill_in(:review_plot_score, with: @review.plot_score)
+    plot_score = page.find_by_id('review_plot_score', visible: false)
+    acting_score = page.find_by_id('review_acting_score', visible: false)
+    plot_score.set @review.plot_score
     fill_in(:review_plot_comment, with: @review.plot_comment)
-    fill_in(:review_acting_score, with: @review.acting_score)
+    acting_score.set @review.acting_score
     fill_in(:review_acting_comment, with: @review.acting_comment)
     fill_in(:review_summary, with: @review.summary)
     click_button('Create Review')

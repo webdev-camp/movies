@@ -1,0 +1,26 @@
+.user-rating-form{class: "#{type}-review"}
+  %span.user-rating
+    %input{name: "#{type}-rating", :type => "radio", :value => "10", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "9", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "8", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "7", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "6", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "5", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "4", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "3", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "2", checked: false}/
+    %span.star
+    %input{name: "#{type}-rating", :type => "radio", :value => "1", checked: false}/
+    %span.star
+%p{:style => "margin-left: 20px"}
+  You have selected
+  %span.selected-rating{class: "#{type}-count"} 0
+  stars.

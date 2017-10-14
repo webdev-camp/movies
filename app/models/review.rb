@@ -3,7 +3,7 @@ class Review < ApplicationRecord
             :acting_score, :acting_comment, :summary, presence: true
   validates :plot_score, :acting_score, numericality:{ only_integer: true,
                                                       greater_than_or_equal_to: 0,
-                                                      less_than_or_equal_to: 100 }
+                                                      less_than_or_equal_to: 10 }
   validates :plot_comment, :acting_comment, length: {minimum: 3, maximum: 240}
   validates :summary, length: {minimum: 3, maximum: 720}
 

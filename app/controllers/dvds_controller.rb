@@ -14,7 +14,7 @@ class DvdsController < AuthenticatedController
     respond_to do |format|
       if @dvd.save
         @disc.add_dvd(@dvd)
-        format.html { redirect_to movie_path(@disc.movie), notice: 'DVD sale was successfully created.' }
+        format.html { redirect_to discs_for_sale_path, notice: 'DVD sale was successfully created.' }
       else
         format.html { render :new }
       end
@@ -25,8 +25,8 @@ class DvdsController < AuthenticatedController
     @dvd = @disc.dvd
     respond_to do |format|
       if @dvd.update(review_params)
-        @disc.add_dvd(@dvd)
-        format.html { redirect_to movie_path(@disc.movie), notice: 'DVD sale was successfully updated.' }
+        format.json {}
+        format.html { redirect_to discs_for_sale_path, notice: 'DVD sale was successfully updated.' }
       else
         format.html { render :new }
       end

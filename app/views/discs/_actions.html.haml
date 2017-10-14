@@ -1,10 +1,10 @@
+
 - if review = disc.review()
   = link_to edit_disc_review_path(disc) do
     = image_tag 'reviewed_text', title: disc.review.string_summary
 - else
   = link_to new_disc_review_path(disc) do
     = image_tag 'review_text'
-
 - if disc.owns?
   - if disc.dvd
     = link_to edit_disc_dvd_path(disc) do
@@ -18,3 +18,5 @@
 
 = link_to hide_disc_path(disc) do
   = image_tag 'hide_text'
+
+= link_to 'Buy DVD', sale_list_movie_path(disc.movie)
