@@ -1,5 +1,5 @@
 class Person < ApplicationRecord
-  validates :name, :bio, presence: true
+  validates :name, presence: true
   has_attached_file :picture, styles: { thumb: "100x150!",
                                       medium: "300x450!",
                                       large: "600X900!"},
@@ -9,6 +9,16 @@ class Person < ApplicationRecord
   has_one :movie, through: :role
   has_many :roles, -> {includes :movie}
   has_many :movies, :through => :roles
+
+  attr_reader :picture_remote_url
+
+  def picture_remote_url=(url_value)
+    self.picture = URI.parse(url_value)
+    # Assuming url_value is http://example.com/photos/face.png
+    # avatar_file_name == "face.png"
+    # avatar_content_type == "image/png"
+    @picture_remote_url = url_value
+  end
 
   def imdb_link
     "http://www.imdb.com/name/#{self.imdb_id}"

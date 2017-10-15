@@ -7,6 +7,10 @@ class GetMovieJob < ApplicationJob
     movie = Movie.new(tmdb_id: tmdb_id)
     movie.title = tm.title
     movie.summary = tm.overview
+    movie.budget = tm.budget
+    movie.language = tm.original_language
+    movie.revenue = tm.revenue
+    movie.release_date = tm.release_date
     movie.poster_remote_url = "https://image.tmdb.org/t/p/original/" + tm.poster_path
     movie.save!
     GetCastJob.perform_later(tmdb_id)
