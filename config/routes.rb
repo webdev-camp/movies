@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resource :address, except: [:delete, :update, :edit, :index]
   devise_for :users
   authenticated :user do
     root 'discs#index', as: :authenticated_root
   end
+
   root 'visitor#index'
+  get 'addresses/index'
   get 'discs/for_sale', to:'discs#for_sale', as: 'discs_for_sale'
   get 'discs/wishlist', to:'discs#wishlist', as: 'discs_wishlist'
   get 'discs/shelf', to:'discs#shelf', as: 'discs_shelf'
@@ -27,6 +30,7 @@ Rails.application.routes.draw do
     end
     resource :review
     resource :dvd
+    resource :purchase
   end
 
   namespace :admin do

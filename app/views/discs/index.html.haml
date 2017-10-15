@@ -7,13 +7,11 @@
         = render wishlist.order("RANDOM()").limit(3)
 
     .col-2
-      %h4 Feed
-      %ul
-        %li Review
-        %li Review
-        %li Review
-        %li Review
-        %li Review
+      .list-group
+        %h4 Feed
+        .li Review
+        .li Review
+        .li Review
 
   .row.bg-light
     %h4=link_to 'Recommend me some movies', recommendations_index_path
