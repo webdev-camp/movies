@@ -1,15 +1,22 @@
-$(function rating() {
-  $('input[name="plot-rating"]').prop('checked', false);
-    $('.plot-review').on('change','[name="plot-rating"]',function(){
-  	   $('.plot-count').text($('[name="plot-rating"]:checked').val());
-  	   document.getElementById('review_plot_score').value = $('[name="plot-rating"]:checked').val();
-     });
-   });
+$(function() {
+  function displayRating(type) {
+    var score = document.getElementById('review_'+type+'_score').value;
+    var star = $('[name='+type+'-rating][value='+ score +']');
+    score = parseInt(score);
+    $(star).prop('checked', true);
+  }
+  displayRating('plot');
+  displayRating('acting');
+});
 
-   $(function rating() {
-     $('input[name="acting-rating"]').prop('checked', false);
-       $('.acting-review').on('change','[name="acting-rating"]',function(){
-     	   $('.acting-count').text($('[name="acting-rating"]:checked').val());
-         document.getElementById('review_acting_score').value = $('[name="acting-rating"]:checked').val();
-        });
-      });
+$(function() {
+  function setRating(type){
+    $('.'+type+'-count').text($('[name="'+type+'-rating"]:checked').val());
+    $('.'+type+'-review').on('change','[name="'+type+'-rating"]',function(){
+      $('.'+type+'-count').text($('[name="'+type+'-rating"]:checked').val());
+      document.getElementById('review_'+type+'_score').value = $('[name="'+type+'-rating"]:checked').val();
+    });
+  }
+setRating('plot');
+setRating('acting');
+});

@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/movie/53862/credits?api_key=<api_key_is_hidden>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Cache-Control:
+      - public, max-age=28800
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 15 Oct 2017 08:45:35 GMT
+      Etag:
+      - W/"eb15bc6478277b0d34ec85a4eb05859a"
+      Server:
+      - openresty
+      Vary:
+      - Accept-Encoding
+      X-Memc:
+      - HIT
+      X-Memc-Age:
+      - '13698'
+      X-Memc-Expires:
+      - '15102'
+      X-Memc-Key:
+      - e75eac56c85df9ffeedc44f692aa69f9
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1508057145'
+      Content-Length:
+      - '562'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA43Ty26jMBQG4FdBrKMZ4xumu0yrJL2laqbpiI6qymADbsBmDGmSVn33gVDlUrrozrJ/H386HN5cJdwTghiFAzfmVe2e/H3bLp7ag3Yz45bHtbTuiTu2MjV248ykFG5zZKVQXdAlMJGY+UmMOKIM+wnzKMc8amKp1KK93hRro4iQgA5czQvZ3DuTRjszFWeF0W1NY7dZMHBLaxKVy6eS11kT/CnFGsD1paxWD6e/J3FZTB9GEz2fz4r5j+cydd8HB3B0DL9YaulMZV4Z/T130nfjAAC4dxvNc+GMuOpqfri9vvsZhdEyzG/Tf1fTEISiTkczeqGJKkzfjY/dI1Vl3wJHqA9mkO244+XGuTPWbvZU2KfyaVlnehUKaCZTdpmFv+bD7PVeTV/v+lRyTD1VWm+cCV8tlK6+Z/YPzF5nJhjDYKe+5oo7p7woI5nneznqy+k6XEbJaMFFIcl5PLs989d3N0Mb0Je+nB3Lr8xSVfLLocaMAh97ASQebshEAICYDPpuHBDi7dzD3BTc+WNVmtV7Nu6zCVhsLu7HZ/fkZl0l4Px1Aa8hw8P0ctWxH7egVfdXHskw8hMaAQk4pBQhDgCmPmleE7Lkti6krtsxVVbGtdLpARl0ZI96jDSteDbRLmisu59w/qKEM+Mb3W4ey/Uyz7ct7TULge4jU5/6AHgCss+kpi2fQB/zGhC897QpeaAZc9tOlxUrFS++9jy+/weCfE/DzgQAAA==
+    http_version: 
+  recorded_at: Sun, 15 Oct 2017 08:45:34 GMT
+recorded_with: VCR 3.0.3

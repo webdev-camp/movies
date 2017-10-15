@@ -1,26 +1,26 @@
-.user-rating-form{class: myclass}
+.user-rating-form{class: "#{type}-review"}
   %span.user-rating
-    %input{name: starclass, :type => "radio", :value => "10"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "10", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "9"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "9", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "8"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "8", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "7"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "7", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "6"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "6", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "5"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "5", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "4"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "4", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "3"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "3", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "2"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "2", checked: false}/
     %span.star
-    %input{name: starclass, :type => "radio", :value => "1"}/
+    %input{name: "#{type}-rating", :type => "radio", :value => "1", checked: false}/
     %span.star
 %p{:style => "margin-left: 20px"}
   You have selected
-  %span.selected-rating{class: countclass} 0
+  %span.selected-rating{class: "#{type}-count"} 0
   stars.

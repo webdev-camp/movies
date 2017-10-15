@@ -7,9 +7,7 @@
         %br
         %h3 Plot Score
         = f.hidden_field :plot_score
-        = render 'star_rating', {myclass: 'plot-review',
-                                                  countclass: 'plot-count',
-                                                  starclass: 'plot-rating'}
+        = render 'star_rating', type: 'plot'
         = f.input :plot_comment, label: false, class: 'comment-box'
 
       .col-4.img-wrapper-review
@@ -20,9 +18,7 @@
         %br
         %h3 Acting Score
         = f.hidden_field :acting_score
-        = render 'star_rating', {myclass: 'acting-review',
-                                                  countclass: 'acting-count',
-                                                  starclass: 'acting-rating'}
+        = render 'star_rating', type: 'acting'
         = f.input :acting_comment, label: false, class: 'comment-box'
 
     .row
