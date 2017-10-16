@@ -2,33 +2,27 @@ class RecommendationsController < AuthenticatedController
   def index
     disc_ids = Disc.where(user_id: current_user.id).pluck(:movie_id)
     @movies = Movie.where.not(id: disc_ids)
-    @movies = @movies.all.limit(24).order(revenue: :desc)
+    @movies = @movies.all.limit(25).order(revenue: :desc)
   end
 
   def create
-    movie = Movie.find(params[:id])
-    disc_length = Disc.where(user_id: current_user.id, movie: movie).length
-    if disc_length > 0
-      notice = "You have already been recommended this movie"
-    else
-      @disc = Disc.create(user: current_user, movie: movie, owns: false)
-      # user_name = TODO Add recommended_by users name to this
-      movie_name = movie.title
-      notice = "You have added #{movie_name} to wishlist, recommended by ... "
-    end
-    redirect_to recommendations_index_path, notice: notice
+    add(false)
   end
 
   def shelf
-    movie = Movie.find(params[:id])
-    disc_length = Disc.where(user_id: current_user.id, movie: movie).length
-    if disc_length > 0
-      notice = "You already have this movie"
-    else
-      @disc = Disc.create(user: current_user, movie: movie, owns: true)
-      movie_name = movie.title
-      notice = "You have added #{movie_name} to your shelf"
-    end
-    redirect_to recommendations_index_path, notice: notice
+    add(true)
   end
+
+  private
+
+  def add(owns)
+    @movie = Movie.find(params[:id])
+    disc_length = Disc.where(user_id: current_user.id, movie: @movie).length
+    if disc_length > 0
+      redirect_to recommendations_index_path
+    else
+      @disc = Disc.create(user: current_user, movie: @movie, owns: owns)
+    end
+  end
+
 end

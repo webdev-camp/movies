@@ -21,6 +21,7 @@ gem 'font-awesome-sass'
 gem "therubyracer"
 gem 'best_in_place'
 gem 'themoviedb-api'
+gem 'poltergeist'
 
 group :production do
   gem 'mysql2'
