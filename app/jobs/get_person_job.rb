@@ -14,5 +14,12 @@ class GetPersonJob < ApplicationJob
     person.birthday = tmperson.birthday
     person.born_in = tmperson.place_of_birth
     person.save!
+    roles = Role.where(cast_id: tmperson.id)#roles is all roles where cast:id = tmpersonid
+    roles = tmperson.id
+
+    tmperson.each do |tmperson|
+      roles =  Role.new(cast_id: tmperson.id, person_name: tmperson.name, character_name: tmperson.character, movie_id: movie.id)
+      roles.save!
+  end
   end
 end
