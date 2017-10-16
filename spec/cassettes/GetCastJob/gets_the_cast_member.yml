@@ -33,7 +33,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sat, 14 Oct 2017 08:26:43 GMT
+      - Mon, 16 Oct 2017 14:35:54 GMT
       Etag:
       - W/"c57d12009e52d8ea8b1027c0e2405d79"
       Server:
@@ -43,9 +43,9 @@ http_interactions:
       X-Memc:
       - HIT
       X-Memc-Age:
-      - '3162'
+      - '14413'
       X-Memc-Expires:
-      - '25638'
+      - '14387'
       X-Memc-Key:
       - e75eac56c85df9ffeedc44f692aa69f9
       X-Ratelimit-Limit:
@@ -53,7 +53,7 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '39'
       X-Ratelimit-Reset:
-      - '1507969613'
+      - '1508164564'
       Content-Length:
       - '560'
       Connection:
@@ -63,5 +63,5 @@ http_interactions:
       string: !binary |-
         H4sIAAAAAAAAA43T226jMBAG4FdBXEe7xidM77KN0vSUqtmmK7qqKoMNuAGbNaRJWvXdF0LVNKEXuUOe38OnYXhzlXBPCGIUDtyYV7V78vdt+/DUFtrDjFse19K6J+6ZlamxG2cmpXCbkpVCdUGXwERi5icx4ogy7CfMoxzzqImlUov2etOsjSJCAjpwNS9kc28kjXZmKs4Ko9uexm6zYOCW1iQql08lr7Mm+FOKNYDrS1mtHk5/T+KymD6MJ3o+nxXzH89l6r4PvsDRPvxiqaUzlXll9HHupO/GAQBw5zaa58IZc9X1/HB7ffczCqNlmN+m/66mIQhFnY5n9EITVZi+G++7x6rKjgJHqA9mkH1yz5Yb585Yu9lRYZ/Kp2Wd6VUooJlM2WUW/poPs9d7NX2961PJPvVUab1xJny1ULo6zux/MXudmWAMg0/1NVfcOeVFGck838lRX07X4TJKxgsuCknO49ntyF/f3QxtQF/6crYvvzJLVclvlxozCnzsBZB4uCETAQBiMui7cUCI9+ke5qbgzh+r0qzesXGfTcBic3F/NronN+sqAeevC3gNGR6ml6uO/bgFrbq/sidDoJso9akPgCcga94mZMltXUhdN7nGUCud9pcjIJg0c3g20Ueqqe22hdv2U1qxUvHCPWTrZZ5v57nnwchPaAQk4JBShDgAmPrk0DNSVsYHItCJPOqxHakLmi+oEX9RwpnxjW4PvyE9vv8HeX8rzM4EAAA=
     http_version: 
-  recorded_at: Sat, 14 Oct 2017 08:26:42 GMT
+  recorded_at: Mon, 16 Oct 2017 14:35:54 GMT
 recorded_with: VCR 3.0.3

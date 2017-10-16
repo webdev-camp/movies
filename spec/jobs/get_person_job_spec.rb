@@ -1,4 +1,4 @@
-RSpec.describe GetPersonJob, vcr: {record: :new_episodes}, type: :job do
+RSpec.describe GetPersonJob, :vcr, type: :job do
 
   it 'gets the person' do
     GetPersonJob.perform_now(73968)

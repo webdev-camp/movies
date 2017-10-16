@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Mon, 16 Oct 2017 06:50:13 GMT
+      - Mon, 16 Oct 2017 14:36:08 GMT
       Etag:
       - 2a79ea27c279e471f4d180b08d62b00a
       Server:
@@ -37,9 +37,9 @@ http_interactions:
       X-Ratelimit-Limit:
       - '40'
       X-Ratelimit-Remaining:
-      - '39'
+      - '37'
       X-Ratelimit-Reset:
-      - '1508136616'
+      - '1508164575'
       Content-Length:
       - '155'
       Connection:
@@ -48,5 +48,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":550,"name":"Jennifer Todd","also_known_as":[],"gender":1,"biography":"","popularity":2.5e-05,"profile_path":null,"adult":false,"imdb_id":"nm0865189"}'
     http_version: 
-  recorded_at: Mon, 16 Oct 2017 06:50:13 GMT
+  recorded_at: Mon, 16 Oct 2017 14:36:08 GMT
 recorded_with: VCR 3.0.3

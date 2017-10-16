@@ -1,4 +1,4 @@
-RSpec.describe GetCastJob, vcr: {record: :new_episodes}, type: :job do
+RSpec.describe GetCastJob, :vcr, type: :job do
 
   it 'gets the cast member' do
     create(:movie, tmdb_id: 53862)
