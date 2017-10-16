@@ -15,10 +15,10 @@
   %tbody
     - @addresses.each do |address|
       %tr
-        %td= address.Street
-        %td= address.Postcode
-        %td= address.City
-        %td= address.Country
+        %td= address.street
+        %td= address.postcode
+        %td= address.city
+        %td= address.country
         %td= address.user
         %td= link_to 'Show', address
         %td= link_to 'Edit', edit_address_path(address)

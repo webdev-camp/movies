@@ -1,10 +1,13 @@
-class PurchaseController < AuthenticatedController
-  
+class AddressesController < AuthenticatedController
+
 def show
-  @address = Address.find(params[:id])
+  @address = current_user.address
 end
 
 def new
+  if current_user.address
+    redirect_to discs_path, alert: 'You already have an address.'
+  end
   @address = Address.new
 end
 
@@ -25,6 +28,7 @@ end
 private
   # Never trust parameters from the scary internet, only allow the white list through.
   def address_params
-    params.require(:address).permit(:Street, :Postcode, :City, :Country, :user)
+    params.require(:address).permit(:street, :postcode, :city, :country)
   end
+
 end

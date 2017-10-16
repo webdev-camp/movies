@@ -12,7 +12,7 @@ RSpec.describe "#sale_list" do
   end
 
   it "the page with one dvd for sale works" do
-    expect(page).to have_link("Buy", href: disc_dvd_path(@disc.dvd))
+    expect(page).to have_link("Buy", href: new_address_path)
   end
 
 end
