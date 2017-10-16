@@ -1,0 +1,15 @@
+%h1 New address
+
+= simple_form_for(@address, url: address_path(@address)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :street
+    = f.input :postcode
+    = f.input :city
+    = f.input :country, as: 'text'
+
+  .form-actions
+    = f.button :submit
+
+= link_to 'Home', discs_path

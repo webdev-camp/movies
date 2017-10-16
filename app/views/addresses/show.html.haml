@@ -1,0 +1,17 @@
+%p#notice= notice
+.row
+  .col-8
+    %b Shipping address:
+    %br
+    = @address.street
+    %b ,
+    %br
+    = @address.postcode
+    = @address.city
+    %b ,
+    %br
+    = @address.country
+  .col-4
+    = link_to 'Add new shipping address', new_address_path
+    \|
+    = link_to 'Back to purchase', address_path

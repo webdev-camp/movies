@@ -7,13 +7,11 @@
         = render wishlist.order("RANDOM()").limit(3)
 
     .col-2
-      %h4 Feed
-      %ul
-        %li Review
-        %li Review
-        %li Review
-        %li Review
-        %li Review
+      .list-group
+        %h4 Feed
+        .li Review
+        .li Review
+        .li Review
 
   .row.bg-light
     %h4=link_to 'Recommend me some movies', recommendations_index_path
@@ -26,8 +24,8 @@
       %br
       %h4 On your shelf
       =link_to '[View all]', discs_shelf_path
-      .row
-        = render shelf.order("RANDOM()").limit(6)
+      .row#shelf
+        = render 'more_shelf', discs: current_user.shelf.page(1).per(5)
 
   .row
     .col-6

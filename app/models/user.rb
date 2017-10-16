@@ -12,5 +12,9 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :movies, through: :reviews
   has_many :discs, -> {includes :movie}
+  has_one :address
 
+  def shelf
+    Disc.where(user_id: self.id, owns: true).where(hidden: nil).limit(5)
+  end
 end
