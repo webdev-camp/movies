@@ -5,13 +5,12 @@ class Disc < ApplicationRecord
   belongs_to :dvd, required: false
   belongs_to :review, required: false
 
-
   def add_dvd(dvd)
     self.dvd = dvd
     self.selling = true if self.dvd.price > 0
     save
   end
-  
+
   def add_review(review)
     self.review = review
     save

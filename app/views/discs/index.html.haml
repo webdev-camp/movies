@@ -24,8 +24,8 @@
       %br
       %h4 On your shelf
       =link_to '[View all]', discs_shelf_path
-      .row
-        = render shelf.order("RANDOM()").limit(6)
+      .row#shelf
+        = render 'more_shelf', discs: current_user.shelf.page(1).per(5)
 
   .row
     .col-6
