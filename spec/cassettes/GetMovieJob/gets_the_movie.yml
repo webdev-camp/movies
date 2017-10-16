@@ -939,4 +939,205 @@ http_interactions:
         H4sIAAAAAAAAA2VU0XLbNhD8lRs+NPEMrcpOHdvKk6wmcePGD5ZUT1J1NBBwFFGTOA4AWuZ08u9ZULQ9mr5YFrS429077H/ZxvpYGtVlk+zk8vziePzb8fg0yzPDajh3bVXlmTXZ5N3Z2eX7PHOqZsB/Z3F0Z3VZizO4oaog6wcnO7dWIZv8/U+ebdkZ9tnkNEcf2XrVlKnRJy813dsH27CxKqdYMhWemdjpTlfSH49WbuUOetDbjXhH08bbik5zSnyPyAZSOKzZW41/lI7iUQ0dbnlH38Q/0MzG7gOhCbAbDpF6llQAWOIocG2PPW/bSnnSpa1MKWLIS8WkAt21pqPr9imqTcVvAmpbyKIbdq6jt87qh2SIoVV21ZpVdkSgnBQ10vQVb69mFGzUYLTA8UzCpqN5KbsRTZ0A6Qkfqfi+5U7ayoBnz001DSuvnO6pLNDIK/oqO9+ByUa6gcwX8Qbir8CJY3xmUNoIcUAEmtsQ2efDZ6qlyLNuvbduC9HoodMPdn+zsEUscVcFcTn8NYAPlZ6NMm1/NaGDfQI6oQrrVDXc6wc4LVLVQ93560R37PZsZVCaCBS2qjGVVpeJ50fHdUcLBlNMFo6fXF6cH+Vz7VnV9C6nWxWtpLZ/qroRcTDmL3hxjzkmxQtvm8a6NwBKfHF8wezg46Plvbwkw2JZm7Sx4FSK92mPQIWuVdQlxxFd88AS0x6MuhGp6Bc0/tB//axgSd0Gq+nRGpZ+x3qLBD+sshl621Cusv0EOml790EV1THuyBU/2gA9WANsrnW6ag0nN5pGfEyOpyUJqf9+qV6d+ozRJ8BV10s6HPle5oIVpPgweh1BerbUVKrjNOQ9o4/GWKavrcd7fVa64a11LtUPmh0YSHGIu1PY6P7B9iX/5xSE44+EcGDQKrtXvqY/Ii0b2DKAcbPq8MAvx2HIgaAxxzRoUht5THmB95SgLzlCCv5oPKCD0MipsuAbQKRNYUSz2fHVt+P5NKcCwYZfkQeQosVFbzctdiykjXwpi2QbXjJSJJuMRyfvL3BUKc1rKdZ9fiLTDsImf8menJbzaSrhBbvE60b16NWvbJ7Gp083HHbfZ/Nr3dS33z9du+Xyrl6O/m22KU9NW8VsUsBNRv7WZrNOIZy5enx+eja+PAGmlJobteV9Sv/4CdDw3WHPBQAA
     http_version: 
   recorded_at: Mon, 16 Oct 2017 13:41:34 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/35596?api_key=<api_key_is_hidden>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 16 Oct 2017 14:25:31 GMT
+      Server:
+      - openresty
+      Vary:
+      - Accept-Encoding
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '37'
+      X-Ratelimit-Reset:
+      - '1508163941'
+      Content-Length:
+      - '885'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA2VU0XLbNhD8lRs+NPEMrcpOHdvKk6wmcePGD5ZUT1J1NBBwFFGTOA4AWuZ08u9ZULQ9mr5YFrS429077H/ZxvpYGtVlk+zk8vziePzb8fg0yzPDajh3bVXlmTXZ5N3Z2eX7PHOqZsB/Z3F0Z3VZizO4oaog6wcnO7dWIZv8/U+ebdkZ9tnkNEcf2XrVlKnRJy813dsH27CxKqdYMhWemdjpTlfSH49WbuUOetDbjXhH08bbik5zSnyPyAZSOKzZW41/lI7iUQ0dbnlH38Q/0MzG7gOhCbAbDpF6llQAWOIocG2PPW/bSnnSpa1MKWLIS8WkAt21pqPr9imqTcVvAmpbyKIbdq6jt87qh2SIoVV21ZpVdkSgnBQ10vQVb69mFGzUYLTA8UzCpqN5KbsRTZ0A6Qkfqfi+5U7ayoBnz001DSuvnO6pLNDIK/oqO9+ByUa6gcwX8Qbir8CJY3xmUNoIcUAEmtsQ2efDZ6qlyLNuvbduC9HoodMPdn+zsEUscVcFcTn8NYAPlZ6NMm1/NaGDfQI6oQrrVDXc6wc4LVLVQ93560R37PZsZVCaCBS2qjGVVpeJ50fHdUcLBlNMFo6fXF6cH+Vz7VnV9C6nWxWtpLZ/qroRcTDmL3hxjzkmxQtvm8a6NwBKfHF8wezg46Plvbwkw2JZm7Sx4FSK92mPQIWuVdQlxxFd88AS0x6MuhGp6Bc0/tB//axgSd0Gq+nRGpZ+x3qLBD+sshl621Cusv0EOml790EV1THuyBU/2gA9WANsrnW6ag0nN5pGfEyOpyUJqf9+qV6d+ozRJ8BV10s6HPle5oIVpPgweh1BerbUVKrjNOQ9o4/GWKavrcd7fVa64a11LtUPmh0YSHGIu1PY6P7B9iX/5xSE44+EcGDQKrtXvqY/Ii0b2DKAcbPq8MAvx2HIgaAxxzRoUht5THmB95SgLzlCCv5oPKCD0MipsuAbQKRNYUSz2fHVt+P5NKcCwYZfkQeQosVFbzctdiykjXwpi2QbXjJSJJuMRyfvL3BUKc1rKdZ9fiLTDsImf8menJbzaSrhBbvE60b16NWvbJ7Gp083HHbfZ/Nr3dS33z9du+Xyrl6O/m22KU9NW8VsUsBNRv7WZrNOIZy5enx+eja+PAGmlJobteV9Sv/4CdDw3WHPBQAA
+    http_version: 
+  recorded_at: Mon, 16 Oct 2017 14:25:31 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/54429?api_key=<api_key_is_hidden>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 16 Oct 2017 14:25:31 GMT
+      Etag:
+      - 9188905e74c28e489b44e954ec0b9bca
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '38'
+      X-Ratelimit-Reset:
+      - '1508163941'
+      Content-Length:
+      - '244'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"birthday":"1976-11-26","deathday":null,"id":54429,"name":"Maia Campbell","also_known_as":[],"gender":1,"biography":"","popularity":0,"place_of_birth":null,"profile_path":"\/6xYubfFkadme5IcRQD7xTOAr96v.jpg","adult":false,"imdb_id":"nm0132694"}'
+    http_version: 
+  recorded_at: Mon, 16 Oct 2017 14:25:31 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/49002?api_key=<api_key_is_hidden>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 16 Oct 2017 14:25:31 GMT
+      Etag:
+      - 847cc55b7032108eee6dd897f3bca8a5
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1508163941'
+      Content-Length:
+      - '857'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJiaXJ0aGRheSI6IjE5NzQtMDYtMjIiLCJkZWF0aGRheSI6bnVsbCwiaWQiOjQ5MDAyLCJuYW1lIjoiRG9uYWxkIEZhaXNvbiIsImFsc29fa25vd25fYXMiOlsiRG9uYWxkIEFkZW9zdW4gRmFpc29uIl0sImdlbmRlciI6MiwiYmlvZ3JhcGh5Ijoi4oCLRnJvbSBXaWtpcGVkaWEsIHRoZSBmcmVlIGVuY3ljbG9wZWRpYS4gwqBcblxuRG9uYWxkIEFkZW9zdW4gRmFpc29uICggYm9ybiBKdW5lIDIyLCAxOTc0KSBpcyBhbiBBbWVyaWNhbiBhY3RvciBhbmQgdm9pY2UgYWN0b3IgYmVzdCBrbm93biBmb3IgaGlzIHJvbGUgYXMgRHIuIENocmlzIFR1cmsgaW4gdGhlIEFCQyAoZm9ybWVybHkgTkJDKSBjb21lZHktZHJhbWEgU2NydWJzICgyMDAx4oCTMjAxMCkuXG5cbkZhaXNvbiBmaXJzdCBlbWVyZ2VkIG9uIHRoZSBzY2VuZSB3aXRoIHBhcnRzIGluIGZpbG1zIHN1Y2ggYXMgQ2x1ZWxlc3MgKDE5OTUpIGFuZCBSZW1lbWJlciB0aGUgVGl0YW5zICgyMDAwKS4gSGUgaGFzIGNvbnRpbnVlZCBoaXMgY2FyZWVyIHdpdGggdGhlIGZpbG1zIE5leHQgRGF5IEFpciBhbmQgU2t5bGluZS5cblxuRGVzY3JpcHRpb24gYWJvdmUgZnJvbSB0aGUgV2lraXBlZGlhIGFydGljbGUgRG9uYWxkIEZhaXNvbiAsIGxpY2Vuc2VkIHVuZGVyIENDLUJZLVNBLCBmdWxsIGxpc3Qgb2YgY29udHJpYnV0b3JzIG9uIFdpa2lwZWRpYS4iLCJwb3B1bGFyaXR5IjoyLjA2MzMxLCJwbGFjZV9vZl9iaXJ0aCI6Ik5ldyBZb3JrIENpdHksIE5ldyBZb3JrLCBVU0EiLCJwcm9maWxlX3BhdGgiOiJcL2ozWWJ1WWxRZ3FMTlkwWWR0Z0ZSNkpuNWltby5qcGciLCJhZHVsdCI6ZmFsc2UsImltZGJfaWQiOiJubTAyNjU2NjgiLCJob21lcGFnZSI6bnVsbH0=
+    http_version: 
+  recorded_at: Mon, 16 Oct 2017 14:25:31 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/828?api_key=<api_key_is_hidden>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 16 Oct 2017 14:25:31 GMT
+      Etag:
+      - 218a0aefd1d1a4be65601cc6ddc1520e
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '36'
+      X-Ratelimit-Reset:
+      - '1508163941'
+      Content-Length:
+      - '485'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJiaXJ0aGRheSI6IjE5NjktMDEtMDUiLCJkZWF0aGRheSI6bnVsbCwiaWQiOjgyOCwibmFtZSI6Ikd1eSBUb3JyeSIsImFsc29fa25vd25fYXMiOltdLCJnZW5kZXIiOjIsImJpb2dyYXBoeSI6IlJvYmVydCBHdXkgVG9ycnkgKGJvcm4gSmFudWFyeSA1LCAxOTY5KSBpcyBhbiBBbWVyaWNhbiBhY3RvciBhbmQgY29tZWRpYW4uXG5cbkRlc2NyaXB0aW9uIGFib3ZlIGZyb20gdGhlIFdpa2lwZWRpYSBhcnRpY2xlwqBHdXkgVG9ycnkswqAgbGljZW5zZWQgdW5kZXIgQ0MtQlktU0EsIGZ1bGwgbGlzdCBvZiBjb250cmlidXRvcnMgb24gV2lraXBlZGlhLiIsInBvcHVsYXJpdHkiOjAuNzgwNzkyLCJwbGFjZV9vZl9iaXJ0aCI6IlN0LiBMb3VpcywgTWlzc291cmksIFUuUy4iLCJwcm9maWxlX3BhdGgiOiJcL2FOcHRobndZZDJvSE44S2hZQlVBaHpWaU56VC5qcGciLCJhZHVsdCI6ZmFsc2UsImltZGJfaWQiOiJubTA4Njg5NTYiLCJob21lcGFnZSI6bnVsbH0=
+    http_version: 
+  recorded_at: Mon, 16 Oct 2017 14:25:31 GMT
 recorded_with: VCR 3.0.3
