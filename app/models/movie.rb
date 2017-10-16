@@ -20,9 +20,6 @@ class Movie < ApplicationRecord
 
   def poster_remote_url=(url_value)
     self.poster = URI.parse(url_value)
-    # Assuming url_value is http://example.com/photos/face.png
-    # avatar_file_name == "face.png"
-    # avatar_content_type == "image/png"
     @poster_remote_url = url_value
   end
 

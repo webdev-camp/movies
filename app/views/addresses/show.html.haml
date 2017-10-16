@@ -1,21 +1,17 @@
 %p#notice= notice
-
-%p
-  %b Street:
-  = @address.Street
-%p
-  %b Postcode:
-  = @address.Postcode
-%p
-  %b City:
-  = @address.City
-%p
-  %b Country:
-  = @address.Country
-%p
-  %b User:
-  = @address.user
-
-= link_to 'Edit', edit_address_path(@address)
-\|
-= link_to 'Back', addresses_path
+.row
+  .col-8
+    %b Shipping address:
+    %br
+    = @address.street
+    %b ,
+    %br
+    = @address.postcode
+    = @address.city
+    %b ,
+    %br
+    = @address.country
+  .col-4
+    = link_to 'Add new shipping address', new_address_path
+    \|
+    = link_to 'Back to purchase', address_path
