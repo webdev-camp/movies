@@ -6,11 +6,17 @@ RSpec.describe GetCastJob, vcr: {record: :new_episodes}, type: :job do
     expect(Movie.where(tmdb_id:53862).length).to eq 1
   end
 
-  # it 'gets the cast member character name' do
-  #   create(:movie, tmdb_id: 53862)
-  #   GetCastJob.perform_now(53862)
-  #   expect(Movie.where(tmdb_id:53862).first.character?).to be true
-  # end
+  it 'gets the cast member id' do
+    create(:movie, tmdb_id: 5000)
+    GetCastJob.perform_now(5000)
+    expect(Role.where(cast_id:1959).length).to eq 1
+  end
+
+  it 'gets the character the cast member plays' do
+    create(:movie, tmdb_id: 5000)
+    GetCastJob.perform_now(5000)
+    expect(Role.where(character_name:"Paulette").length).to eq 1
+  end
 
   it "matches with enqueued job" do
     ActiveJob::Base.queue_adapter = :test

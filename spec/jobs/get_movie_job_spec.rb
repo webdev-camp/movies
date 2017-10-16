@@ -25,9 +25,14 @@ RSpec.describe GetMovieJob, :vcr, type: :job do
     expect(Movie.where(tmdb_id:500).first.budget?).to be true
   end
 
-  it "gets movie budget" do
+  it "gets movie revenue" do
     GetMovieJob.perform_now(500)
     expect(Movie.where(tmdb_id:500).first.revenue?).to be true
+  end
+
+  it "gets movie release_date" do
+    GetMovieJob.perform_now(500)
+    expect(Movie.where(tmdb_id:500).first.release_date?).to be true
   end
 
   it "matches with enqueued job" do

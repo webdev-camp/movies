@@ -6,7 +6,7 @@ class GetCastJob < ApplicationJob
     movie = Movie.where(tmdb_id: tmdb_id).first
     return unless movie
     tmcast.each do |tmcast|
-      role =  Role.new(person_name: tmcast.name, character_name: tmcast.character, movie_id: movie.id)
+      role =  Role.new(cast_id: tmcast.id, person_name: tmcast.name, character_name: tmcast.character, movie_id: movie.id)
       role.save!
       GetPersonJob.perform_later(tmcast.id)
     end
