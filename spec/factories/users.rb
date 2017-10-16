@@ -16,5 +16,10 @@ FactoryGirl.define do
         create_list(:disc, 5, user: user)
       end
     end
+
+    factory :user_with_address do
+      address
+    end
   end
+
 end

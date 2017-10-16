@@ -10,8 +10,8 @@ RSpec.describe Person, type: :model do
   it 'does not save without a name' do
     expect(build(:person, name: "").save).to be false
   end
-  it 'does not save without a bio' do
-    expect(build(:person, bio: "").save).to be false
+  it 'can save without a bio' do
+    expect(build(:person, bio: "").save).to be true
   end
 
   describe "roles" do
