@@ -1,17 +1,17 @@
-.special-card
+.movie-card
   margin: 5px
   padding: 5px
   background-color: black
-  &:hover .special
+  &:hover .movie-img
     transition: all .3s ease-in-out
     transform: scale(1.1)
-  .special-content
+  .movie-content
     position: relative
-    &:hover .special-overlay
+    &:hover .movie-overlay
       visibility: visible
       transition: all .3s ease-in-out
       transform: scale(1.1)
-    .special-overlay
+    .movie-overlay
       text-align: center
       height: 100%
       width: 100%
@@ -24,7 +24,7 @@
       h3
         color: white
         text-decoration: none
-      .special-actions
+      .movie-actions
         position: absolute
         bottom: 0
         img

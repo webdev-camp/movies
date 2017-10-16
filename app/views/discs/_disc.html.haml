@@ -1,8 +1,8 @@
-.special-card
-  .special-content
+.movie-card
+  .movie-content
     =link_to movie_path(disc.movie) do
-      = image_tag disc.movie.poster.url(:medium) , class: "img-fluid rounded special"
-      .special-overlay
+      = image_tag disc.movie.poster.url(:medium) , class: "img-fluid rounded movie-img"
+      .movie-overlay
         %h3= disc.movie.title
-        .actions.special-actions
+        .movie-actions
           = render 'actions', disc: disc
