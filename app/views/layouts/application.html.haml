@@ -10,10 +10,7 @@
     =render 'layouts/navbar'
     .container-fluid
       .row
-        .col-1
-        .col-10.center
-          %p.notice= notice
-          %p.alert= alert
-          = yield
-        .col-1
+        %p.notice= notice
+        %p.alert= alert
+      = yield
     =render 'layouts/footer'
