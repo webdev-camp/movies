@@ -1,6 +1,6 @@
 .recommendations_page
   %h1 Recommendations
   %br
-  .row
-    - @movies.each do |movie|
-      = render partial: 'movie', locals: {movie: movie}
+  .row#shelf
+    = render @movies
+  .shelf_link= link_to '[more]', recommendations_index_path(page: @movies.next_page), remote: true

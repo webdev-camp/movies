@@ -1,1 +1,13 @@
 $("#id_<%=@movie.id%>").css('display', 'none');
+
+<% @movies.each do |movie| %>
+  $('#shelf').append("<%= escape_javascript(render movie) %>");
+  jQuery('#shelf > .movie-card').first().remove();
+<%end%>
+
+<% if @movies.next_page %>
+  <%link =link_to '[more]', recommendations_shelf_path(page: @movies.next_page), remote: true%>
+  $('.shelf_link').html("<%= escape_javascript(link) %>");
+<% else %>
+  $('.shelf_link').remove();
+<% end %>
