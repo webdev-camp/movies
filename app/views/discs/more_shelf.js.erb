@@ -1,1 +1,3 @@
-$('#shelf').html("<%= escape_javascript(render partial: 'more_shelf', locals:{ discs: @discs}) %>");
+$('#shelf').html("<%= escape_javascript(render @discs) %>");
+<%link =link_to '[more]', discs_more_shelf_path(page: @discs.next_page), remote: true%>
+$('#shelf').append("<%= escape_javascript(link) %>");

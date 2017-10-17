@@ -25,7 +25,8 @@
       %h4 On your shelf
       =link_to '[View all]', discs_shelf_path
       .row#shelf
-        = render 'more_shelf', discs: current_user.shelf.page(1).per(5)
+        = render @discs
+        = link_to '[more]', discs_more_shelf_path(page: 2), remote: true
 
   .row
     .col-6
