@@ -1,0 +1,8 @@
+
+$('#shelf').append("<%= escape_javascript(render @movies) %>");
+<% if @movies.next_page %>
+  <%link =link_to '[more]', recommendations_index_path(page: @movies.next_page), remote: true%>
+  $('.shelf_link').html("<%= escape_javascript(link) %>");
+<% else %>
+  $('.shelf_link').remove();
+<% end %>
