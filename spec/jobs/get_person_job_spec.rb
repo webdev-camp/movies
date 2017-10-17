@@ -29,4 +29,10 @@ RSpec.describe GetPersonJob, :vcr, type: :job do
     GetPersonJob.perform_now(73968)
     expect(Person.where(tmdb_id:73968).first.born_in?).to be true
   end
+
+  it 'assigns the person to a role' do
+    role = create(:role, person_id: nil, cast_id: 73968)
+    GetPersonJob.perform_now(73968)
+    expect(role.reload.person).not_to be nil
+  end
 end

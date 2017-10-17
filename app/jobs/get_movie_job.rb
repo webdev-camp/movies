@@ -13,6 +13,6 @@ class GetMovieJob < ApplicationJob
     movie.release_date = tm.release_date
     movie.poster_remote_url = "https://image.tmdb.org/t/p/original/" + tm.poster_path
     movie.save!
-    GetCastJob.perform_later(tmdb_id)
+    GetCastJob.perform_later(tmdb_id) 
   end
 end

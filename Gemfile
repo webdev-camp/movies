@@ -22,6 +22,7 @@ gem "therubyracer"
 gem 'best_in_place'
 gem 'themoviedb-api'
 gem 'poltergeist'
+gem "sucker_punch"
 
 group :production do
   gem 'mysql2'

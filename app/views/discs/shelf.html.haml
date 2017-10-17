@@ -1,13 +1,5 @@
 %h3= "#{current_user.name}'s Shelf"
 .row
   - @discs.each do |disc|
-    .col-2.card
-      %h6.card-title=disc.movie.title
-      =link_to movie_path(disc.movie) do
-        =image_tag(disc.movie.poster(:thumb))
-      - if disc.dvd
-        = link_to edit_disc_dvd_path(disc) do
-          = image_tag 'selling_text'
-      - else
-        = link_to new_disc_dvd_path(disc) , title: "Sell Dvd" do
-          = image_tag 'sell_text'
+    =render partial: 'disc', locals: {disc: disc}
+      

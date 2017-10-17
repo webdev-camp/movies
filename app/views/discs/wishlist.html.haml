@@ -2,7 +2,4 @@
 %br
 .row
   - @discs.each do |disc|
-    .col-3.card
-      %h6.card-title=disc.movie.title
-      =link_to movie_path(disc.movie) do
-        =image_tag(disc.movie.poster(:medium))
+    =render partial: 'disc', locals: {disc: disc}

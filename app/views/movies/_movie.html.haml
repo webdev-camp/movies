@@ -1,0 +1,9 @@
+.row.col-6.col-sm-6.col-md-4.col-lg-3
+  .movie-card{id: "id_#{movie.id}"}
+    .movie-content
+      =link_to movie_path(movie) do
+        = image_tag movie.poster.url(:medium) , class: "img-fluid rounded movie-img"
+        .movie-overlay
+          %h3= movie.title
+          .movie-actions
+            = render partial: 'recommended_actions', locals: {movie: movie}
