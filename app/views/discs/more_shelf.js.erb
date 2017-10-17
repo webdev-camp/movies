@@ -1,3 +1,12 @@
-$('#shelf').html("<%= escape_javascript(render @discs) %>");
-<%link =link_to '[more]', discs_more_shelf_path(page: @discs.next_page), remote: true%>
-$('#shelf').append("<%= escape_javascript(link) %>");
+// $('#shelf').html("<%= escape_javascript(render @discs) %>");
+<% @discs.each do |disc| %>
+  $('#shelf').append("<%= escape_javascript(render disc) %>");
+  jQuery('#shelf > .movie-card').first().remove();
+<%end%>
+
+<% if @discs.next_page %>
+  <%link =link_to '[more]', discs_more_shelf_path(page: @discs.next_page), remote: true%>
+  $('.shelf_link').html("<%= escape_javascript(link) %>");
+<% else %>
+  $('.shelf_link').remove();
+<% end %>
