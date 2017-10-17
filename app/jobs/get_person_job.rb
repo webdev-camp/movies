@@ -15,6 +15,9 @@ class GetPersonJob < ApplicationJob
     person.born_in = tmperson.place_of_birth
     person.save!
     roles = Role.where(cast_id: tmperson.id)
-  
+    roles.each do |role|
+      role.person = person
+      role.save
+    end
   end
 end

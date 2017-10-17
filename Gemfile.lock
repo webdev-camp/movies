@@ -311,6 +311,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
+    sucker_punch (2.0.4)
+      concurrent-ruby (~> 1.0.0)
     temple (0.8.0)
     themoviedb-api (1.2.0)
       rest-client (~> 2.0, >= 2.0)
@@ -379,6 +381,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   sqlite3
+  sucker_punch
   themoviedb-api
   therubyracer
   turbolinks (~> 5)

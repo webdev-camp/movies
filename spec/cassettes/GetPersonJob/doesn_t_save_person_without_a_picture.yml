@@ -12,7 +12,7 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.4.1p111
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.4.1p111
       Content-Type:
       - application/json; charset=utf-8
       Host:
@@ -29,9 +29,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Mon, 16 Oct 2017 14:36:08 GMT
+      - Tue, 17 Oct 2017 13:21:17 GMT
       Etag:
-      - 2a79ea27c279e471f4d180b08d62b00a
+      - 1c9ac0159c94d8d0cbedc973445af2da
       Server:
       - openresty
       X-Ratelimit-Limit:
@@ -39,14 +39,14 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '37'
       X-Ratelimit-Reset:
-      - '1508164575'
+      - '1508246482'
       Content-Length:
-      - '155'
+      - '156'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":550,"name":"Jennifer Todd","also_known_as":[],"gender":1,"biography":"","popularity":2.5e-05,"profile_path":null,"adult":false,"imdb_id":"nm0865189"}'
+      string: '{"id":550,"name":"Jennifer Todd","also_known_as":[],"gender":1,"biography":"","popularity":0.000531,"profile_path":null,"adult":false,"imdb_id":"nm0865189"}'
     http_version: 
-  recorded_at: Mon, 16 Oct 2017 14:36:08 GMT
+  recorded_at: Tue, 17 Oct 2017 13:21:17 GMT
 recorded_with: VCR 3.0.3
