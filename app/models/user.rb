@@ -15,6 +15,6 @@ class User < ApplicationRecord
   has_one :address
 
   def shelf
-    Disc.where(user_id: self.id, owns: true).where(hidden: nil).limit(5)
+    Disc.where(user_id: self.id, owns: true).where(hidden: nil)
   end
 end

@@ -6,16 +6,17 @@ class RecommendationsController < AuthenticatedController
   end
 
   def create
-    add(false)
+    add_to_shelf(owns: false)
   end
 
   def shelf
-    add(true)
+    add_to_shelf(owns: true)
   end
 
   private
 
-  def add(owns)
+  def add_to_shelf(options)
+    owns = options[:owns]
     @movie = Movie.find(params[:id])
     disc_length = Disc.where(user_id: current_user.id, movie: @movie).length
     if disc_length > 0

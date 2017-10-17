@@ -12,7 +12,6 @@ RSpec.describe "recommendations/index" do
   xit 'adds a recommendation to wishlist for the user', js: true do
     link = recommendations_create_path(@movies.first)
     first('.movie-actions').click_link(nil, href: link)
-
     expect(page).not_to have_content(@movies.first.title)
   end
 

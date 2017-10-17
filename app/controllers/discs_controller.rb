@@ -68,8 +68,7 @@ class DiscsController < AuthenticatedController
   end
 
   def more_shelf
-    @discs = Disc.where(user_id: current_user.id, owns: true).where(hidden: nil)
-    @discs = @discs.page(params[:page]).per(5)
+    @discs = current_user.shelf.page(params[:page]).per(5)
   end
 
   private
