@@ -1,0 +1,13 @@
+= simple_form_for(@address, url: address_path(@address)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-4
+        = f.input :street
+        = f.input :postcode
+        = f.input :city
+        = f.input :country, as: 'string'
+
+  .form-actions
+    = f.button :submit, class: "btn-success"

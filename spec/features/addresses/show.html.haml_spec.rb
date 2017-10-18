@@ -1,15 +1,11 @@
 RSpec.describe "address" do
   before (:each) do
     @user = sign_user_in
-    @address = create(:address)
-    visit new_address_path
+    @address = create(:address, user: @user)
+    visit address_path(@user)
   end
 
-  it 'renders new address page' do
-    expect(current_path).to eq new_address_path
-  end
-
-  it 'display buyer address country' do
-    expect(page).to have_content(:address)
+  it 'displays address show page' do
+    expect(current_path).to eq address_path(@user)
   end
 end
