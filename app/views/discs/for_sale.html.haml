@@ -7,7 +7,7 @@
         .row
           .col-5
             =link_to movie_path(disc.movie) do
-              =image_tag(disc.movie.poster(:medium), class:'img-fluid rounded')
+              =image_tag disc.movie.poster(:medium), class:'img-fluid rounded'
           .col-7
             .card-block
               %h5.card-title=disc.movie.title

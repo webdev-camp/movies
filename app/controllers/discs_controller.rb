@@ -9,6 +9,10 @@ class DiscsController < AuthenticatedController
     else
       @discs = Disc.includes(:movie).where(user_id: current_user.id).limit(20).where(hidden: nil)
     end
+
+    disc_ids = Disc.where(user_id: current_user.id).pluck(:movie_id)
+    @movies = Movie.where.not(id: disc_ids)
+    @movies = @movies.order(revenue: :desc).page(params[:page])
   end
 
   def show
