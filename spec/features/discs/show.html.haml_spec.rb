@@ -29,7 +29,7 @@ describe "disc/show" do
     visit movie_path(@disc.movie)
   end
 
-  xit 'has a working link to edit dvd sale' do
-    expect(page).to have_link(nil, href: edit_disc_dvd_path(@disc.movie))
+  it 'has a working link to edit dvd sale' do
+    expect(page).to have_link(nil, href: edit_disc_dvd_path(@disc))
   end
 end
