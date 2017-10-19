@@ -5,7 +5,7 @@ class Admin::AdminsController< AuthenticatedController
 
   def authenticate_admin
     if current_user.role != 'admin'
-      redirect_to discs_path
+      redirect_to cards_path
     end
   end
 end

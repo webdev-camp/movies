@@ -6,7 +6,7 @@ end
 
 def new
   if current_user.address
-    redirect_to discs_path, alert: 'You already have an address.'
+    redirect_to cards_path, alert: 'You already have an address.'
   end
   @address = Address.new
 end

@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe "reviews/new" do
   before(:each) do
     @user = sign_user_in
-    @disc = create(:disc, user: @user)
-    visit new_disc_review_path(@disc)
-    @review = build(:review, disc: @disc)
+    @card = create(:card, user: @user)
+    visit new_card_review_path(@card)
+    @review = build(:review, card: @card)
   end
 
   it "renders new review form" do
-    expect(current_path).to eq new_disc_review_path(@disc)
+    expect(current_path).to eq new_card_review_path(@card)
   end
 
   it 'will not save invalid data' do
@@ -33,8 +33,8 @@ RSpec.describe "reviews/new" do
     fill_in(:review_acting_comment, with: @review.acting_comment)
     fill_in(:review_summary, with: @review.summary)
     click_button('Create Review')
-    expect(current_path).to eq movie_path(@disc.movie)
-    expect(page).to have_link(nil , href: edit_disc_review_path(@disc))
+    expect(current_path).to eq movie_path(@card.movie)
+    expect(page).to have_link(nil , href: edit_card_review_path(@card))
   end
 
 end
@@ -42,11 +42,11 @@ end
 describe "reviews/new" do
   before(:each) do
     @user = sign_user_in
-    @disc = create(:disc_with_review, user: @user)
-    visit new_disc_review_path(@disc)
+    @card = create(:card_with_review, user: @user)
+    visit new_card_review_path(@card)
   end
 
   it 'does not create two new reviews' do
-    expect(current_path).to eq edit_disc_review_path(@disc)
+    expect(current_path).to eq edit_card_review_path(@card)
   end
 end

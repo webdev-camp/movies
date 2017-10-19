@@ -1,4 +1,4 @@
-= simple_form_for([@disc, @review], url: disc_review_path(@disc)) do |f|
+= simple_form_for([@card, @review], url: card_review_path(@card)) do |f|
   = f.error_notification
 
   .form-inputs
@@ -11,8 +11,8 @@
         = f.input :plot_comment, label: false, class: 'comment-box'
 
       .col-4.img-wrapper-review
-        = link_to movie_path(@disc.movie) do
-          = image_tag @disc.movie.poster.url(:medium) , class: "img-fluid rounded"
+        = link_to movie_path(@card.movie) do
+          = image_tag @card.movie.poster.url(:medium) , class: "img-fluid rounded"
 
       .col-4.review-wrapper
         %br

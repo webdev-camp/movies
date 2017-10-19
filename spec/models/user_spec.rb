@@ -25,21 +25,21 @@ RSpec.describe User, type: :model do
     expect(user.email).not_to eq(phoney.email)
   end
 
-  describe 'discs' do
-    it 'the user has disc association' do
+  describe 'cards' do
+    it 'the user has card association' do
       user = create(:user)
-      expect(user.discs).not_to be nil
+      expect(user.cards).not_to be nil
     end
 
     it 'the user has dvds' do
       user = create(:user)
-      disc = create(:disc, user: user)
-      expect(user.discs.first).to eq disc
+      card = create(:card, user: user)
+      expect(user.cards.first).to eq card
     end
 
-    it 'creates a user with 5 discs' do
-      user = create(:user_with_5_discs)
-      expect(user.discs.length).to be 5
+    it 'creates a user with 5 cards' do
+      user = create(:user_with_5_cards)
+      expect(user.cards.length).to be 5
     end
   end
 end

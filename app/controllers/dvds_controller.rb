@@ -1,20 +1,20 @@
 class DvdsController < AuthenticatedController
-  before_action :set_disc
+  before_action :set_card
 
   def new
     @dvd = Dvd.new
   end
 
   def edit
-    @dvd = @disc.dvd
+    @dvd = @card.dvd
   end
 
   def create
     @dvd = Dvd.new(review_params)
     respond_to do |format|
       if @dvd.save
-        @disc.add_dvd(@dvd)
-        format.html { redirect_to discs_for_sale_path, notice: 'DVD sale was successfully created.' }
+        @card.add_dvd(@dvd)
+        format.html { redirect_to cards_for_sale_path, notice: 'DVD sale was successfully created.' }
       else
         format.html { render :new }
       end
@@ -22,11 +22,11 @@ class DvdsController < AuthenticatedController
   end
 
   def update
-    @dvd = @disc.dvd
+    @dvd = @card.dvd
     respond_to do |format|
       if @dvd.update(review_params)
         format.json {}
-        format.html { redirect_to discs_for_sale_path, notice: 'DVD sale was successfully updated.' }
+        format.html { redirect_to cards_for_sale_path, notice: 'DVD sale was successfully updated.' }
       else
         format.html { render :new }
       end
@@ -35,8 +35,8 @@ class DvdsController < AuthenticatedController
 
   private
 
-    def set_disc
-      @disc = Disc.find(params[:disc_id])
+    def set_card
+      @card = Card.find(params[:card_id])
     end
 
     def review_params

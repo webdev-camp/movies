@@ -17,14 +17,14 @@
         = link_to @movie.tmdb_link, target: 'blank' do
           = image_tag 'tmdb_small'
 
-        = render('discs/actions', disc: @disc) if @disc
+        = render('cards/actions', card: @card) if @card
     .col-3
       %h3 User rating for this movie on top
       %p
-        = render("discs/review") if @disc && @disc.review
+        = render("cards/review") if @card && @card.review
 
         -#   %br
-        -# - @disc.review do |r|
+        -# - @card.review do |r|
         -#   = r.user.name
         -#   %br
         -#   = r.plot_score

@@ -1,4 +1,4 @@
-.container-fluid.disc_index
+.container-fluid.card_index
   .row
     .col-md-9
       %h4=link_to 'Recommend me some movies', recommendations_index_path
@@ -65,7 +65,7 @@
         .panel-footer
 
   .row
-  %h4=link_to "Wishlist", discs_wishlist_path
+  %h4=link_to "Wishlist", cards_wishlist_path
   %p Add movies to your wishlist and we notify you when a good deal comes up!
   .row
     .col-12
@@ -73,20 +73,20 @@
   .row
     .col-md-10
     .col-md-2
-      %h5=link_to "Next >>", discs_wishlist_path
+      %h5=link_to "Next >>", cards_wishlist_path
   %hr/
 
   .row
     .col-12
       %br
-      %h4=link_to 'On your shelf', discs_shelf_path
+      %h4=link_to 'On your shelf', cards_shelf_path
       %p Place all DVDs you own or movies you have watched in your shelf and see your collection grow!
       .row#shelf
-        = render @discs.limit(4)
+        = render @cards.limit(4)
   .row
     .col-md-10
     .col-md-2
-      %h5.shelf_link= link_to 'More >>', discs_more_shelf_path(page: 2), remote: true
+      %h5.shelf_link= link_to 'More >>', cards_more_shelf_path(page: 2), remote: true
   %hr/
 
 

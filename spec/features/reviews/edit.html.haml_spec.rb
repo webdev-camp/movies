@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "reviews/edit" do
   before(:each) do
     @user = sign_user_in
-    @disc = create(:disc_with_review, user: @user)
-    visit edit_disc_review_path(@disc)
+    @card = create(:card_with_review, user: @user)
+    visit edit_card_review_path(@card)
   end
   it 'will go to the edit review page' do
     expect(page).to have_content('Edit review')
@@ -16,6 +16,6 @@ RSpec.describe "reviews/edit" do
     fill_in(:review_plot_comment, with: 'MyNewString')
     click_button('Update Review')
     expect(page).to have_content('Review was successfully updated.')
-    expect(@disc.reload.review.plot_comment).to eq 'MyNewString'
+    expect(@card.reload.review.plot_comment).to eq 'MyNewString'
   end
 end

@@ -14,7 +14,7 @@ class Movie < ApplicationRecord
   has_many :people, :through => :roles
   has_many :reviews
   has_many :users, through: :reviews
-  has_many :discs
+  has_many :cards
 
 
 
@@ -35,8 +35,8 @@ class Movie < ApplicationRecord
     Review.for_user(user).where( movie: self).first
   end
 
-  def disc(user)
-    Disc.for_user(user).where( movie: self).first
+  def card(user)
+    Card.for_user(user).where( movie: self).first
   end
 
 end

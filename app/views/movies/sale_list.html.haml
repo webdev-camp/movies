@@ -26,11 +26,11 @@
       %th Review of user
 
   %tbody
-    - @discs.each do |disc|
+    - @cards.each do |card|
       %tr
         %td DVD/Blueray/VHS
         %td English/Finnish/Swedish
-        %td= disc.dvd.price
-        %td= disc.dvd.condition
+        %td= card.dvd.price
+        %td= card.dvd.condition
         %td ReviewOfUser
         %td= link_to 'Buy', new_address_path

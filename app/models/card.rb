@@ -1,4 +1,4 @@
-class Disc < ApplicationRecord
+class Card < ApplicationRecord
   belongs_to :user
   belongs_to :movie
   belongs_to :recommendation, required: false

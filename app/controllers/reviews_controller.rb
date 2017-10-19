@@ -1,5 +1,5 @@
 class ReviewsController < AuthenticatedController
-  before_action :set_disc
+  before_action :set_card
 
   def index
     @reviews = Review.all
@@ -9,23 +9,23 @@ class ReviewsController < AuthenticatedController
   end
 
   def new
-    if @disc.review
-      redirect_to edit_disc_review_path(@disc)
+    if @card.review
+      redirect_to edit_card_review_path(@card)
     else
       @review = Review.new
     end
   end
 
   def edit
-    @review = @disc.review
+    @review = @card.review
   end
 
   def create
     @review = Review.new(review_params)
     respond_to do |format|
       if @review.save
-        @disc.add_review(@review)
-        format.html { redirect_to movie_path(@disc.movie), notice: 'Review was successfully created.' }
+        @card.add_review(@review)
+        format.html { redirect_to movie_path(@card.movie), notice: 'Review was successfully created.' }
       else
         format.html { render :new }
       end
@@ -33,11 +33,11 @@ class ReviewsController < AuthenticatedController
   end
 
   def update
-    @review = @disc.review
+    @review = @card.review
     respond_to do |format|
       if @review.update(review_params)
-        @disc.add_review(@review)
-        format.html { redirect_to movie_path(@disc.movie), notice: 'Review was successfully updated.' }
+        @card.add_review(@review)
+        format.html { redirect_to movie_path(@card.movie), notice: 'Review was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -52,8 +52,8 @@ class ReviewsController < AuthenticatedController
   end
 
   private
-    def set_disc
-      @disc = Disc.find(params[:disc_id])
+    def set_card
+      @card = Card.find(params[:card_id])
     end
 
     def review_params

@@ -7,7 +7,7 @@ class Review < ApplicationRecord
   validates :plot_comment, :acting_comment, length: {minimum: 3, maximum: 240}
   validates :summary, length: {minimum: 3, maximum: 720}
 
-  has_one :disc
+  has_one :card
   def string_summary
     "#{plot_score}/#{acting_score}/#{summary}"
   end

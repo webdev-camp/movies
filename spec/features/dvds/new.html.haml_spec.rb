@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "dvds/new" do
   before(:each) do
     @user = sign_user_in
-    @disc = create(:disc_for_sale, user: @user)
-    visit new_disc_dvd_path(@disc)
+    @card = create(:card_for_sale, user: @user)
+    visit new_card_dvd_path(@card)
   end
 
   it 'will go to the new dvd sale page' do
