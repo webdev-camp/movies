@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'recommendation_wizard/index'
   get 'recommendation_wizard/create/:id', to: 'recommendation_wizard#create', as: 'recommendation_wizard_create'
 
+  resources :charges
   resources :movies, only: [:show] do
     member do
       get :sale_list
