@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015132041) do
+ActiveRecord::Schema.define(version: 20171019131055) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20171015132041) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "discs", force: :cascade do |t|
+  create_table "cards", force: :cascade do |t|
     t.integer "user_id"
     t.integer "movie_id"
     t.boolean "owns"
@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 20171015132041) do
     t.date "hidden"
     t.integer "recommendation_id"
     t.boolean "selling"
-    t.index ["dvd_id"], name: "index_discs_on_dvd_id"
-    t.index ["movie_id"], name: "index_discs_on_movie_id"
-    t.index ["recommendation_id"], name: "index_discs_on_recommendation_id"
-    t.index ["review_id"], name: "index_discs_on_review_id"
-    t.index ["user_id"], name: "index_discs_on_user_id"
+    t.index ["dvd_id"], name: "index_cards_on_dvd_id"
+    t.index ["movie_id"], name: "index_cards_on_movie_id"
+    t.index ["recommendation_id"], name: "index_cards_on_recommendation_id"
+    t.index ["review_id"], name: "index_cards_on_review_id"
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "dvds", force: :cascade do |t|

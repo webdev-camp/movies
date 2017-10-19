@@ -1,0 +1,12 @@
+// $('#shelf').html("<%= escape_javascript(render @cards) %>");
+<% @cards.each do |card| %>
+  $('#shelf').append("<%= escape_javascript(render card) %>");
+  jQuery('#shelf > .movie-card').first().remove();
+<%end%>
+
+<% if @cards.next_page %>
+  <%link =link_to '[more]', cards_more_shelf_path(page: @cards.next_page), remote: true%>
+  $('.shelf_link').html("<%= escape_javascript(link) %>");
+<% else %>
+  $('.shelf_link').remove();
+<% end %>

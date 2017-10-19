@@ -21,7 +21,6 @@ gem 'font-awesome-sass'
 gem "therubyracer"
 gem 'best_in_place'
 gem 'themoviedb-api'
-gem 'poltergeist'
 gem "sucker_punch"
 gem 'stripe'
 
@@ -31,8 +30,6 @@ end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem "factory_girl_rails"
   gem "vcr"
@@ -48,6 +45,9 @@ end
 
 group :test do
   gem "codeclimate-test-reporter", require: nil
+  gem 'capybara', '~> 2.13'
+  gem 'capybara-screenshot'
+  gem 'poltergeist'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

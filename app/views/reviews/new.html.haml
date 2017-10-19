@@ -1,6 +1,6 @@
 .col-12.new-review-header
-  %h1= "Review #{@disc.movie.title}"
+  %h1= "Review #{@card.movie.title}"
 
 = render 'form'
 
-= link_to 'Back', movie_path(@disc.movie)
+= link_to 'Back', movie_path(@card.movie)

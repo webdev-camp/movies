@@ -1,0 +1,24 @@
+%h1 Your DVDs for sale
+
+%br
+  .row.py-3
+    - @cards.each do |card|
+      .col-3.card.bg-light.border-dark
+        .row
+          .col-5
+            =link_to movie_path(card.movie) do
+              =image_tag card.movie.poster(:medium), class:'img-fluid rounded'
+          .col-7
+            .card-block
+              %h5.card-title=card.movie.title
+              %p.card-text
+                Condition:
+                =best_in_place card.dvd, :condition, :as => :input, :url => card_dvd_path(card)
+              %p.card-text
+                Price:
+                =best_in_place card.dvd, :price, :as => :input, :url => card_dvd_path(card)
+              %p.card-text
+                Since:
+                = time_ago_in_words card.dvd.created_at
+  .row
+  = link_to 'Back to Home', cards_path

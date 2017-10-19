@@ -1,18 +1,18 @@
 FactoryGirl.define do
-  factory :disc do
+  factory :card do
     user
     movie
     owns false
-    factory :disc_on_shelf do
+    factory :card_on_shelf do
       dvd
       owns true
     end
-    factory :disc_for_sale do
+    factory :card_for_sale do
       dvd
       selling true
       owns true
     end
-    factory :disc_with_review do
+    factory :card_with_review do
       review
     end
 

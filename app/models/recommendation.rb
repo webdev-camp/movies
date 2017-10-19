@@ -1,3 +1,3 @@
 class Recommendation < ApplicationRecord
-  has_one :disc
+  has_one :card
 end

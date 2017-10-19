@@ -148,11 +148,11 @@ SimpleForm.setup do |config|
   # When false, do not use translations for labels.
   # config.translate_labels = true
 
-  # Automatically discover new inputs in Rails' autoload path.
-  # config.inputs_discovery = true
+  # Automatically cardover new inputs in Rails' autoload path.
+  # config.inputs_cardovery = true
 
-  # Cache SimpleForm inputs discovery
-  # config.cache_discovery = !Rails.env.development?
+  # Cache SimpleForm inputs cardovery
+  # config.cache_cardovery = !Rails.env.development?
 
   # Default class for inputs
   # config.input_class = nil

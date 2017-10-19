@@ -1,18 +1,18 @@
 class RecommendationWizardController < AuthenticatedController
   def index
-    disc_ids = Disc.for_user(current_user).pluck(:movie_id)
-    @movies = Movie.where.not(id: disc_ids)
+    card_ids = Card.for_user(current_user).pluck(:movie_id)
+    @movies = Movie.where.not(id: card_ids)
     @movies= @movies.limit(12).order(tmdb_vote: :desc)
   end
  
   def create
     movie = Movie.find(params[:id])
-    disc_length = Disc.for_user(current_user).where( movie: movie).length
-    if disc_length > 0
+    card_length = Card.for_user(current_user).where( movie: movie).length
+    if card_length > 0
       notice = "You already have this movie"
     else
-      @disc = Disc.create(user: current_user, movie: movie)
-      movies = Disc.where(user: current_user).length
+      @card = Card.create(user: current_user, movie: movie)
+      movies = Card.where(user: current_user).length
       notice = "You have #{movies} movies"
     end
     redirect_to recommendation_wizard_index_path, notice: notice

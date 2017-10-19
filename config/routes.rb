@@ -2,15 +2,15 @@ Rails.application.routes.draw do
   resource :address, except: [:delete, :update, :edit, :index]
   devise_for :users
   authenticated :user do
-    root 'discs#index', as: :authenticated_root
+    root 'cards#index', as: :authenticated_root
   end
 
   root 'visitor#index'
-  get 'discs/for_sale', to:'discs#for_sale', as: 'discs_for_sale'
-  get 'discs/wishlist', to:'discs#wishlist', as: 'discs_wishlist'
-  get 'discs/shelf', to:'discs#shelf', as: 'discs_shelf'
-  get 'discs/more_shelf', to:'discs#more_shelf', as: 'discs_more_shelf'
-  get 'discs/index'
+  get 'cards/for_sale', to:'cards#for_sale', as: 'cards_for_sale'
+  get 'cards/wishlist', to:'cards#wishlist', as: 'cards_wishlist'
+  get 'cards/shelf', to:'cards#shelf', as: 'cards_shelf'
+  get 'cards/more_shelf', to:'cards#more_shelf', as: 'cards_more_shelf'
+  get 'cards/index'
   get 'home/movie'
   get 'recommendations/index'
   get 'recommendations/create/:id', to: 'recommendations#create', as: 'recommendations_create'
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
   resources :people, only: [:show]
-  resources :discs, path: 'movies', except: [:create, :show, :update] do
+  resources :cards, path: 'movies', except: [:create, :show, :update] do
     member do
       get :own
       get :hide

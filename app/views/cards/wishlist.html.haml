@@ -1,0 +1,5 @@
+%h1 Wishlist
+%br
+.row
+  - @cards.each do |card|
+    =render partial: 'card', locals: {card: card}

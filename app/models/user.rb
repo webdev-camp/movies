@@ -11,10 +11,10 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :movies, through: :reviews
-  has_many :discs, -> {includes :movie}
+  has_many :cards, -> {includes :movie}
   has_one :address
 
   def shelf
-    Disc.visible.owned.where(user_id: self.id)
+    Card.visible.owned.where(user_id: self.id)
   end
 end

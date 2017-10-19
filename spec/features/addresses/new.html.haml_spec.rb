@@ -3,7 +3,7 @@ RSpec.describe "address/new" do
     @user = sign_user_in
     visit new_address_path(@address)
     @address = create(:address, user: @user)
-    @disc = create(:disc_for_sale, user: @user)
+    @card = create(:card_for_sale, user: @user)
   end
 
   it 'loads new address input page' do
@@ -11,7 +11,7 @@ RSpec.describe "address/new" do
   end
 
   it 'new address page has link to home' do
-    expect(page).to have_link("Home", href: discs_path)
+    expect(page).to have_link("Home", href: cards_path)
   end
 
   it 'goes to show addresses page when address is created' do
