@@ -41,27 +41,6 @@
                     .col-9
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim...
                       %a{:href => "#"} Read more...
-                %li.news-item
-                  .row
-                    .col-3
-                      %img.img-circle{:src => "https://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/images/5.png", :width => "60"}/
-                    .col-9
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim...
-                      %a{:href => "#"} Read more...
-                %li.news-item
-                  .row
-                    .col-3
-                      %img.img-circle{:src => "https://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/images/6.png", :width => "60"}/
-                    .col-9
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim...
-                      %a{:href => "#"} Read more...
-                %li.news-item
-                  .row
-                    .col-3
-                      %img.img-circle{:src => "https://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/images/7.png", :width => "60"}/
-                    .col-9
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim...
-                      %a{:href => "#"} Read more...
         .panel-footer
 
   .row
@@ -69,31 +48,15 @@
   %p Add movies to your wishlist and we notify you when a good deal comes up!
   .row
     .col-12
-    = render wishlist.order("RANDOM()").limit(6)
+    = render wishlist.order("RANDOM()").limit(3)
   .row
     .col-md-10
     .col-md-2
       %h5=link_to "Next >>", discs_wishlist_path
   %hr/
 
+  %h4=link_to 'Your DVDs for sale', discs_for_sale_path
   .row
-    .col-12
-      %br
-      %h4=link_to 'On your shelf', discs_shelf_path
-      %p Place all DVDs you own or movies you have watched in your shelf and see your collection grow!
-      .row#shelf
-        = render @discs.limit(4)
+    %h6 Share the love and put your DVDs up for sale on MovieFan.Club!
   .row
-    .col-md-10
-    .col-md-2
-      %h5.shelf_link= link_to 'More >>', discs_more_shelf_path(page: 2), remote: true
-  %hr/
-
-
-  .row
-    %h4 Contribution section
-  .row
-    %p Why choose Moviefan.club as your number one goto place to manage your favourite movies? Because it it socially-driven...
-    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-  %hr/
+    = render @discs.limit(2)

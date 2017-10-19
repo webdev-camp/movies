@@ -2,4 +2,6 @@
 .row
   - @discs.each do |disc|
     =render partial: 'disc', locals: {disc: disc}
-      
+
+.row
+= link_to 'Back to Home', discs_path
