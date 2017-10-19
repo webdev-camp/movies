@@ -30,9 +30,9 @@ class Movie < ApplicationRecord
     "https://www.themoviedb.org/movie/#{self.tmdb_id}"
   end
   def review(user)
-    Review.where(user: user, movie: self).first
+    Review.for_user(user).where( movie: self).first
   end
   def disc(user)
-    Disc.where(user: user, movie: self).first
+    Disc.for_user(user).where( movie: self).first
   end
 end

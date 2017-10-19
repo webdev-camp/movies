@@ -1,6 +1,6 @@
 class RecommendationsController < AuthenticatedController
   def index
-    disc_ids = Disc.where(user_id: current_user.id).pluck(:movie_id)
+    disc_ids = Disc.for_user(current_user).pluck(:movie_id)
     @movies = Movie.where.not(id: disc_ids)
     @movies = @movies.order(revenue: :desc).page(params[:page])
   end
@@ -18,7 +18,7 @@ class RecommendationsController < AuthenticatedController
   def add_to_shelf(options)
     owns = options[:owns]
     @movie = Movie.find(params[:id])
-    disc_length = Disc.where(user_id: current_user.id, movie: @movie).length
+    disc_length = Disc.for_user(current_user).where( movie: @movie).length
     if disc_length > 0
       redirect_to recommendations_index_path
     else
