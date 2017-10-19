@@ -7,7 +7,7 @@ class DiscsController < AuthenticatedController
       notice = flash.notice
       redirect_to recommendation_wizard_index_path, notice: "#{notice} Add #{5 - disc_amount} movies to get started!"
     else
-      @discs = Disc.includes(:movie).where(user_id: current_user.id).limit(20).where(hidden: nil)
+      @discs = Disc.visible.includes(:movie).for_user(current_user).limit(20)
     end
 
     disc_ids = Disc.where(user_id: current_user.id).pluck(:movie_id)
@@ -60,15 +60,15 @@ class DiscsController < AuthenticatedController
   end
 
   def for_sale
-    @discs = Disc.where(user_id: current_user.id).where(hidden: nil).where.not(dvd_id: nil)
+    @discs = Disc.visible.with_dvd.for_user(current_user)
   end
 
   def wishlist
-    @discs = Disc.where(user_id: current_user.id, owns: false).where(hidden: nil)
+    @discs = Disc.visible.for_user(current_user).where( owns: false)
   end
 
   def shelf
-    @discs = Disc.where(user_id: current_user.id, owns: true).where(hidden: nil)
+    @discs = Disc.visible.owned.for_user(current_user)
   end
 
   def more_shelf

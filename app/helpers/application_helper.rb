@@ -1,9 +1,9 @@
 module ApplicationHelper
   def wishlist
-    Disc.where(user_id: current_user.id, owns: false).where(hidden: nil)
+    Disc.visible.for_user(current_user).where( owns: false)
   end
 
   def shelf
-    Disc.where(user_id: current_user.id, owns: true).where(hidden: nil)
+    Disc.visible.owned.for_user(current_user)
   end
 end

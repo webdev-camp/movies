@@ -32,11 +32,11 @@ class Movie < ApplicationRecord
   end
 
   def review(user)
-    Review.where(user: user, movie: self).first
+    Review.for_user(user).where( movie: self).first
   end
 
   def disc(user)
-    Disc.where(user: user, movie: self).first
+    Disc.for_user(user).where( movie: self).first
   end
 
 end
