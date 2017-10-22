@@ -9,7 +9,7 @@
   %p Add movies to your wishlist and we notify you when a good deal comes up!
   .row
     .col-12
-    = render wishlist.order("RANDOM()").limit(3)
+    = render wishlist.limit(3)
   .row
     .col-md-10
     .col-md-2
