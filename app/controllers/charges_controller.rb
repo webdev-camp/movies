@@ -1,4 +1,4 @@
-class ChargesController < ApplicationController
+class ChargesController < AuthenticatedController
 
   def new
   end
