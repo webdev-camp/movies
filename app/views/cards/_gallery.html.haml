@@ -1,0 +1,3 @@
+.main-gallery.js-flickity{"data-flickity-options" => "{ \"cellAlign\": \"left\", \"contain\": true, \"pageDots\": false, \"wrapAround\": false }"}
+  -@movies.each do |movie|
+    =render partial: 'movies/movie_gallery', locals: {movie: movie}
