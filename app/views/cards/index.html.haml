@@ -1,19 +1,22 @@
 .container
-  .row
-    .col-8
-      %h4=link_to 'Recommend me some movies', recommendations_path
-      =render partial: 'gallery', locals: {movie: @movies}
-    .col-4.socialfeed
-      =render 'social'
-  %h4=link_to "Wishlist", wishlist_my_path
-  %p Add movies to your wishlist and we notify you when a good deal comes up!
-  .row
-    .col-12
-    = render wishlist.order("RANDOM()").limit(3)
-  %hr/
+.row
+  .col-9
+    .row
+      .col
+        %h4=link_to 'Recommend me some movies', recommendations_path
+        =render partial: 'gallery', locals: {movie: @movies}
+    %br
+      .col
+        .row
+          %h4=link_to "Wishlist", wishlist_my_path
+          %p Add movies to your wishlist and we notify you when a good deal comes up!
+          =render wishlist.order("RANDOM()").limit(3)
+    %br
+      .col
+        .row
+          %h4=link_to 'Your DVDs for sale', for_sale_my_path
+          %p Share the love and put your DVDs up for sale on MovieFan.Club!
+          =render @cards.limit(3)
 
-  %h4=link_to 'Your DVDs for sale', for_sale_my_path
-  .row
-    %h6 Share the love and put your DVDs up for sale on MovieFan.Club!
-  .row
-    = render @cards.limit(3)
+  .col-3.socialfeed
+    =render 'social'
