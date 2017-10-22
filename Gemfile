@@ -25,6 +25,7 @@ gem "sucker_punch"
 gem 'stripe'
 gem 'vuejs-rails'
 gem 'gon'
+gem 'inline_svg'
 
 group :production do
   gem 'mysql2'

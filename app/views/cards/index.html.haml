@@ -1,49 +1,10 @@
-.container-fluid.card_index
+.container
   .row
-    .col-md-9
+    .col-8
       %h4=link_to 'Recommend me some movies', recommendations_path
-      .row
-        = render @movies.limit(5)
-    .col-md-3.socialfeed
-      .panel.panel-default
-        .panel-heading
-          %span.glyphicon.glyphicon-list-alt
-          %b Movie Fan's Social Feed
-        .panel-body
-          .row
-            .col-xs-12
-              %ul#demo1
-                %li.news-item
-                  .row
-                    .col-3
-                      %img.img-circle{:src => "https://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/images/1.png", :width => "60"}/
-                    .col-9
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim...
-                      %a{:href => "#"} Read more...
-                %li.news-item
-                  .row
-                    .col-3
-                      %img.img-circle{:src => "https://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/images/2.png", :width => "60"}/
-                    .col-9
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim...
-                      %a{:href => "#"} Read more...
-                %li.news-item
-                  .row
-                    .col-3
-                      %img.img-circle{:src => "https://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/images/3.png", :width => "60"}/
-                    .col-9
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim...
-                      %a{:href => "#"} Read more...
-                %li.news-item
-                  .row
-                    .col-3
-                      %img.img-circle{:src => "https://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/images/4.png", :width => "60"}/
-                    .col-9
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim...
-                      %a{:href => "#"} Read more...
-        .panel-footer
-
-  .row
+      =render partial: 'gallery', locals: {movie: @movies}
+    .col-4.socialfeed
+      =render 'social'
   %h4=link_to "Wishlist", wishlist_my_path
   %p Add movies to your wishlist and we notify you when a good deal comes up!
   .row
