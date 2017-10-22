@@ -1,6 +1,6 @@
-=link_to recommendations_create_path(movie), remote: true do
+=link_to make_recommendation_path(movie), remote: true do
   = inline_svg 'wishlist_text', class: 'card-icon'
-=link_to recommendations_shelf_path(movie), remote: true do
+=link_to shelf_recommendation_path(movie), remote: true do
   = inline_svg 'add_shelf_text', class: 'card-icon'
 =link_to cards_path, remote: true do
   = inline_svg 'hide_text', class: 'card-icon'

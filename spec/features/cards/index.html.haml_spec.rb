@@ -6,11 +6,11 @@ RSpec.describe "cards/index" do
   end
 
   it 'index page has link to the shelf page' do
-    expect(page).to have_link(nil, href: cards_shelf_path)
+    expect(page).to have_link(nil, href: shelf_my_path)
   end
 
   it 'index page has link to the wishlist page' do
-    expect(page).to have_link(nil, href: wishlist_cards_path)
+    expect(page).to have_link(nil, href: wishlist_my_path)
   end
 
   it "the empty index page works" do
@@ -18,7 +18,7 @@ RSpec.describe "cards/index" do
   end
 
   it "the index page has links to recommendations" do
-    expect(page).to have_link(nil, href: recommendations_index_path)
+    expect(page).to have_link(nil, href: recommendations_path)
   end
 end
 

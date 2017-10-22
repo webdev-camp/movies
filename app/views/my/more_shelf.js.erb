@@ -5,7 +5,7 @@
 <%end%>
 
 <% if @cards.next_page %>
-  <%link =link_to '[more]', cards_more_shelf_path(page: @cards.next_page), remote: true%>
+  <%link =link_to '[more]', more_shelf_my_path(page: @cards.next_page), remote: true%>
   $('.shelf_link').html("<%= escape_javascript(link) %>");
 <% else %>
   $('.shelf_link').remove();

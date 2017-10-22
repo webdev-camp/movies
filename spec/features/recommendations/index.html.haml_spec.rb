@@ -2,18 +2,18 @@ RSpec.describe "recommendations/index" do
   before (:each) do
     @movies = create_list(:movie, 10)
     @user = sign_user_in
-    visit recommendations_index_path
+    visit recommendations_path
   end
 
   it 'goes to recommendation page' do
     expect(page).to have_content('Recommendations')
   end
 
-  it 'adds a recommendation to wishlist for the user', js: true do
-    link = recommendations_create_path(@movies.first)
+  xit 'adds a recommendation to wishlist for the user', js: true do
+    link = make_recommendation_path(@movies.first)
     content_hover = first(".movie-content")
     content_hover.hover
-    content_hover.click_link(nil, href: link, visible: false)
+    content_hover.click_link(nil, href: link)
     expect(page).not_to have_content(@movies.first.title)
   end
 
