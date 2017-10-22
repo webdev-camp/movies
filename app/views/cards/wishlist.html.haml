@@ -1,5 +1,19 @@
 %h1 Wishlist
 %br
 .row
+  %p Display when the card is added to wishlist, notify whether the movie has dvd for sale and the movie rating
+  = search_form_for @q,url: wishlist_cards_path(@movie) do |f|
+    = f.label :movie_title_that_cont
+    = f.search_field :movie_title_cont
+
+    = f.label :preferred_price
+    = f.search_field :dvd_price_cont
+
+    = f.label :dvd_condition
+    = f.search_field :dvd_condition_cont
+
+    = f.submit
+
+.row
   - @cards.each do |card|
     =render partial: 'card', locals: {card: card}
