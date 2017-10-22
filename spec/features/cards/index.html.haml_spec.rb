@@ -18,7 +18,7 @@ RSpec.describe "cards/index" do
   end
 
   it "the index page has links to recommendations" do
-    expect(page).to have_link(nil, href: recommendations_index_path)
+    expect(page).to have_link(nil, href: recommendations_path)
   end
 end
 

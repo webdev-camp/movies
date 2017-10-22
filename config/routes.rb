@@ -14,10 +14,16 @@ Rails.application.routes.draw do
       get :more_shelf
     end
   end
+
+  resources :recommendations, only: [:index] do
+    member do
+      get :shelf
+      get :make
+    end
+  end
+
+
   root 'visitor#index'
-  get 'recommendations/index'
-  get 'recommendations/create/:id', to: 'recommendations#create', as: 'recommendations_create'
-  get 'recommendations/shelf/:id', to: 'recommendations#shelf', as: 'recommendations_shelf'
   get 'recommendation_wizard/index'
   get 'recommendation_wizard/create/:id', to: 'recommendation_wizard#create', as: 'recommendation_wizard_create'
 

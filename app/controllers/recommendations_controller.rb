@@ -5,7 +5,7 @@ class RecommendationsController < AuthenticatedController
     @movies = @movies.order(revenue: :desc).page(params[:page])
   end
 
-  def create
+  def make
     add_to_shelf(owns: false)
   end
 
@@ -20,7 +20,7 @@ class RecommendationsController < AuthenticatedController
     @movie = Movie.find(params[:id])
     card_length = Card.for_user(current_user).where( movie: @movie).length
     if card_length > 0
-      redirect_to recommendations_index_path
+      redirect_to recommendations_path
     else
       @card = Card.create(user: current_user, movie: @movie, owns: owns)
     end

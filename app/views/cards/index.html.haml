@@ -1,7 +1,7 @@
 .container-fluid.card_index
   .row
     .col-md-9
-      %h4=link_to 'Recommend me some movies', recommendations_index_path
+      %h4=link_to 'Recommend me some movies', recommendations_path
       .row
         = render @movies.limit(5)
     .col-md-3.socialfeed
