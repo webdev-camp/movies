@@ -5,21 +5,30 @@ Rails.application.routes.draw do
     root 'cards#index', as: :authenticated_root
   end
 
+  resource :my, only: [:index] do
+    collection do
+      get :for_sale
+      get :shelf
+      get :home
+      get :wishlist
+      get :more_shelf
+    end
+  end
+
+  resources :recommendations, only: [:index] do
+    member do
+      get :shelf
+      get :make
+    end
+  end
+
+
   root 'visitor#index'
-  get 'cards/for_sale', to:'cards#for_sale', as: 'cards_for_sale'
-  get 'cards/wishlist', to:'cards#wishlist', as: 'cards_wishlist'
-  get 'cards/shelf', to:'cards#shelf', as: 'cards_shelf'
-  get 'cards/more_shelf', to:'cards#more_shelf', as: 'cards_more_shelf'
-  get 'cards/index'
-  get 'home/movie'
-  get 'recommendations/index'
-  get 'recommendations/create/:id', to: 'recommendations#create', as: 'recommendations_create'
-  get 'recommendations/shelf/:id', to: 'recommendations#shelf', as: 'recommendations_shelf'
   get 'recommendation_wizard/index'
   get 'recommendation_wizard/create/:id', to: 'recommendation_wizard#create', as: 'recommendation_wizard_create'
 
   resources :charges
-  resources :movies, only: [:show] do
+  resources :movies, path: 'movie', only: [:show] do
     member do
       get :sale_list
     end
@@ -30,6 +39,7 @@ Rails.application.routes.draw do
       get :own
       get :hide
     end
+
     resource :review
     resource :dvd
     resource :purchase

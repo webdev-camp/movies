@@ -3,4 +3,5 @@
   %br
   .row#shelf
     = render @movies
-  .shelf_link= link_to '[more]', recommendations_index_path(page: @movies.next_page), remote: true
+  .shelf_link= link_to '[more]', recommendations_path(page: @movies.next_page), remote: true
+  

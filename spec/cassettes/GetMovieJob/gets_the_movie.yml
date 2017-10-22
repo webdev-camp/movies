@@ -391,4 +391,104 @@ http_interactions:
         H4sIAAAAAAAAA4VTXWvbMBT9Kxe/dAMnc7J1S/M46L6gJWXQl3WEa+s6USdLmj6ydmX/xfRlCfsFY2/2H9uVQ2lhhYFBlnR07jlHujdZKV1YC7zO5tnkaFKMiqNRMc3yTBDerU+LYjIaPl6XIptPZ9NXszzT2BBvn6AgRVITvEZXRtXviHGovFl+0eabXqLP5p8egTHqBJ2k0f3WcVz1Oy0fUn3OsxVpQS6bFznLNSuHdp10/ctIXfvk/5RPc9A8gGL4FDzZQE3peJIC6Nq+7dpT1NV111KAxriwh07Ide0l6o1MPymUPXbBBX0O5ANEzTisgpMV/9QOdf8Tpafxhb7Q772PBOKAQVBjI5UiKE10KzIMgYrzNkp+jZTDI84G/kF238IgD0z/G7zRYPutI2BCGVC6PRKVcR6IN40PNIaP5MGiIx08KATrOBPTNDyH7lfXDqE9KHsXWtd2f/gwQjPUQNmwOsuiOTYQ0geXKubsJxUWEcK63/W3IWEbDBQdBxMeEGN0uBftqOEggRqrjASfKKt+qwd/6qC/XTEfQXAcDqD2YzjWNerAfCk49hJkJS0zbqjiHPWaizH9FVgKMiS7st9WPAqjU26D/+EiLTKrxhXHsuCXxaTsxkO/C1HwGLXckPP7MH0SoSiwo3THqbSPMgzJokOl+q1KQj1UnAqjD1gYCJfcp7tk2emMKYNMWcd749bJKz7YtZXRntwGg5HpEZJOS02/Eyl+SqW6VsgqSKPH3DLW2Kj4ugK3wIRGxUteUljR0tTLoZm5M4b3kcMbfoBVakbrTC0VLdl52r54Vh5+OJPvqjMvjkL59vz8dLFR9ZVf1Mffx5d2lfpXRBWyec19TNz1jSiXqfUz3RTF4fPZ7AVj1qYhyzlmcx2V+vEXmREKrk0EAAA=
     http_version: 
   recorded_at: Thu, 19 Oct 2017 13:08:34 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/40537?api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.5.0 x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 22 Oct 2017 06:34:18 GMT
+      Etag:
+      - ec8956637a99787bd197eacd77acce5e
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1508654068'
+      Content-Length:
+      - '102'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status_code":7,"status_message":"Invalid API key: You must be granted
+        a valid key.","success":false}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 06:34:25 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/40536?api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.5.0 x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 22 Oct 2017 06:34:18 GMT
+      Etag:
+      - ec8956637a99787bd197eacd77acce5e
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '38'
+      X-Ratelimit-Reset:
+      - '1508654068'
+      Content-Length:
+      - '102'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status_code":7,"status_message":"Invalid API key: You must be granted
+        a valid key.","success":false}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 06:34:25 GMT
 recorded_with: VCR 3.0.3
