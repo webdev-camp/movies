@@ -1,5 +1,5 @@
 class CardsController < AuthenticatedController
-  before_action :set_card, except: [:index, :new, :wishlist, :shelf, :more_shelf, :for_sale]
+  before_action :set_card, except: [:index, :new]
 
   def index
     card_amount = current_user.cards.length
@@ -59,9 +59,7 @@ class CardsController < AuthenticatedController
     end
   end
 
-  def more_shelf
-    @cards = current_user.shelf.page(params[:page]).per(4)
-  end
+
 
   private
 

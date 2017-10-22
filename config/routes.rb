@@ -11,10 +11,10 @@ Rails.application.routes.draw do
       get :shelf
       get :home
       get :wishlist
+      get :more_shelf
     end
   end
   root 'visitor#index'
-  get 'cards/more_shelf', to:'cards#more_shelf', as: 'cards_more_shelf'
   get 'recommendations/index'
   get 'recommendations/create/:id', to: 'recommendations#create', as: 'recommendations_create'
   get 'recommendations/shelf/:id', to: 'recommendations#shelf', as: 'recommendations_shelf'

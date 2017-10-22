@@ -13,4 +13,7 @@ class MyController < AuthenticatedController
     @cards = @q.result(distinct: true).page params[:page]
   end
 
+  def more_shelf
+    @cards = current_user.shelf.page(params[:page]).per(4)
+  end
 end

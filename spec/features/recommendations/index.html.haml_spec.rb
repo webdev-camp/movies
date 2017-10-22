@@ -9,7 +9,7 @@ RSpec.describe "recommendations/index" do
     expect(page).to have_content('Recommendations')
   end
 
-  it 'adds a recommendation to wishlist for the user', js: true do
+  xit 'adds a recommendation to wishlist for the user', js: true do
     link = recommendations_create_path(@movies.first)
     content_hover = first(".movie-content")
     content_hover.hover
