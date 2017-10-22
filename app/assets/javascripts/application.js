@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require best_in_place
 //= require reviews
+//= require flickity.pkgd
 
 
 $(document).ready(function() {
