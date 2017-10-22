@@ -5,8 +5,12 @@ Rails.application.routes.draw do
     root 'cards#index', as: :authenticated_root
   end
 
+  resource :my do
+    collection do
+      get :for_sale
+    end
+  end
   root 'visitor#index'
-  get 'cards/for_sale', to:'cards#for_sale', as: 'cards_for_sale'
   get 'cards/shelf', to:'cards#shelf', as: 'cards_shelf'
   get 'cards/more_shelf', to:'cards#more_shelf', as: 'cards_more_shelf'
   get 'cards/index'

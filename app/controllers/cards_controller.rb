@@ -59,9 +59,7 @@ class CardsController < AuthenticatedController
     end
   end
 
-  def for_sale
-    @cards = Card.visible.with_dvd.for_user(current_user)
-  end
+  
 
   def wishlist
     @cards = Card.visible.for_user(current_user).where( owns: false)
