@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   root 'visitor#index'
   get 'cards/for_sale', to:'cards#for_sale', as: 'cards_for_sale'
-  get 'cards/wishlist', to:'cards#wishlist', as: 'cards_wishlist'
   get 'cards/shelf', to:'cards#shelf', as: 'cards_shelf'
   get 'cards/more_shelf', to:'cards#more_shelf', as: 'cards_more_shelf'
   get 'cards/index'
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
   get 'recommendation_wizard/create/:id', to: 'recommendation_wizard#create', as: 'recommendation_wizard_create'
 
   resources :charges
-  resources :movies, only: [:show] do
+  resources :movies, path: 'movie', only: [:show] do
     member do
       get :sale_list
     end
@@ -29,6 +28,9 @@ Rails.application.routes.draw do
     member do
       get :own
       get :hide
+    end
+    collection do
+      get :wishlist
     end
     resource :review
     resource :dvd

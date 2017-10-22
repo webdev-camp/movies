@@ -1,3 +1,4 @@
+
 RSpec.describe "cards/index" do
   before(:each) do
     @cards = create_list(:card, 10, user: sign_user_in)
@@ -9,7 +10,7 @@ RSpec.describe "cards/index" do
   end
 
   it 'index page has link to the wishlist page' do
-    expect(page).to have_link(nil, href: cards_wishlist_path)
+    expect(page).to have_link(nil, href: wishlist_cards_path)
   end
 
   it "the empty index page works" do

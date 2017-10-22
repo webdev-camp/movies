@@ -65,6 +65,8 @@ class CardsController < AuthenticatedController
 
   def wishlist
     @cards = Card.visible.for_user(current_user).where( owns: false)
+    @q = Card.with_dvd.ransack(params[:q])
+    @cards = @q.result(distinct: true).page params[:page]
   end
 
   def shelf
