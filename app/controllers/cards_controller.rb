@@ -59,7 +59,7 @@ class CardsController < AuthenticatedController
     end
   end
 
-  
+
 
   def wishlist
     @cards = Card.visible.for_user(current_user).where( owns: false)
@@ -67,9 +67,7 @@ class CardsController < AuthenticatedController
     @cards = @q.result(distinct: true).page params[:page]
   end
 
-  def shelf
-    @cards = Card.visible.owned.for_user(current_user)
-  end
+  
 
   def more_shelf
     @cards = current_user.shelf.page(params[:page]).per(4)

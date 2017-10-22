@@ -3,5 +3,8 @@ class MyController < AuthenticatedController
     @cards = Card.visible.with_dvd.for_user(current_user)
   end
 
-  
+  def shelf
+    @cards = Card.visible.owned.for_user(current_user)
+  end
+
 end

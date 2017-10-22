@@ -1,5 +1,4 @@
 %h3= "#{current_user.name}'s Shelf"
 .row
   - @cards.each do |card|
-    =render partial: 'card', locals: {card: card}
-      
+    =render 'cards/card', {card: card}

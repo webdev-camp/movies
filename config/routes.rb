@@ -8,13 +8,12 @@ Rails.application.routes.draw do
   resource :my do
     collection do
       get :for_sale
+      get :shelf
     end
   end
   root 'visitor#index'
-  get 'cards/shelf', to:'cards#shelf', as: 'cards_shelf'
   get 'cards/more_shelf', to:'cards#more_shelf', as: 'cards_more_shelf'
   get 'cards/index'
-  get 'home/movie'
   get 'recommendations/index'
   get 'recommendations/create/:id', to: 'recommendations#create', as: 'recommendations_create'
   get 'recommendations/shelf/:id', to: 'recommendations#shelf', as: 'recommendations_shelf'
