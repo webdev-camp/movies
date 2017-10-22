@@ -39,7 +39,7 @@ Rails.application.routes.draw do
       get :own
       get :hide
     end
-
+    
     resource :review
     resource :dvd
     resource :purchase
