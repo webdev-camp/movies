@@ -5,15 +5,16 @@ Rails.application.routes.draw do
     root 'cards#index', as: :authenticated_root
   end
 
-  resource :my do
+  resource :my, only: [:index] do
     collection do
       get :for_sale
       get :shelf
+      get :home
+      get :wishlist
     end
   end
   root 'visitor#index'
   get 'cards/more_shelf', to:'cards#more_shelf', as: 'cards_more_shelf'
-  get 'cards/index'
   get 'recommendations/index'
   get 'recommendations/create/:id', to: 'recommendations#create', as: 'recommendations_create'
   get 'recommendations/shelf/:id', to: 'recommendations#shelf', as: 'recommendations_shelf'
@@ -32,9 +33,7 @@ Rails.application.routes.draw do
       get :own
       get :hide
     end
-    collection do
-      get :wishlist
-    end
+
     resource :review
     resource :dvd
     resource :purchase
