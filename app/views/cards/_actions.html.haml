@@ -1,23 +1,23 @@
 - if review = card.review()
   = link_to edit_card_review_path(card) do
-    = image_tag 'reviewed_text', title: card.review.string_summary
+    = inline_svg 'reviewed_text', class: 'card-icon', title: card.review.string_summary
 - else
   = link_to new_card_review_path(card) do
-    = image_tag 'review_text'
+    = inline_svg 'review_text', class: 'card-icon'
 
 - if card.owns?
   - if card.dvd
     = link_to edit_card_dvd_path(card) do
-      = image_tag 'selling_text'
+      = inline_svg 'selling_text', class: 'card-icon'
   - else
     = link_to new_card_dvd_path(card) do
-      = image_tag 'sell_text'
+      = inline_svg 'sell_text', class: 'card-icon'
 - else
   = link_to own_card_path(card) do
-    = image_tag 'add_shelf_text'
+    = inline_svg 'add_shelf_text', class: 'card-icon'
 
 = link_to hide_card_path(card) do
-  = image_tag 'hide_text'
+  = inline_svg 'hide_text', class: 'card-icon'
 
 = link_to sale_list_movie_path(card.movie) do
-  = image_tag 'buy_text'
+  = inline_svg 'buy_text', class: 'card-icon'
