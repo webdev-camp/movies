@@ -28,7 +28,7 @@ class ChargesController < ApplicationController
       description: "Testing",
       purchase_id: 1,
       currency: "eur",
-      stripe_id: :stripe_charge.id,
+      stripe_id: stripe_charge.id,
     )
 
     charge.save!
@@ -38,7 +38,3 @@ class ChargesController < ApplicationController
     redirect_to new_charge_path
   end
 end
-# put customer id attribute on the user,
-# CHARGE table with user id, amount, description, purchase id, currency
-# save the charge id in the database
-# put publishable key in code from bash
