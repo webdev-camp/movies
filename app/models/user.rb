@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :movies, through: :reviews
   has_many :cards, -> {includes :movie}
   has_one :address
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+
 
   def shelf
     Card.visible.owned.where(user_id: self.id)

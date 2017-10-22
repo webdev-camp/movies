@@ -1,6 +1,9 @@
 !!!
 %html
   %head
+
+    %link{:href => "https://fonts.googleapis.com/css?family=Arvo", :rel => "stylesheet"}/
+
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Movies
     = csrf_meta_tags
@@ -8,8 +11,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     =render 'layouts/navbar'
-    %div
-      %p.notice= notice
-      %p.alert= alert
-    = yield
+    .container-fluid
+      .row
+        .col-1.sidebar
+        .col-10.center
+          %p.notice= notice
+          %p.alert= alert
+          = yield
+        .col-1.sidebar
     =render 'layouts/footer'
