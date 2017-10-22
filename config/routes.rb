@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
     resource :review
     resource :dvd
-    resource :purchase
+    resource :purchase, only: [:create]
   end
 
   namespace :admin do

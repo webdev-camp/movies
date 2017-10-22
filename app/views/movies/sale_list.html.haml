@@ -33,4 +33,6 @@
         %td= card.dvd.price
         %td= card.dvd.condition
         %td ReviewOfUser
-        %td= link_to 'Buy', new_address_path
+        %td
+          = form_for(Purchase.new , url: card_purchase_path(card)) do |f|
+            =f.submit

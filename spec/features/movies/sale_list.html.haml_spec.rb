@@ -11,8 +11,4 @@ RSpec.describe "#sale_list" do
     expect(page).to have_content(@card.movie.title)
   end
 
-  it "the page with one dvd for sale works" do
-    expect(page).to have_link("Buy", href: new_address_path)
-  end
-
 end
