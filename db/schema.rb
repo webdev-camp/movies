@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019131055) do
+ActiveRecord::Schema.define(version: 20171020115555) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20171019131055) do
     t.index ["recommendation_id"], name: "index_cards_on_recommendation_id"
     t.index ["review_id"], name: "index_cards_on_review_id"
     t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "amount"
+    t.text "description"
+    t.integer "purchase_id"
+    t.string "currency"
+    t.string "stripe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "dvds", force: :cascade do |t|
@@ -139,6 +150,7 @@ ActiveRecord::Schema.define(version: 20171019131055) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "role"
+    t.string "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
