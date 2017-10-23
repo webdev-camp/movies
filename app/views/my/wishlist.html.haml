@@ -1,18 +1,26 @@
 %h1 Wishlist
-%br
+.row.py-3
+  - @cards.each do |card|
+    .col-6.card.border-dark
+      .row
+        .col-3
+          =link_to movie_path(card.movie) do
+            =image_tag card.movie.poster(:thumb), class:'img-fluid rounded'
+        .col-9
+          .card-block
+            %h5.card-title=card.movie.title
+            %p.card-text
+              Rating:
+            %p.card-text
+              Added to wishlist
+              = time_ago_in_words card.updated_at
+              ago
+            %p.card-text
+              = link_to 'Someone has a DVD for sale for this movie!', sale_list_movie_path(card.movie)
 .row
-  %p Display when the card is added to wishlist, notify whether the movie has dvd for sale and the movie rating
-  = search_form_for @q,url: wishlist_my_path(@movie) do |f|
-    = f.label :movie_title_that_cont
-    = f.search_field :movie_title_cont
-
-    = f.label :preferred_price
-    = f.search_field :dvd_price_cont
-
-    = f.label :dvd_condition
-    = f.search_field :dvd_condition_cont
-
-    = f.submit
-
-.row
-  =render @cards
+  .col-md-8
+  .col-md-4
+    %h5
+    or
+    = link_to 'Recommend more movies >>', recommendations_path
+%hr

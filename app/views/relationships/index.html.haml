@@ -1,0 +1,28 @@
+.row
+  .col-4
+  .col-4
+    %h1 Friends
+  .col-4
+.row
+  .col-6
+    %h3 Search for Friends
+    %br
+    = search_form_for @q, url: relationships_path do |f|
+      = f.label :name_cont
+      = f.search_field :name_cont
+      %br
+      = f.label :email_cont
+      = f.search_field :email_cont
+      %br
+      = f.submit
+    %br
+    %h3 Follow these users:
+    %ul
+    -@users.each do |user|
+      %li
+        = form_for user, url: relationships_path, method: 'POST' do |f|
+          = f.hidden_field :id
+          = f.hidden_field :name
+          = f.hidden_field :email
+          = f.submit "#{user.name}"
+    %br
