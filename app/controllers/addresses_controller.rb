@@ -6,7 +6,7 @@ end
 
 def new
   if current_user.address
-    redirect_to cards_path, alert: 'You already have an address.'
+    redirect_to new_charge_path
   end
   @address = Address.new
 end
@@ -16,7 +16,7 @@ def create
   @address.user = current_user
   respond_to do |format|
     if @address.save
-      format.html { redirect_to @address, notice: 'Address was successfully created.' }
+      format.html { redirect_to new_charge_path, notice: 'Address was successfully created.' }
       format.json { render :show, status: :created, location: @address }
     else
       format.html { render :new }
