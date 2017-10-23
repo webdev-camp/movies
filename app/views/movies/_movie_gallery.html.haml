@@ -1,9 +1,9 @@
-.container.col-4
-  .movie-card{id: "id_#{movie.id}"}
-    .movie-content
-      =link_to movie_path(movie) do
-        = image_tag movie.poster.url(:medium) , class: "img-fluid rounded movie-img"
-        .movie-overlay
-          %h3= movie.title
-          .movie-actions
-            = render partial: 'recommendations/recommended_actions', locals: {movie: movie}
+-# .container.col-4
+.movie-card{id: "id_#{movie.id}"}
+  .movie-content
+    =link_to movie_path(movie) do
+      = image_tag movie.poster.url(:medium) , class: "img-fluid rounded movie-img"
+      .movie-overlay
+        %h3= movie.title
+        .movie-actions
+          = render partial: 'recommendations/recommended_actions', locals: {movie: movie}
