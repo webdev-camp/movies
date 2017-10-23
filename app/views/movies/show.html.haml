@@ -16,8 +16,31 @@
           = image_tag 'imdb_small'
         = link_to @movie.tmdb_link, target: 'blank' do
           = image_tag 'tmdb_small'
+        - if @card
+          - if review = @card.review
+            = link_to edit_card_review_path(@card) do
+              = image_tag 'reviewed_text', title: @card.review.string_summary
+          - else
+            = link_to new_card_review_path(@card) do
+              = image_tag 'review_text'
 
-        = render('cards/actions', card: @card) if @card
+          - if @card.owns?
+            - if @card.dvd
+              = link_to edit_card_dvd_path(@card) do
+                = image_tag 'selling_text'
+            - else
+              = link_to new_card_dvd_path(@card) do
+                = image_tag 'sell_text'
+          - else
+            = link_to own_card_path(@card) do
+              = image_tag 'add_shelf_text'
+
+          = link_to hide_card_path(@card) do
+            = image_tag 'hide_text'
+
+          = link_to sale_list_movie_path(@card.movie) do
+            = image_tag 'buy_text'
+
     .col-3
       %h3 User rating for this movie on top
       %p

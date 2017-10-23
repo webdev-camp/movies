@@ -10,4 +10,8 @@ class MoviesController < AuthenticatedController
     @q = Card.with_dvd.where(movie_id: @movie.id).ransack(params[:q])
     @cards = @q.result(distinct: true).page params[:page]
   end
+
+  def wishlist
+
+  end
 end

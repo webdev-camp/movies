@@ -8,20 +8,20 @@ RSpec.describe "dvds/new" do
   end
 
   it 'will go to the new dvd sale page' do
-    expect(page).to have_content('Sell dvd')
+    expect(page).to have_content('Sell your DVD')
   end
 
   it 'will not save invalid dvd sale data' do
-    fill_in(:dvd_price, with: "string")
-    fill_in(:dvd_condition, with: "45")
-    click_button("Create Dvd")
+    fill_in(:dvd_price, with: "Awesome")
+    select("Fair", from: :dvd_condition)
+    click_button("Save")
     expect(page).to have_content("Please review the problems below:")
   end
 
   it 'goes to the movie page after a dvd sale is created' do
-    fill_in(:dvd_price, with: 1)
-    fill_in(:dvd_condition, with: "Goood")
-    click_button("Create Dvd")
+    fill_in(:dvd_price, with: "5")
+    select("Fair", from: :dvd_condition)
+    click_button("Save")
     expect(page).to have_content("DVD sale was successfully created.")
   end
 end

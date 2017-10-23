@@ -13,7 +13,8 @@
               %h5.card-title=card.movie.title
               %p.card-text
                 Condition:
-                =best_in_place card.dvd, :condition, :as => :input, :url => card_dvd_path(card)
+                =best_in_place card.dvd,
+                :condition, :as => :input, :url => card_dvd_path(card)
               %p.card-text
                 Price:
                 =best_in_place card.dvd, :price, :as => :input, :url => card_dvd_path(card)

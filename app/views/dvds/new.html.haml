@@ -1,5 +1,29 @@
-%h1 Sell dvd
+%h4
+  Sell your DVD:
+  =@card.movie.title
+%br
+.container
+  .col
+  = simple_form_for([@card, @dvd], url: card_dvd_path(@card)) do |f|
+    = f.error_notification
 
-= render 'form'
+    .form-inputs
+      = f.label 'Your DVD price here: $'
+      = f.input_field :price
+      %br
+      = f.label 'Condition of DVD:'
+      = f.input_field :condition, collection: ["Fair","Good","Like New"], include_blank: false
+
+    .form-actions
+      = f.submit 'Save'
+
+
+  .col
+  %br
+  %h6 DVD condition statement definitions:
+  %ul.list-unstyled
+    %li Fair - Slightly used, good working condition
+    %li Good - Watched less than 10 times, good working condition
+    %li Like New - Watched less than 3 times, excellent working condition
 
 = link_to 'Back', cards_path
