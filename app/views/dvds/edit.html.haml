@@ -1,5 +1,28 @@
-%h1 Edit dvd
+%h4=@card.movie.title
+%p Change the details of your DVD for sale:
+%br
+.container
+  .col
+  = simple_form_for([@card, @dvd], url: card_dvd_path(@card)) do |f|
+    = f.error_notification
 
-= render 'form'
+    .form-inputs
+      = f.label 'Change DVD price to: $'
+      = f.input_field :price
+      %br
+      = f.label 'Change the DVD condition to:'
+      = f.input_field :condition, collection: ["Fair","Good","Like New"], include_blank: false
+
+    .form-actions
+      = f.submit 'Save the changes'
+
+
+  .col
+  %br
+  %h6 DVD condition statement definitions:
+  %ul.list-unstyled
+    %li Fair - Slightly used, good working condition
+    %li Good - Watched less than 10 times, good working condition
+    %li Like New - Watched less than 3 times, excellent working condition
 
 = link_to 'Back', cards_path
