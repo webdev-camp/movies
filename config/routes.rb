@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+  resources :relationships, only: [:index, :create]
   resource :address, except: [:delete, :update, :edit, :index]
   devise_for :users
   authenticated :user do
     root 'cards#index', as: :authenticated_root
   end
+
+  # TODO Do not delete!
+  # resources :users, only: [:show] do
+  #   member do
+  #     get :following, :followers
+  #   end
+  # end
 
   resource :my, only: [:index] do
     collection do
