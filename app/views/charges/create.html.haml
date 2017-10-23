@@ -1,4 +1,8 @@
 %h2
   Thanks, you paid
   = succeed "!" do
-    %strong $5.00
+    %strong
+      = @dvd.price
+-# list of recent purchases, explain what they just bought, time bought etc
+  for
+    = @dvd.card.movie.title
