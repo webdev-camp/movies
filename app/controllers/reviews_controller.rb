@@ -57,6 +57,6 @@ class ReviewsController < AuthenticatedController
     end
 
     def review_params
-      params.require(:review).permit(:plot_score, :plot_comment, :acting_score, :acting_comment, :summary)
+      params.require(:review).permit(:plot_score, :plot_comment, :acting_score, :acting_comment)
     end
 end
