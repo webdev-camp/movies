@@ -1,12 +1,12 @@
-class ChargesController < ApplicationController
+class ChargesController < AuthenticatedController
+  before_action :set_dvd
 
   def new
+
   end
 
   def create
-    # Amount in cents
-    @amount = 500
-    #create customer if new customer
+
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -17,24 +17,32 @@ class ChargesController < ApplicationController
 
     stripe_charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
-      :description => 'Rails Stripe customer',
-      :currency    => 'usd'
+      :amount      => (@dvd.price*100),
+      :description => @dvd.card.movie.title,
+      :currency    => 'eur'
     )
     charge = Charge.new(
-      customer: :customer.id,
-      user_id: :current_user.id,
-      amount: @amount,
-      description: "Testing",
+      user_id: current_user.id,
+      amount: (@dvd.price*100),
+      description: stripe_charge.description,
       purchase_id: 1,
       currency: "eur",
       stripe_id: stripe_charge.id,
     )
-
     charge.save!
-
+    @dvd.purchase.finalize!
+    
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+  private
+    def set_dvd
+      purchases = Purchase.current.where(buyer: current_user)
+      if purchases.length != 1
+        redirect_to root_path
+      end
+      @dvd = purchases.first.dvd
+    end
 end

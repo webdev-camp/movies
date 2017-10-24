@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020115555) do
+ActiveRecord::Schema.define(version: 20171024092730) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -120,7 +120,6 @@ ActiveRecord::Schema.define(version: 20171020115555) do
     t.string "plot_comment"
     t.integer "acting_score"
     t.string "acting_comment"
-    t.string "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

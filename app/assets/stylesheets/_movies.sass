@@ -2,20 +2,20 @@
   margin: 5px
   padding: 5px
   background-color: $black-color
+  text-align: center
+  &:hover .movie-img
+    transition: all .3s ease-in-out
+    transform: scale(1.1)
   .movie-header
     .star
       margin-left: 5px
       padding-left: 12px
   .movie-content
-    &:hover.movie-img
-      transition: all .3s ease-in-out
-      transform: scale(1.1)
-      position: relative
+    position: relative
     &:hover .movie-overlay
       visibility: visible
       transition: all .3s ease-in-out
       transform: scale(1.1)
-
     .movie-overlay
       text-align: center
       height: 100%
@@ -29,23 +29,54 @@
       h3
         color: white
         text-decoration: none
-        font-size: 4vmin
-      @media (min-width: 1200px)
-        h6
-          font-size: 1vw
+        font-size: 1em
+      .movie-actions
+        position: absolute
+        bottom: 0
+        .card-icon
+          width: 3em
+          height: 3em
 
-    .movie-actions
-      position: absolute
-      bottom: 0
-      .card-icon
-        filter: invert(100%)
-        height: 10vmin
-        width: 10vmin
-      @media (min-width: 1200px)
-        .card-icon
-          height: 3vw
-          width: 3vw
-      @media (max-width: 390px)
-        .card-icon
-          height: 7vw
-          width: 7vw
+.card-3
+  @media only screen and (max-width: 1300px)
+    width: 33%
+  @media only screen and (max-width: 1000px)
+    width: 50%
+  @media only screen and (max-width: 750px)
+    width: 75%
+  @media only screen and (max-width: 500px)
+    width: 100%
+
+.card-4
+  @media only screen and (max-width: 1300px)
+    width: 25%
+  @media only screen and (max-width: 1000px)
+    width: 33%
+  @media only screen and (max-width: 750px)
+    width: 50%
+  @media only screen and (max-width: 500px)
+    width: 100%
+
+.card-5
+  @media only screen and (max-width: 1300px)
+    width: 20%
+  @media only screen and (max-width: 1000px)
+    width: 25%
+  @media only screen and (max-width: 750px)
+    width: 33%
+  @media only screen and (max-width: 500px)
+    width: 50%
+  @media only screen and (max-width: 330px)
+    width: 100%
+
+.card-6
+  @media only screen and (max-width: 1300px)
+    width: 16%
+  @media only screen and (max-width: 1000px)
+    width: 20%
+  @media only screen and (max-width: 750px)
+    width: 25%
+  @media only screen and (max-width: 500px)
+    width: 50%
+  @media only screen and (max-width: 330px)
+    width: 100%

@@ -1,9 +1,8 @@
 RSpec.describe "address/new" do
   before (:each) do
     @user = sign_user_in
-    visit new_address_path(@address)
-    @address = create(:address, user: @user)
-    @card = create(:card_for_sale, user: @user)
+    visit new_address_path
+    @address = build(:address, user: @user)
   end
 
   it 'loads new address input page' do
@@ -14,13 +13,21 @@ RSpec.describe "address/new" do
     expect(page).to have_link("Home", href: cards_path)
   end
 
-  it 'goes to show addresses page when address is created' do
+  xit 'goes to new charge page when address is created' do
     fill_in(:address_street, with: @address.street)
     fill_in(:address_postcode, with: @address.postcode)
     fill_in(:address_city, with: @address.city)
     fill_in(:address_country, with: @address.country)
     click_button("Create Address")
-    expect(page).to have_content(@address.street)
+    expect(current_path).to eq new_charge_path, wait: 10
   end
+end
 
+describe "Address/new with existing" do
+  xit "redirects to new charges if address exists" do
+    @user = sign_user_in
+    @address = create(:address, user: @user)
+    visit new_address_path
+    expect(current_path).to eq new_charge_path
+  end
 end

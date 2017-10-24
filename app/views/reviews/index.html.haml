@@ -7,7 +7,6 @@
       %th Plot comment
       %th Acting score
       %th Acting comment
-      %th Summary
       %th
       %th
       %th
@@ -19,7 +18,6 @@
         %td= review.plot_comment
         %td= review.acting_score
         %td= review.acting_comment
-        %td= review.summary
         %td= link_to 'Show', review
         %td= link_to 'Edit', edit_review_path(review)
         %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }

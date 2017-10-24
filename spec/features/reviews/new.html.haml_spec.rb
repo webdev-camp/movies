@@ -19,7 +19,6 @@ RSpec.describe "reviews/new" do
     fill_in(:review_plot_comment, with: '')
     acting_score.set ''
     fill_in(:review_acting_comment, with: '')
-    fill_in(:review_summary, with: '')
     click_button('Create Review')
     expect(page).to have_content('Please review the problems below:')
   end
@@ -31,7 +30,6 @@ RSpec.describe "reviews/new" do
     fill_in(:review_plot_comment, with: @review.plot_comment)
     acting_score.set @review.acting_score
     fill_in(:review_acting_comment, with: @review.acting_comment)
-    fill_in(:review_summary, with: @review.summary)
     click_button('Create Review')
     expect(current_path).to eq movie_path(@card.movie)
     expect(page).to have_link(nil , href: edit_card_review_path(@card))

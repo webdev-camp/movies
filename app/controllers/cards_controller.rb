@@ -10,6 +10,10 @@ class CardsController < AuthenticatedController
       @cards = Card.visible.includes(:movie).for_user(current_user).limit(4)
     end
 
+    @cards_on_wishlist = Card.visible.for_user(current_user).where( owns: false).order("RANDOM()")
+
+    @cards_for_sale = Card.visible.owned.for_user(current_user).where(selling: true)
+
     card_ids = Card.where(user_id: current_user.id).pluck(:movie_id)
     @movies = Movie.where.not(id: card_ids)
     @movies = @movies.order(revenue: :desc).page(params[:page])
