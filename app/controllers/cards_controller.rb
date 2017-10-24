@@ -7,7 +7,7 @@ class CardsController < AuthenticatedController
       notice = flash.notice
       redirect_to recommendation_wizard_index_path, notice: "#{notice} Add #{5 - card_amount} movies to get started!"
     else
-      @cards = Card.visible.includes(:movie).for_user(current_user).limit(20)
+      @cards = Card.visible.includes(:movie).for_user(current_user).limit(4)
     end
 
     card_ids = Card.where(user_id: current_user.id).pluck(:movie_id)
