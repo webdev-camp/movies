@@ -8,7 +8,7 @@
       =render 'social'
 
   .row
-    .col-12
+    .container
       %h4=link_to "Wishlist", wishlist_my_path
       %p Add movies to your wishlist and we notify you when a good deal comes up!
       = render partial: 'gallery', locals: {movie_item: @cards_on_wishlist, gallery_col: 'col-2', card_size: 'card-6', is_card: true}
