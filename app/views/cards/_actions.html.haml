@@ -1,9 +1,5 @@
-- if review = card.review()
-  = link_to edit_card_review_path(card) do
-    = inline_svg 'reviewed_text', class: 'card-icon', title: card.review.string_summary
-- else
-  = link_to new_card_review_path(card) do
-    = inline_svg 'review_text', class: 'card-icon'
+= link_to sale_list_movie_path(card.movie) do
+  = inline_svg 'buy_text1', class: 'card-icon'
 
 - if card.owns?
   - if card.dvd
@@ -16,8 +12,9 @@
   = link_to own_card_path(card) do
     = inline_svg 'add_shelf_text', class: 'card-icon'
 
+- unless review = card.review()
+  = link_to new_card_review_path(card) do
+    = inline_svg 'review_text', class: 'card-icon'
+
 = link_to hide_card_path(card) do
   = inline_svg 'hide_text', class: 'card-icon'
-
-= link_to sale_list_movie_path(card.movie) do
-  = inline_svg 'buy_text', class: 'card-icon'
