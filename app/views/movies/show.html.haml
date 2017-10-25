@@ -44,20 +44,8 @@
     .col-3
       %h3 User rating for this movie on top
       %p
+        = render 'reviews/new_review'
         = render("cards/review") if @card && @card.review
-
-        -#   %br
-        -# - @card.review do |r|
-        -#   = r.user.name
-        -#   %br
-        -#   = r.plot_score
-        -#   = r.plot_comment
-        -#   %br
-        -#   = r.acting_score
-        -#   = r.acting_comment
-        -#   %br
-        -#   = r.summary
-        -#   %br
 
   .row.people
     - @movie.people.limit(12).each do |person|
