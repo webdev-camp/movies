@@ -2,9 +2,14 @@
   margin: 5px
   padding: 5px
   background-color: $black-color
+  text-align: center
   &:hover .movie-img
     transition: all .3s ease-in-out
     transform: scale(1.1)
+  .movie-header
+    .star
+      margin-left: 5px
+      padding-left: 12px
   .movie-content
     position: relative
     &:hover .movie-overlay
@@ -24,8 +29,54 @@
       h3
         color: white
         text-decoration: none
+        font-size: 1em
       .movie-actions
         position: absolute
         bottom: 0
         .card-icon
-          filter: invert(100%)
+          width: 3em
+          height: 3em
+
+.card-3
+  @media only screen and (max-width: 1300px)
+    width: 33%
+  @media only screen and (max-width: 1000px)
+    width: 50%
+  @media only screen and (max-width: 750px)
+    width: 75%
+  @media only screen and (max-width: 500px)
+    width: 100%
+
+.card-4
+  @media only screen and (max-width: 1300px)
+    width: 25%
+  @media only screen and (max-width: 1000px)
+    width: 33%
+  @media only screen and (max-width: 750px)
+    width: 50%
+  @media only screen and (max-width: 500px)
+    width: 100%
+
+.card-5
+  @media only screen and (max-width: 1300px)
+    width: 20%
+  @media only screen and (max-width: 1000px)
+    width: 25%
+  @media only screen and (max-width: 750px)
+    width: 33%
+  @media only screen and (max-width: 500px)
+    width: 50%
+  @media only screen and (max-width: 330px)
+    width: 100%
+
+.card-6
+  @media only screen and (max-width: 1300px)
+    width: 16%
+  @media only screen and (max-width: 1000px)
+    width: 20%
+  @media only screen and (max-width: 750px)
+    width: 25%
+  @media only screen and (max-width: 500px)
+    width: 50%
+  @media only screen and (max-width: 330px)
+    width: 100%

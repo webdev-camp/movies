@@ -1,3 +1,6 @@
 %h3= "#{current_user.name}'s Shelf"
 .row
-  = render @cards
+  = render partial: @cards, locals: {card_size: 'card-6'}
+
+.row
+  = link_to 'Back to Home', cards_path

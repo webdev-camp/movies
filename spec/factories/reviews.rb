@@ -4,6 +4,5 @@ FactoryGirl.define do
     plot_comment "MyString"
     acting_score 5
     acting_comment "MyString"
-    summary "MyString"
   end
 end

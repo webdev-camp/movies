@@ -24,8 +24,4 @@ RSpec.describe Review, type: :model do
     expect(build(:review, plot_comment: 'hi').save).to be false
   end
 
-  it 'checks the review has a valid summary' do
-    expect(build(:review, summary: 'hello'*500).save).to be false
-  end
-
 end

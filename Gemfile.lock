@@ -144,9 +144,6 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.8.6)
-    inline_svg (1.2.3)
-      activesupport (>= 3.0)
-      nokogiri (>= 1.6)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -380,7 +377,6 @@ DEPENDENCIES
   gon
   guard-rspec
   haml-rails
-  inline_svg
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
