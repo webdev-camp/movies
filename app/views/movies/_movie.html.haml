@@ -20,6 +20,9 @@
       .movie-overlay
         %h3= movie.title
         .movie-actions
+          = link_to sale_list_movie_path(movie) do
+            = image_tag 'buy_text', class: 'card-icon'
+
           -if is_card
             = render partial: 'cards/actions', locals: {card: card}
           -else
