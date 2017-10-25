@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171024092730) do
     t.string "stripe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token"
   end
 
   create_table "dvds", force: :cascade do |t|
