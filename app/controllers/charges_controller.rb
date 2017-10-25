@@ -2,7 +2,7 @@ class ChargesController < AuthenticatedController
   before_action :set_dvd
 
   def new
-
+    @charge = Charge.new
   end
 
   def create
@@ -31,7 +31,7 @@ class ChargesController < AuthenticatedController
     )
     charge.save!
     @dvd.purchase.finalize!
-    
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
