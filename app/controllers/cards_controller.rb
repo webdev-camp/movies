@@ -22,11 +22,6 @@ class CardsController < AuthenticatedController
   def show
   end
 
-  def own
-    @card.update owns: true
-    redirect_to movie_path(@card.movie)
-  end
-
   def hide
     @card.update hidden: DateTime.new
     redirect_to cards_path

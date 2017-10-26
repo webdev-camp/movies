@@ -11,7 +11,10 @@ class MoviesController < AuthenticatedController
     @cards = @q.result(distinct: true).page params[:page]
   end
 
-  def wishlist
-
+  def own
+    @movie = Movie.find(params[:id])
+    @card = Card.find_or_create_by(movie: @movie, user: current_user)
+    @card.update owns: true
+    redirect_to movie_path(@card.movie)
   end
 end
