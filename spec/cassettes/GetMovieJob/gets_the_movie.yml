@@ -281,4 +281,54 @@ http_interactions:
         H4sIAAAAAAAAA4VTXWvbMBT9Kxe/dAMnc7KVJXkcdF/QkjLoyzrCtXWdqJMlTR9Zu7H/YvqyhP2CsTf7j+3KobSwwsAgSzo695wj3e9ZKV3YCLzJFtlkPilGxXxUTLM8E4R369OimIyGj9elyBbT2fTlLM80NsTbpyhIkdQEr9CVUfV7Yhwqb1aftfmqV+izxcdHYIw6RSdpdL91Etf9XsuHVJ/ybE1akMsWRc5yzdqh3SRd/zJS1z75P+XTHDQPoBg+BU82UFM6nqQAurZvu/YMdXXTtRSgMS4coBNyXXuFeivTTwrlgF1yQZ8D+QBRMw6r4GTFP7VD3f9E6Wl8qS/1O+8jgThiENTYSKUIShPdmgxDoOK8jZJfIuXwiLOBf5DdtzDIA9P/Bm802H7nCJhQBpTugERlnAfiTeMDjeEDebDoSAcPCsE6zsQ0Dc+h+9W1Q2gPyt6F1rXdHz6M0Aw1UDaszrJojg2E9MGlijn7SYVFhLDp9/1tSNgGA0XHwYQHxBgdHkQ7ajhIoMYqI8Enyqrf6cGfOupv18xHEByHA6j9GE50jTowXwqOvQRZScuMW6o4R73hYkx/DZaCDMmu7HcVj8LolNvgf7hIi8yqcc2xLPllMSm78dDvQxQ8Ri235PwhTJ9EKArsKN1xKu2jDEOy6FCpfqeSUA8Vp8LoIxYGwiX36S5ZdjpjyiBT1vHeuHXymg92bWW0J7fFYGR6hKTTUtPvRYqfUqmuFbIK0ugxt4w1Niq+rsAtMB3PaVQc86LCilamXg3tzL0xvJAcXvMTrFI7WmdqqWjF3tP25bPy+P25fFudezEP5ZuLi7PlVtXXflmffBtf2XXqYBFVyBY1dzJx3zeiXKXmz3RTFMfPZ7MXjNmYhiwnmS10VOrHXzlXc4RPBAAA
     http_version: 
   recorded_at: Tue, 24 Oct 2017 09:34:45 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/40539?api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.5.0 x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 25 Oct 2017 12:07:47 GMT
+      Etag:
+      - ec8956637a99787bd197eacd77acce5e
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1508933277'
+      Content-Length:
+      - '102'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status_code":7,"status_message":"Invalid API key: You must be granted
+        a valid key.","success":false}'
+    http_version: 
+  recorded_at: Wed, 25 Oct 2017 12:07:47 GMT
 recorded_with: VCR 3.0.3
