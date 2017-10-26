@@ -1,5 +1,3 @@
-
-
 - if card.owns?
   - if card.dvd
     = link_to edit_card_dvd_path(card) do
@@ -7,16 +5,3 @@
   - else
     = link_to new_card_dvd_path(card) do
       = image_tag 'sell_text', class: 'card-icon'
-- else
-  = link_to own_card_path(card) do
-    = image_tag 'add_shelf_text', class: 'card-icon'
-
-- unless review = card.review()
-  = link_to new_card_review_path(card) do
-    = image_tag 'review_text', class: 'card-icon'
-- else
-  =link_to edit_card_review_path(card) do
-    = image_tag 'reviewed_text', class: 'card-icon'
-
-= link_to hide_card_path(card) do
-  = image_tag 'hide_text', class: 'card-icon'

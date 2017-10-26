@@ -1,6 +1,7 @@
 %h3= "#{current_user.name}'s Shelf"
 .row
-  = render partial: @cards, locals: {card_size: 'card-6'}
+  - @cards.each do |card|
+    = render partial: "movies/movie" , locals: {movie: card.movie , cardsize: "card-6"}
 
 .row
   = link_to 'Back to Home', cards_path

@@ -1,13 +1,12 @@
 .movie_show
-  %h1= @movie.title
-.div
   .row
-    .col-4
+    .col-3
       = image_tag @movie.poster.url(:medium), class: "img-fluid" if @movie.poster?
 
-    .col-5.form-control
+    .col-6
+      %h1= @movie.title
       %p= @movie.summary
-      .row
+      .col-12
         %ul.list-inline
           %li= "Language: #{@movie.language}"
           %li= "Release Date #{@movie.release_date}"
@@ -32,34 +31,30 @@
               = link_to new_card_dvd_path(@card) do
                 = image_tag 'sell_text'
           - else
-            = link_to own_card_path(@card) do
+            = link_to own_movie_path(@card.movie) do
               = image_tag 'add_shelf_text'
 
-          = link_to hide_card_path(@card) do
-            = image_tag 'hide_text'
+        = link_to hide_card_path(@card.movie) do
+          = image_tag 'hide_text'
 
-          = link_to sale_list_movie_path(@card.movie) do
-            = image_tag 'buy_text'
+        = link_to sale_list_movie_path(@card.movie) do
+          = image_tag 'buy_text'
 
     .col-3
       %h3 User rating for this movie on top
       %p
         = render("cards/review") if @card && @card.review
 
-        -#   %br
         -# - @card.review do |r|
         -#   = r.user.name
-        -#   %br
         -#   = r.plot_score
         -#   = r.plot_comment
-        -#   %br
         -#   = r.acting_score
         -#   = r.acting_comment
-        -#   %br
         -#   = r.summary
-        -#   %br
 
   .row.people
-    - @movie.people.limit(12).each do |person|
-      = link_to person_path(person) do
-        =image_tag(person.picture(:thumb), title: person.name)
+    .col-12
+      - @movie.people.limit(12).each do |person|
+        = link_to person_path(person) do
+          =image_tag(person.picture(:thumb), title: person.name)

@@ -1,18 +1,14 @@
-.movie-card{id: "id_#{movie.id}", class: card_size}
-  -if is_card
-    .movie-header
-      .row
-        - if review = card.review()
-          = link_to edit_card_review_path(card) do
-            = image_tag '5star', class: 'star', :title => "card.review.string_summary"
-        - else
-          = image_tag '5star', class: 'star', :title => "Add a review!"
+.movie-card{id: "id_#{movie.id}", class: cardsize}
+  .movie-header
+    .row
+      =link_to card_review_path(movie) do
+        = image_tag '5star', class: 'star', :title => "Click to see all reviews for this movie"
 
-        = link_to wishlist_my_path(@cards) do
-          = image_tag 'wishlist', class: 'star', :title => "Add to my wishlist"
+      = link_to wishlist_my_path(movie) do
+        = image_tag 'wishlist', class: 'star', :title => "Add to my wishlist"
 
-        = link_to shelf_my_path(@cards) do
-          = image_tag 'shelf', class: 'star', :title => "Add this to shelf if you have watched this"
+      = link_to own_movie_path(movie) do
+        = image_tag 'shelf', class: 'star', :title => "Add this to shelf if you have watched this"
 
   .movie-content
     =link_to movie_path(movie) do
@@ -23,7 +19,11 @@
           = link_to sale_list_movie_path(movie) do
             = image_tag 'buy_text', class: 'card-icon'
 
-          -if is_card
+          = link_to hide_card_path(movie) do
+            = image_tag 'hide_text', class: 'card-icon'
+
+          - card = movie.card(current_user)
+          -if card
             = render partial: 'cards/actions', locals: {card: card}
           -else
             = render partial: 'recommendations/recommended_actions', locals: {movie: movie}
