@@ -3,4 +3,5 @@
   %br
   .row#shelf
     = render partial: @movies, locals: {card_size: 'card-6', is_card: false}
+
   .shelf_link= link_to '[more]', recommendations_path(page: @movies.next_page), remote: true

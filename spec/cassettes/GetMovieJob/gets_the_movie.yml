@@ -331,4 +331,54 @@ http_interactions:
         a valid key.","success":false}'
     http_version: 
   recorded_at: Wed, 25 Oct 2017 12:07:47 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/40539?api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.5.0 x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 26 Oct 2017 19:36:45 GMT
+      Etag:
+      - ec8956637a99787bd197eacd77acce5e
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1509046615'
+      Content-Length:
+      - '102'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status_code":7,"status_message":"Invalid API key: You must be granted
+        a valid key.","success":false}'
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 19:36:45 GMT
 recorded_with: VCR 3.0.3

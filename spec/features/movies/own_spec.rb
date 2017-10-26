@@ -5,15 +5,19 @@ RSpec.describe "own/spec" do
     visit movie_path(@card.movie)
   end
 
-  it 'saves a movie to the shelf' do
-    click_link(nil, href: own_movie_path(@card.movie))
+  it "My Movie Shelf link goes to user's movie shelf" do
+    click_link(nil, href: shelf_my_path)
+    expect(page).to have_content('Shelf')
+  end
+
+  it "Adds a movie to user's shelf" do
+    click_link(nil , href: own_movie_path(@card.movie))
     expect(page).to have_content(@card.movie.title)
   end
 
-
-  it 'has a working link to add review' do
-    click_link(nil, href: new_card_review_path(@card))
-    expect(page).to have_content('Review')
+  it 'Forbids adding the same card twice to shelf' do
+    visit own_movie_path(@card.movie)
+    expect(page).to have_link(nil , href: new_card_dvd_path(@card))
   end
 
 end
