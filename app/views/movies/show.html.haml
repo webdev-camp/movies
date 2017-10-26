@@ -43,15 +43,8 @@
     .col-3
       %h3 User rating for this movie on top
       %p
+        = render 'reviews/new_review'
         = render("cards/review") if @card && @card.review
-
-        -# - @card.review do |r|
-        -#   = r.user.name
-        -#   = r.plot_score
-        -#   = r.plot_comment
-        -#   = r.acting_score
-        -#   = r.acting_comment
-        -#   = r.summary
 
   .row.people
     .col-12
