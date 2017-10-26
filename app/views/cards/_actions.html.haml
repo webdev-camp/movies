@@ -1,4 +1,4 @@
-- if card.owns?
+- unless card.owns.blank?
   - if card.dvd
     = link_to edit_card_dvd_path(card) do
       = image_tag 'selling_text', class: 'card-icon'

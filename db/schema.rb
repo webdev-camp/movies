@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024092730) do
+ActiveRecord::Schema.define(version: 20171026132417) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -26,14 +26,15 @@ ActiveRecord::Schema.define(version: 20171024092730) do
   create_table "cards", force: :cascade do |t|
     t.integer "user_id"
     t.integer "movie_id"
-    t.boolean "owns"
+    t.date "owns"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "dvd_id"
     t.integer "review_id"
     t.date "hidden"
     t.integer "recommendation_id"
-    t.boolean "selling"
+    t.date "selling"
+    t.date "wish"
     t.index ["dvd_id"], name: "index_cards_on_dvd_id"
     t.index ["movie_id"], name: "index_cards_on_movie_id"
     t.index ["recommendation_id"], name: "index_cards_on_recommendation_id"

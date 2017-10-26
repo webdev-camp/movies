@@ -9,13 +9,13 @@ FactoryGirl.define do
     end
     factory :card_for_sale do
       dvd
-      selling true
-      owns true
+      selling Time.now
+      owns Time.now
     end
     factory :card_with_review do
       review
     end
 
-    
+
   end
 end

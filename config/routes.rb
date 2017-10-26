@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     member do
       get :sale_list
       get :own
+      get :wish
     end
   end
   resources :people, only: [:show]

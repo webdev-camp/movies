@@ -14,7 +14,15 @@ class MoviesController < AuthenticatedController
   def own
     @movie = Movie.find(params[:id])
     @card = Card.find_or_create_by(movie: @movie, user: current_user)
-    @card.update owns: true
-    redirect_to movie_path(@card.movie)
+    @card.update owns: Time.now
+    redirect_to movie_path(@movie)
   end
+
+  def wish
+    @movie = Movie.find(params[:id])
+    @card = Card.find_or_create_by(movie: @movie, user: current_user)
+    @card.update wish: Time.now
+    redirect_to wishlist_my_path(@movie)
+  end
+
 end

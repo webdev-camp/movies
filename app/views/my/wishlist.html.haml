@@ -1,26 +1,26 @@
 %h1 Wishlist
 .row.py-3
   - @cards.each do |card|
-    .col-6.card.border-dark
+    .col-5.card.border-dark
       .row
         .col-3
+          .row
+          =link_to card_review_path(card.movie) do
+            = image_tag '5star', class: 'star', :title => "Click to see all reviews for this movie"
+          .row
           =link_to movie_path(card.movie) do
             =image_tag card.movie.poster(:thumb), class:'img-fluid rounded'
         .col-9
           .card-block
             %h5.card-title=card.movie.title
             %p.card-text
-              Rating:
-            %p.card-text
-              Added to wishlist
-              = time_ago_in_words card.updated_at
-              ago
+              =card.movie.summary
+              =link_to "Go to movie's page >>",movie_path(card.movie)
+            Added to wishlist
+            = time_ago_in_words card.updated_at
+            ago
             %p.card-text
               = link_to 'Someone has a DVD for sale for this movie!', sale_list_movie_path(card.movie)
 .row
-  .col-md-8
-  .col-md-4
-    %h5
-    or
-    = link_to 'Recommend more movies >>', recommendations_path
+  %h5= link_to 'Recommend more movies >>', recommendations_path
 %hr

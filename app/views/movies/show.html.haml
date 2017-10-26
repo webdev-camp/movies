@@ -23,7 +23,7 @@
             = link_to new_card_review_path(@card) do
               = image_tag 'review_text'
 
-          - if @card.owns?
+          - unless @card.owns.blank?
             - if @card.dvd
               = link_to edit_card_dvd_path(@card) do
                 = image_tag 'selling_text'
@@ -34,10 +34,10 @@
             = link_to own_movie_path(@card.movie) do
               = image_tag 'add_shelf_text'
 
-        = link_to hide_card_path(@card.movie) do
+        = link_to hide_card_path(@movie) do
           = image_tag 'hide_text'
 
-        = link_to sale_list_movie_path(@card.movie) do
+        = link_to sale_list_movie_path(@movie) do
           = image_tag 'buy_text'
 
     .col-3

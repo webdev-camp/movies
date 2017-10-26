@@ -1,10 +1,11 @@
-.movie-card{id: "id_#{movie.id}", class: cardsize}
+- card_size = 'card-6' unless defined? card_size
+.movie-card{id: "id_#{movie.id}", class: card_size || 'card-6' }
   .movie-header
     .row
       =link_to card_review_path(movie) do
         = image_tag '5star', class: 'star', :title => "Click to see all reviews for this movie"
 
-      = link_to wishlist_my_path(movie) do
+      = link_to wish_movie_path(movie) do
         = image_tag 'wishlist', class: 'star', :title => "Add to my wishlist"
 
       = link_to own_movie_path(movie) do
@@ -22,7 +23,7 @@
           = link_to hide_card_path(movie) do
             = image_tag 'hide_text', class: 'card-icon'
 
-          - card = movie.card(current_user)
+          - card = card || movie.card(current_user)
           -if card
             = render partial: 'cards/actions', locals: {card: card}
           -else
