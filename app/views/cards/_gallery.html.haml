@@ -1,7 +1,18 @@
-.main-gallery.js-flickity{"data-flickity-options" => "{ \"cellAlign\": \"left\", \"contain\": true, \"pageDots\": false, \"wrapAround\": false, \"groupCells\": true }"}
+.main-gallery{'class' => flickity}
   -if is_card
     -movies.each do |card|
-      = render partial: 'movies/movie', locals: {movie: card.movie, card: card, card_size: 'card-6', is_card: true}
+      = render 'movies/movie', movie: card.movie, card: card, card_size: 'card-6', is_card: true
   -else
     -movies.each do |movie|
-      =render partial: 'movies/movie', locals: {movie: movie, card_size: 'card-3', is_card: false}
+      =render 'movies/movie', movie: movie, card_size: 'card-6', is_card: false
+
+
+:javascript
+  var elem = document.querySelector(".#{flickity}");
+  var flkty = new Flickity( elem, {
+    cellAlign: 'left',
+    contains: true,
+    pageDots: false,
+    wrapAround: false,
+    groupCells: true
+  });

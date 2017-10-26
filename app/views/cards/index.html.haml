@@ -1,25 +1,18 @@
-.container
-  %br
-  .row
-    %h4=link_to 'Recommend me some movies', recommendations_path
-    .col-9
-      =render partial: 'gallery', locals: {movies: @movies,
-        card_size: 'card-3', is_card: false}
-    .col-3.socialfeed
-      =render 'social'
 
-  .row
-    .container
-      %h4=link_to "Wishlist", wishlist_my_path
-      %p Add movies to your wishlist and we notify you when a good deal comes up!
-      = render partial: 'gallery', locals: {movies: @cards_on_wishlist,
-        card_size: 'card-6', is_card: true}
-      %br
-
-  .row
-    .col-12
-      %h4=link_to 'Your DVDs for sale', for_sale_my_path
-      %p Share the love and put your DVDs up for sale on MovieFan.Club!
-      = render partial: 'gallery', locals: {movies: @cards_for_sale,
-        card_size: 'card-6', is_card: true}
+.col-8
+  %h4=link_to 'Recommend me some movies', recommendations_path
+  =render 'gallery', movies: @movies, is_card: false, flickity: 'flickity1'
+.col-3
   %br
+  =render 'social'
+
+.col-12
+  %h4=link_to "Wishlist", wishlist_my_path
+  %p Add movies to your wishlist and we notify you when a good deal comes up!
+  = render 'gallery', movies: @cards_on_wishlist, is_card: true, flickity: 'flickity2'
+  %br
+
+.col-12
+  %h4=link_to 'Your DVDs for sale', for_sale_my_path
+  %p Share the love and put your DVDs up for sale on MovieFan.Club!
+  = render 'gallery', movies: @cards_for_sale, is_card: true, flickity: 'flickity3'
