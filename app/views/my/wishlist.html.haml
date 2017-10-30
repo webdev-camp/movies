@@ -6,7 +6,7 @@
         .col-3
           .row
           =link_to card_review_path(card.movie) do
-            = image_tag '5star', class: 'star', :title => "Click to see all reviews for this movie"
+            = image_tag '5star.png', class: 'star', :title => "Click to see all reviews for this movie"
           .row
           =link_to movie_path(card.movie) do
             =image_tag card.movie.poster(:thumb), class:'img-fluid rounded'

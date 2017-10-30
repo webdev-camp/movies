@@ -12,33 +12,33 @@
           %li= "Release Date #{@movie.release_date}"
 
         = link_to @movie.imdb_link, target: 'blank' do
-          = image_tag 'imdb_small'
+          = image_tag 'imdb_small.png'
         = link_to @movie.tmdb_link, target: 'blank' do
-          = image_tag 'tmdb_small'
+          = image_tag 'tmdb_small.png'
         - if @card
           - if review = @card.review
             = link_to edit_card_review_path(@card) do
-              = image_tag 'reviewed_text', title: @card.review.string_summary
+              = image_tag 'reviewed_text.png', title: @card.review.string_summary
           - else
             = link_to new_card_review_path(@card) do
-              = image_tag 'review_text'
+              = image_tag 'review_text.png'
 
           - unless @card.owns.blank?
             - if @card.dvd
               = link_to edit_card_dvd_path(@card) do
-                = image_tag 'selling_text'
+                = image_tag 'selling_text.png'
             - else
               = link_to new_card_dvd_path(@card) do
-                = image_tag 'sell_text'
+                = image_tag 'sell_text.png'
           - else
             = link_to own_movie_path(@card.movie) do
-              = image_tag 'add_shelf_text'
+              = image_tag 'add_shelf_text.png'
 
         = link_to hide_card_path(@movie) do
-          = image_tag 'hide_text'
+          = image_tag 'hide_text.png'
 
         = link_to sale_list_movie_path(@movie) do
-          = image_tag 'buy_text'
+          = image_tag 'buy_text.png'
 
     .col-3
       %h3 User rating for this movie on top
