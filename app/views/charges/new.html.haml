@@ -1,12 +1,12 @@
-= javascript_include_tag "https://js.stripe.com/v3/"
-= form_tag(charges_path, id: "payment-form") do
-  %label{:for => "card-element"}
-    Credit or debit card
-  #card-element
-    / a Stripe Element will be inserted here.
-  / Used to display form errors
-  #card-errors{:role => "alert"}
-  %button Submit Payment
+.col-4.centered
+  = form_tag(charges_path, id: "payment-form") do
+    #cardNumber
+    #cardCvc
+    #cardExpiry
+      / a Stripe Element will be inserted here.This is where the iframe comes in
+    / Used to display form errors
+    #card-errors{:role => "alert"}
+    %button.btn-success Submit Payment
 :javascript
   var stripe = Stripe('pk_test_vpQRa6WLyPKagJboZZs0gYQI');
   // Create an instance of Elements
@@ -31,25 +31,33 @@
   };
 
   // Create an instance of the card Element
-  var card = elements.create('card', {style: style, hidePostalCode: true});
-
+  var cardNumber = elements.create('cardNumber', {style: style, placeholder: "Enter your card number"});
   // Add an instance of the card Element into the `card-element` <div>
-  card.mount('#card-element');
+  cardNumber.mount('#cardNumber');
+  var cardCvc = elements.create('cardCvc', {style: style});
+  cardCvc.mount('#cardCvc');
+  var cardExpiry = elements.create('cardExpiry', {style: style});
+  cardExpiry.mount('#cardExpiry');
 
-  card.addEventListener('change', function(event) {
+  function changeListener(event) {
   var displayError = document.getElementById('card-errors');
   if (event.error) {
     displayError.textContent = event.error.message;
   } else {
     displayError.textContent = '';
-  }
-  });
+  }}
+
+  cardNumber.addEventListener('change', changeListener );
+  cardCvc.addEventListener('change', changeListener );
+  cardExpiry.addEventListener('change', changeListener );
+
+
 
   var form = document.getElementById('payment-form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    stripe.createToken(card).then(function(result) {
+    stripe.createToken(cardNumber).then(function(result) {
       if (result.error) {
         // Inform the user if there was an error
         var errorElement = document.getElementById('card-errors');
@@ -73,3 +81,5 @@
     // Submit the form
     form.submit();
   }
+//element types include card, cardNumber, cardExpiry, cardCvc,
+//find a way to test without internet, would vcr work?
