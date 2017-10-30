@@ -1,25 +1,53 @@
-.container
-  %br
-  .row
-    %h4=link_to 'Recommend me some movies', recommendations_path
-    .col-9
-      =render partial: 'gallery', locals: {movie_item: @movies,
-        gallery_col: 'col-4', card_size: 'card-3', is_card: false}
-    .col-3.socialfeed
-      =render 'social'
 
-  .row
-    .container
-      %h4=link_to "Wishlist", wishlist_my_path
-      %p Add movies to your wishlist and we notify you when a good deal comes up!
-      = render partial: 'gallery', locals: {movie_item: @cards_on_wishlist,
-        gallery_col: 'col-2', card_size: 'card-6', is_card: true}
-      %br
-
-  .row
-    .col-12
-      %h4=link_to 'Your DVDs for sale', for_sale_my_path
-      %p Share the love and put your DVDs up for sale on MovieFan.Club!
-      = render partial: 'gallery', locals: {movie_item: @cards_for_sale,
-        gallery_col: 'col-2', card_size: 'card-6', is_card: true}
+.col-8
+  %h4=link_to 'Recommend me some movies', recommendations_path
+  .flickity1
+    -@movies.each do |movie|
+      =render 'movies/movie', movie: movie, card_size: 'card-4'
+.col-3
   %br
+  =render 'social'
+
+.col-12
+  %h4=link_to "Wishlist", wishlist_my_path
+  %p Add movies to your wishlist and we notify you when a good deal comes up!
+  .flickity2
+    -@cards_on_wishlist.each do |card|
+      = render 'movies/movie', movie: card.movie, card: card
+
+.col-12
+  %h4=link_to 'Your DVDs for sale', for_sale_my_path
+  %p Share the love and put your DVDs up for sale on MovieFan.Club!
+  .flickity3
+    -@cards_for_sale.each do |card|
+      = render 'movies/movie', movie: card.movie, card: card
+
+:javascript
+  var options =  {
+      cellAlign: 'left',
+      contains: true,
+      pageDots: false,
+      wrapAround: false,
+      groupCells: true
+    };
+  new Flickity( document.querySelector(".flickity1") ,  {
+      cellAlign: 'left',
+      contains: true,
+      pageDots: false,
+      wrapAround: false,
+      groupCells: true
+    } );
+  new Flickity( document.querySelector(".flickity2") ,  {
+      cellAlign: 'left',
+      contains: true,
+      pageDots: false,
+      wrapAround: false,
+      groupCells: true
+    } );
+  new Flickity( document.querySelector(".flickity3") ,  {
+      cellAlign: 'left',
+      contains: true,
+      pageDots: false,
+      wrapAround: false,
+      groupCells: true
+    } );

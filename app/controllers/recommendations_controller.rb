@@ -10,7 +10,7 @@ class RecommendationsController < AuthenticatedController
   end
 
   def shelf
-    add_to_shelf(owns: true)
+    add_to_shelf(owns: Time.now)
   end
 
   private

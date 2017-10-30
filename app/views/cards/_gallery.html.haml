@@ -1,9 +1,0 @@
-.main-gallery.js-flickity{"data-flickity-options" => "{ \"cellAlign\": \"left\", \"contain\": true, \"pageDots\": false, \"wrapAround\": false, \"groupCells\": true }"}
-  -if is_card
-    -movie_item.each do |card|
-      .row.container{class: gallery_col}
-        = render partial: 'movies/movie', locals: {movie: card.movie, card: card, card_size: 'card-6', is_card: true}
-  -else
-    -movie_item.each do |movie|
-      .row.container{class: gallery_col}
-        =render partial: 'movies/movie', locals: {movie: movie, card_size: 'card-3', is_card: false}

@@ -8,8 +8,7 @@ class MyController < AuthenticatedController
   end
 
   def wishlist
-    @cards = Card.visible.for_user(current_user).where( owns: false)
-    @q = Card.with_dvd.ransack(params[:q])
+    @q = Card.wishlist.for_user(current_user).ransack(params[:q])
     @cards = @q.result(distinct: true).page params[:page]
   end
 

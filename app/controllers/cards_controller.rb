@@ -10,9 +10,9 @@ class CardsController < AuthenticatedController
       @cards = Card.visible.includes(:movie).for_user(current_user).limit(4)
     end
 
-    @cards_on_wishlist = Card.visible.for_user(current_user).where( owns: false).order("RANDOM()")
+    @cards_on_wishlist = Card.wishlist.for_user(current_user).limit(20)
 
-    @cards_for_sale = Card.visible.owned.for_user(current_user).where(selling: true)
+    @cards_for_sale = Card.visible.owned.for_user(current_user).where.not(selling: nil)
 
     card_ids = Card.where(user_id: current_user.id).pluck(:movie_id)
     @movies = Movie.where.not(id: card_ids)
@@ -20,11 +20,6 @@ class CardsController < AuthenticatedController
   end
 
   def show
-  end
-
-  def own
-    @card.update owns: true
-    redirect_to movie_path(@card.movie)
   end
 
   def hide

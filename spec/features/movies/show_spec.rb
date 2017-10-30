@@ -1,11 +1,11 @@
-RSpec.describe "card/show" do
+RSpec.describe "movie/show" do
   before(:each) do
     user = sign_user_in
     @card = create(:card, user: user)
     visit movie_path(@card.movie)
   end
 
-  it 'shows card' do
+  it 'shows movie' do
     expect(page).to have_content(@card.movie.title)
   end
 
@@ -15,14 +15,14 @@ RSpec.describe "card/show" do
   end
 
   it 'has a working link to add dvd sale' do
-    click_link(nil, href: own_card_path(@card))
+    click_link(nil, href: own_movie_path(@card.movie))
     click_link(nil, href: new_card_dvd_path(@card))
     expect(page).to have_content('Sell your DVD')
   end
 
 end
 
-describe "card/show" do
+describe "movie/show" do
   before(:each) do
     user = sign_user_in
     @card = create(:card_for_sale, user: user)

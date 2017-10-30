@@ -1,6 +1,8 @@
 .user-rating
   direction: rtl
   font-size: 20px
+  @media only screen and (max-width: 350px)
+    font-size: 15px
   unicode-bidi: bidi-override
   padding: 10px 30px
   display: inline-block
@@ -40,3 +42,16 @@
   color: #ffd100
   font-weight: bold
   font-size: 3em
+
+.rating-form
+  background-color: black
+  color: white
+  text-align: center
+  p
+    margin-left: 20px
+
+.user-rating-form
+  display: inline
+
+span
+  white-space: pre

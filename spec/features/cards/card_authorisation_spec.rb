@@ -7,7 +7,7 @@ describe "card/authorisation" do
   it "doesn't show other users cards" do
     @card = create(:card)
     visit movie_path(@card.movie)
-    expect(page).not_to have_link(nil, href: own_card_path(@card))
+    expect(page).not_to have_link(nil, href: own_movie_path(@card.movie))
   end
 end
 

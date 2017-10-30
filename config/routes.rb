@@ -39,15 +39,16 @@ Rails.application.routes.draw do
   resources :movies, path: 'movie', only: [:show] do
     member do
       get :sale_list
+      get :own
+      get :wish
     end
   end
   resources :people, only: [:show]
   resources :cards, path: 'movies', except: [:create, :show, :update] do
     member do
-      get :own
       get :hide
     end
-    
+
     resource :review
     resource :dvd
     resource :purchase, only: [:create]
