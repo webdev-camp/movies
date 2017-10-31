@@ -38,7 +38,7 @@
                 = link_to new_card_dvd_path(@card) do
                   = image_tag 'sell_text'
             - else
-              = link_to own_movie_path(@movie.id) , class: :add_to_shelf_link, remote: true do
+              = link_to own_movie_path(@movie.id, show: true) , class: :add_to_shelf_link, remote: true do
                 = image_tag 'add_shelf_text'
 
           = link_to hide_card_path(@movie) do
@@ -57,5 +57,3 @@
       - @movie.people.limit(12).each do |person|
         = link_to person_path(person) do
           =image_tag(person.picture(:thumb), title: person.name)
-  :javascript
-    var own_movie_path_js_path = "#{own_movie_path(@movie.id)}" ;

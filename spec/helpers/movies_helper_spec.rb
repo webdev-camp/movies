@@ -11,5 +11,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe MoviesHelper, type: :helper do
-  
+    it "shelf_link returns own_shelf link if owned"
 end

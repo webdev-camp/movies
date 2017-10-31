@@ -18,16 +18,7 @@
         = link_to wish_movie_path(movie) do
           = image_tag 'wishlist.png', class: 'star', :title => "Add to wishlist"
 
-      - if card
-        - if card.dvd.blank?
-          = link_to shelf_my_path(movie) do
-            = image_tag 'shelf.png', class: 'star', :title => "Add to shelf"
-        - else
-          = link_to shelf_my_path(movie) do
-            = image_tag 'shelf.png', class: 'star', :title => "Movie is on shelf"
-      - else
-        = link_to own_movie_path(movie) do
-          = image_tag 'shelf.png', class: 'star', :title => "Add this to shelf if you have watched this"
+      = shelf_link(movie, card)
 
   .movie-content
     =link_to movie_path(movie) do
