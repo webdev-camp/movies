@@ -14,12 +14,6 @@ RSpec.describe "movie/show" do
     expect(page).to have_content('Review')
   end
 
-  it 'has a working link to add dvd sale' do
-    click_link(nil, href: own_movie_path(@card.movie))
-    click_link(nil, href: new_card_dvd_path(@card))
-    expect(page).to have_content('Sell your DVD')
-  end
-
 end
 
 describe "movie/show" do

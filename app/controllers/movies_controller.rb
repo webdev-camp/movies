@@ -14,8 +14,13 @@ class MoviesController < AuthenticatedController
   def own
     @movie = Movie.find(params[:id])
     @card = Card.find_or_create_by(movie: @movie, user: current_user)
+
+    respond_to do |format|
+      @card.save
+      format.html { redirect_to own_movie_path, notice: 'Movie successfully added to shelf.'}
+      format.js
+    end
     @card.update owns: Time.now
-    redirect_to movie_path(@movie)
   end
 
   def wish

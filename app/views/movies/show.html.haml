@@ -4,41 +4,48 @@
       = image_tag @movie.poster.url(:medium), class: "img-fluid" if @movie.poster?
 
     .col-6
-      %h1= @movie.title
-      %p= @movie.summary
-      .col-12
-        %ul.list-inline
-          %li= "Language: #{@movie.language}"
-          %li= "Release Date #{@movie.release_date}"
+      .row
+        .col-10
+          %h1= @movie.title
+        .col-2
+          %p.movie-label
+            -if @card and @card.owns
+              = image_tag('shelf.png' , class: "img-fluid")
+        .col-12
+          %p= @movie.summary
+        .col-12
+          %ul.list-inline
+            %li= "Language: #{@movie.language}"
+            %li= "Release Date #{@movie.release_date}"
 
-        = link_to @movie.imdb_link, target: 'blank' do
-          = image_tag 'imdb_small'
-        = link_to @movie.tmdb_link, target: 'blank' do
-          = image_tag 'tmdb_small'
-        - if @card
-          - if review = @card.review
-            = link_to edit_card_review_path(@card) do
-              = image_tag 'reviewed_text', title: @card.review.string_summary
-          - else
-            = link_to new_card_review_path(@card) do
-              = image_tag 'review_text'
-
-          - unless @card.owns.blank?
-            - if @card.dvd
-              = link_to edit_card_dvd_path(@card) do
-                = image_tag 'selling_text'
+          = link_to @movie.imdb_link, target: 'blank' do
+            = image_tag 'imdb_small'
+          = link_to @movie.tmdb_link, target: 'blank' do
+            = image_tag 'tmdb_small'
+          - if @card
+            - if review = @card.review
+              = link_to edit_card_review_path(@card) do
+                = image_tag 'reviewed_text', title: @card.review.string_summary
             - else
-              = link_to new_card_dvd_path(@card) do
-                = image_tag 'sell_text'
-          - else
-            = link_to own_movie_path(@card.movie) do
-              = image_tag 'add_shelf_text'
+              = link_to new_card_review_path(@card) do
+                = image_tag 'review_text'
 
-        = link_to hide_card_path(@movie) do
-          = image_tag 'hide_text'
+            - if @card.owns
+              - if @card.dvd
+                = link_to edit_card_dvd_path(@card) do
+                  = image_tag 'selling_text'
+              - else
+                = link_to new_card_dvd_path(@card) do
+                  = image_tag 'sell_text'
+            - else
+              = link_to own_movie_path(@movie.id) , class: :add_to_shelf_link, remote: true do
+                = image_tag 'add_shelf_text'
 
-        = link_to sale_list_movie_path(@movie) do
-          = image_tag 'buy_text'
+          = link_to hide_card_path(@movie) do
+            = image_tag 'hide_text'
+
+          = link_to sale_list_movie_path(@movie) do
+            = image_tag 'buy_text'
 
     .col-3
       %h3 User rating for this movie on top
@@ -51,3 +58,5 @@
       - @movie.people.limit(12).each do |person|
         = link_to person_path(person) do
           =image_tag(person.picture(:thumb), title: person.name)
+  :javascript
+    var own_movie_path_js_path = "#{own_movie_path(@movie.id)}" ;
