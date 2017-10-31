@@ -1,24 +1,25 @@
 = simple_form_for([@card, @review], url: card_review_path(@card)) do |f|
   = f.error_notification
 
-  .form-inputs
+  .form-inputs#rating-score-app
+    = render 'star_rating'
     .row
-      .col-4.review-wrapper
+      .col-6
         %br
         %h3 Plot Score
         = f.hidden_field :plot_score
-        = render 'star_rating', type: 'plot'
+        %rating-component{'hidden'=>'review_plot_score'}
         = f.input :plot_comment, label: false, class: 'comment-box'
 
-      .col-4.img-wrapper-review
+      .col-2
         = link_to movie_path(@card.movie) do
           = image_tag @card.movie.poster.url(:medium) , class: "img-fluid rounded"
 
-      .col-4.review-wrapper
+      .col-6
         %br
         %h3 Acting Score
         = f.hidden_field :acting_score
-        = render 'star_rating', type: 'acting'
+        %rating-component{'hidden'=>'review_acting_score'}
         = f.input :acting_comment, label: false, class: 'comment-box'
 
     .row
@@ -26,3 +27,8 @@
     .row
       .form-actions
         = f.button :submit, class: 'review-button'
+
+:javascript
+  new Vue({
+    el: '#rating-score-app'
+  })

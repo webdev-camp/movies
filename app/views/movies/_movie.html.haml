@@ -5,29 +5,29 @@
   .movie-header
     .row
       =link_to card_review_path(movie) do
-        = image_tag '5star', class: 'star', :title => "Click to see all reviews for this movie"
+        = image_tag '5star.png', class: 'star', :title => "Click to see all reviews for this movie"
 
       - if card
         - if card.dvd.blank?
           = link_to wishlist_my_path(movie) do
-            = image_tag 'wishlist', class: 'star', :title => "Added to wishlist"
+            = image_tag 'wishlist.png', class: 'star', :title => "Added to wishlist"
         - else
           = link_to wish_movie_path(movie) do
-            = image_tag 'wishlist', class: 'star', :title => "Add to wishlist?"
+            = image_tag 'wishlist.png', class: 'star', :title => "Add to wishlist?"
       - else
         = link_to wish_movie_path(movie) do
-          = image_tag 'wishlist', class: 'star', :title => "Add to wishlist"
+          = image_tag 'wishlist.png', class: 'star', :title => "Add to wishlist"
 
       - if card
         - if card.dvd.blank?
           = link_to shelf_my_path(movie) do
-            = image_tag 'shelf', class: 'star', :title => "Add to shelf"
+            = image_tag 'shelf.png', class: 'star', :title => "Add to shelf"
         - else
           = link_to shelf_my_path(movie) do
-            = image_tag 'shelf', class: 'star', :title => "Movie is on shelf"
+            = image_tag 'shelf.png', class: 'star', :title => "Movie is on shelf"
       - else
         = link_to own_movie_path(movie) do
-          = image_tag 'shelf', class: 'star', :title => "Add this to shelf if you have watched this"
+          = image_tag 'shelf.png', class: 'star', :title => "Add this to shelf if you have watched this"
 
   .movie-content
     =link_to movie_path(movie) do
@@ -38,16 +38,16 @@
           - if card
             - if card.dvd.blank?
               = link_to sale_list_movie_path(movie) do
-                = image_tag 'buy_text', class: 'card-icon', :title => "Sorry can we notify you when there is DVD for sale?"
+                = image_tag 'buy_text.png', class: 'card-icon', :title => "Sorry can we notify you when there is DVD for sale?"
             - else
               = link_to sale_list_movie_path(movie) do
-                = image_tag 'buy_text', class: 'card-icon', :title => "Look at your sale options"
+                = image_tag 'buy_text.png', class: 'card-icon', :title => "Look at your sale options"
           - else
             = link_to sale_list_movie_path(movie) do
-              = image_tag 'buy_text', class: 'card-icon', :title => "Look at your sale options"
+              = image_tag 'buy_text.png', class: 'card-icon', :title => "Look at your sale options"
 
           = link_to hide_card_path(movie) do
-            = image_tag 'hide_text', class: 'card-icon'
+            = image_tag 'hide_text.png', class: 'card-icon'
 
 
           -if card
