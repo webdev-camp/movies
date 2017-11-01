@@ -7,6 +7,7 @@
       .row
         .col-10
           %h1= @movie.title
+          %p=link_to card_review_path(@movie)
         .col-2
           %p.movie-label
             -if @card and @card.owns
@@ -48,9 +49,7 @@
             = image_tag 'buy_text'
 
     .col-3
-      %h3 User rating for this movie on top
-      %p
-        = render("cards/review") if @card && @card.review
+      %h6= render("cards/review") if @card && @card.review
 
   .row.people
     .col-12

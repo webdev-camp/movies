@@ -6,6 +6,7 @@ class ReviewsController < AuthenticatedController
   end
 
   def show
+    
   end
 
   def new

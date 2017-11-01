@@ -6,25 +6,16 @@
     .row
       =link_to card_review_path(movie) do
         = image_tag '5star.png', class: 'star', :title => "Click to see all reviews for this movie"
-
-      - if card
-        - if card.dvd.blank?
-          = link_to wishlist_my_path(movie) do
-            = image_tag 'wishlist.png', class: 'star', :title => "Added to wishlist"
-        - else
-          = link_to wish_movie_path(movie) do
-            = image_tag 'wishlist.png', class: 'star', :title => "Add to wishlist?"
-      - else
-        = link_to wish_movie_path(movie) do
-          = image_tag 'wishlist.png', class: 'star', :title => "Add to wishlist"
-
+      = wish_link(movie, card)
       = shelf_link(movie, card)
 
   .movie-content
     =link_to movie_path(movie) do
       = image_tag movie.poster.url(:medium) , class: "img-fluid rounded movie-img"
+
       .movie-overlay
         %h3= movie.title
+        %p.summary.small=movie.summary[0 .. 200]
         .movie-actions
           - if card
             - if card.dvd.blank?

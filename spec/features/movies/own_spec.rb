@@ -16,7 +16,6 @@ RSpec.describe "own/spec", js: true do
     expect(page).not_to have_link(nil, href: new_card_dvd_path(@card))
   end
 
-
   it "Adds a movie to user's shelf" do
     @card = create(:card, user: @user)
     visit movie_path(@card.movie)

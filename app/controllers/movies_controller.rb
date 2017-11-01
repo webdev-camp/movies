@@ -26,10 +26,10 @@ class MoviesController < AuthenticatedController
     @movie = Movie.find(params[:id])
     @card = Card.find_or_create_by(movie: @movie, user: current_user)
     @card.update wish: Time.now
+
     respond_to do |format|
       @card.save
-      format.html { redirect_to wishlist_my_path, notice: 'Movie successfully added to shelf.'}
-      format.js
+      format.js {render "wish"}
     end
   end
 

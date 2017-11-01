@@ -2,7 +2,6 @@
   margin: 5px
   padding: 5px
   background-color: $black-color
-  text-align: center
   &:hover .movie-img
     transition: all .3s ease-in-out
     transform: scale(1.1)
@@ -21,7 +20,6 @@
       transform: scale(1.1)
       transform-origin: top
     .movie-overlay
-      text-align: center
       height: 100%
       width: 100%
       visibility: hidden
@@ -32,8 +30,15 @@
       background-color: rgba(0, 0, 0, 0.8)
       h3
         color: white
+        text-align: center
         text-decoration: none
         font-size: 1em
+      .summary
+        text-align: justify
+        font-weight: lighter
+        color: white
+        margin-left: 5px
+        margin-right: 5px
       .movie-actions
         position: absolute
         bottom: 20px
