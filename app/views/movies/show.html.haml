@@ -7,11 +7,14 @@
       .row
         .col-10
           %h1= @movie.title
-          %p=link_to card_review_path(@movie)
         .col-2
-          %p.movie-label
-            -if @card and @card.owns
-              = image_tag('shelf.png' , class: "img-fluid")
+          .row
+            .movie-label-shelf
+              -if @card and @card.owns
+                = render 'shelf_image'
+            .movie-label-wish
+              -if @card and @card.owns
+                = render 'on_wishlist_image'
         .col-12
           %p= @movie.summary
         .col-12
@@ -19,28 +22,29 @@
             %li= "Language: #{@movie.language}"
             %li= "Release Date #{@movie.release_date}"
 
-          = link_to @movie.imdb_link, target: 'blank' do
-            = image_tag 'imdb_small'
-          = link_to @movie.tmdb_link, target: 'blank' do
-            = image_tag 'tmdb_small'
-          - if @card
-            - if review = @card.review
-              = link_to edit_card_review_path(@card) do
-                = image_tag 'reviewed_text', title: @card.review.string_summary
-            - else
-              = link_to new_card_review_path(@card) do
-                = image_tag 'review_text'
+          - if @card and @card.review
+            = link_to edit_card_review_path(@card) do
+              = image_tag 'reviewed_text'
+          - else
+            = link_to new_card_review_path(@movie) do
+              = image_tag 'review_text'
 
-            - if @card.owns
-              - if @card.dvd
-                = link_to edit_card_dvd_path(@card) do
-                  = image_tag 'selling_text'
-              - else
-                = link_to new_card_dvd_path(@card) do
-                  = image_tag 'sell_text'
-            - else
-              = link_to own_movie_path(@movie.id, show: true) , class: :add_to_shelf_link, remote: true do
-                = image_tag 'add_shelf_text'
+          - if @card and @card.owns
+          - else
+            = link_to own_movie_path(@movie.id, show: true) , class: :add_to_shelf_link, remote: true do
+              = image_tag 'add_shelf_text'
+
+          - if @card and @card.wish
+          - else
+            = link_to wish_movie_path(current_user, show: true), class: :add_to_wishlist_link, remote: true do
+              = image_tag 'wishlist_text.png'
+
+          - if @card and @card.dvd
+            = link_to edit_card_dvd_path(@card.dvd) do
+              = image_tag 'selling_text'
+          - else
+            = link_to new_card_dvd_path(current_user) do
+              = image_tag 'sell_text'
 
           = link_to hide_card_path(@movie) do
             = image_tag 'hide_text'
@@ -48,11 +52,17 @@
           = link_to sale_list_movie_path(@movie) do
             = image_tag 'buy_text'
 
+          = link_to @movie.imdb_link, target: 'blank' do
+            = image_tag 'imdb_small'
+
+          = link_to @movie.tmdb_link, target: 'blank' do
+            = image_tag 'tmdb_small'
+
     .col-3
-      %h6= render("cards/review") if @card && @card.review
+      %h6= render("cards/review") if @card and @card.review
 
   .row.people
-    .col-12
-      - @movie.people.limit(12).each do |person|
+    - @movie.people.limit(12).each do |person|
+      .col-1
         = link_to person_path(person) do
-          =image_tag(person.picture(:thumb), title: person.name)
+          =image_tag(person.picture(:medium), class: 'img-fluid' ,title: person.name)

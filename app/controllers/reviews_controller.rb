@@ -1,15 +1,17 @@
 class ReviewsController < AuthenticatedController
-  before_action :set_card
+  before_action :set_card , except: [:new]
 
   def index
     @reviews = Review.all
   end
 
   def show
-    
+
   end
 
   def new
+    @movie = Movie.find(params[:card_id])
+    @card = Card.find_or_create_by(movie: @movie, user: current_user)
     if @card.review
       redirect_to edit_card_review_path(@card)
     else

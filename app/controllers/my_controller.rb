@@ -15,4 +15,5 @@ class MyController < AuthenticatedController
   def more_shelf
     @cards = current_user.shelf.page(params[:page]).per(4)
   end
+
 end

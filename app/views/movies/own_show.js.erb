@@ -1,4 +1,2 @@
-var selling = '<%=link_to( new_card_dvd_path(@card)){ image_tag "sell_text"}%>'
-$('.add_to_shelf_link').html(selling);
-var image = '<%=image_tag("shelf.png" , class: "img-fluid")%>' ;
-$('.movie-label').append(image)
+$('.movie-label-shelf').append('<%=j render 'shelf_image'%>')
+$('.add_to_shelf_link').remove()

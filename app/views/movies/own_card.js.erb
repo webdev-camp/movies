@@ -1,2 +1,3 @@
 var shelf_link = '<%=shelf_link(@movie , @card)%>' ;
 $('#id_<%=@movie.id%> .shelf_link').html(shelf_link)
+$('.notice').html('Added to your shelf!').show().fadeOut( 3000 )

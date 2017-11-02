@@ -29,7 +29,7 @@ class MoviesController < AuthenticatedController
 
     respond_to do |format|
       @card.save
-      format.js {render "wish"}
+      format.js { render params[:show] ? "wish_show" : "wish_card" }
     end
   end
 
