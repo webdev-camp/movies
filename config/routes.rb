@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :home
       get :wishlist
       get :more_shelf
+      get :hidden_list
     end
   end
 
@@ -41,12 +42,13 @@ Rails.application.routes.draw do
       get :sale_list
       get :own
       get :wish
+      get :hide
     end
   end
   resources :people, only: [:show]
   resources :cards, path: 'movies', except: [:create, :show, :update] do
     member do
-      get :hide
+
     end
 
     resource :review

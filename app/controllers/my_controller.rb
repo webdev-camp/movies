@@ -16,4 +16,8 @@ class MyController < AuthenticatedController
     @cards = current_user.shelf.page(params[:page]).per(4)
   end
 
+  def hidden_list
+    @cards = Card.hidden.for_user(current_user)
+  end
+
 end

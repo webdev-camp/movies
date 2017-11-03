@@ -9,6 +9,7 @@ class Card < ApplicationRecord
   scope :owned, -> { visible.where.not(owns: nil)}
   scope :for_user, ->(user) { where(user: user) }
   scope :with_dvd, -> {where.not(dvd_id: nil)}
+  scope :hidden, -> { where.not(hidden: nil)}
 
   def add_dvd(dvd)
     self.dvd = dvd

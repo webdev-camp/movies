@@ -5,16 +5,20 @@
 
     .col-6
       .row
-        .col-10
+        .col-9
           %h1= @movie.title
-        .col-2
+        .col-3
           .row
+            .movie-label-hide
+              -if @card and @card.hidden
+                = render 'hidden_image'
             .movie-label-shelf
               -if @card and @card.owns
                 = render 'shelf_image'
             .movie-label-wish
               -if @card and @card.owns
                 = render 'on_wishlist_image'
+
         .col-12
           %p= @movie.summary
         .col-12
@@ -24,39 +28,41 @@
 
           - if @card and @card.review
             = link_to edit_card_review_path(@card) do
-              = image_tag 'reviewed_text'
+              = image_tag 'reviewed_text.png'
           - else
             = link_to new_card_review_path(@movie) do
-              = image_tag 'review_text'
+              = image_tag 'review_text.png'
 
           - if @card and @card.owns
           - else
             = link_to own_movie_path(@movie.id, show: true) , class: :add_to_shelf_link, remote: true do
-              = image_tag 'add_shelf_text'
+              = image_tag 'add_shelf_text.png'
 
           - if @card and @card.wish
           - else
-            = link_to wish_movie_path(current_user, show: true), class: :add_to_wishlist_link, remote: true do
+            = link_to wish_movie_path(@movie.id, show: true), class: :add_to_wishlist_link, remote: true do
               = image_tag 'wishlist_text.png'
 
           - if @card and @card.dvd
             = link_to edit_card_dvd_path(@card.dvd) do
-              = image_tag 'selling_text'
+              = image_tag 'selling_text.png'
           - else
             = link_to new_card_dvd_path(current_user) do
-              = image_tag 'sell_text'
+              = image_tag 'sell_text.png'
 
-          = link_to hide_card_path(@movie) do
-            = image_tag 'hide_text'
+          - if @card and @card.hidden
+          - else
+            = link_to hide_movie_path(@movie.id, show: true), class: :add_to_hide_link, remote: true do
+              = image_tag 'hide_text.png'
 
           = link_to sale_list_movie_path(@movie) do
-            = image_tag 'buy_text'
+            = image_tag 'buy_text.png'
 
           = link_to @movie.imdb_link, target: 'blank' do
-            = image_tag 'imdb_small'
+            = image_tag 'imdb_small.png'
 
           = link_to @movie.tmdb_link, target: 'blank' do
-            = image_tag 'tmdb_small'
+            = image_tag 'tmdb_small.png'
 
     .col-3
       %h6= render("cards/review") if @card and @card.review

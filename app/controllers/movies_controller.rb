@@ -33,4 +33,16 @@ class MoviesController < AuthenticatedController
     end
   end
 
+  def hide
+    @movie = Movie.find(params[:id])
+    @card = Card.find_or_create_by(movie: @movie, user: current_user)
+    @card.update hidden: DateTime.new
+
+    respond_to do |format|
+      @card.save
+      format.js { render params[:show] ? "hide_show" : "hide_card" }
+    end
+  end
+
+
 end

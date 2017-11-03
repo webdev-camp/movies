@@ -1,0 +1,8 @@
+%h1 Your hidden movies:
+//TODO can unhide movies that was hidden
+
+.row
+  - @cards.each do |card|
+    = render 'movies/movie', movie: card.movie, card: card
+.row
+  %h5= link_to 'Back to recommendations', recommendations_path

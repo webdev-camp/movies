@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "dvds/new" do
   before(:each) do
     @user = sign_user_in
-    @card = create(:card_for_sale, user: @user)
+    @card = create(:card, user: @user)
     visit new_card_dvd_path(@card)
   end
 

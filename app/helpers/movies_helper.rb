@@ -26,4 +26,16 @@ module MoviesHelper
       end
     end
   end
+
+  def hide_link(movie, card)
+    if card and !card.hidden.blank?
+      link_to hidden_list_my_path, remote: true, class: "hide_link" do
+        image_tag( 'hide_text.png', class: 'star', title: "Movie hidden")
+      end
+    else
+      link_to hide_movie_path(movie), remote: true , class: "hide_link" do
+        image_tag( 'hide_text.png' , class: 'star' , title: "Hide this movie")
+      end
+    end
+  end
 end
