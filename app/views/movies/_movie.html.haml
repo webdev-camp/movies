@@ -7,7 +7,7 @@
       =link_to card_review_path(movie) do
         = image_tag '5star.png', class: 'star', :title => "Click to see all reviews for this movie"
       = wish_link(movie, card)
-      = shelf_link(movie, card)
+      = own_link(movie, card)
 
   .movie-content
     =link_to movie_path(movie) do

@@ -3,13 +3,13 @@ module MoviesHelper
     Card.for_user(current_user).where( movie: movie).first
   end
 
-  def shelf_link(movie, card)
+  def own_link(movie, card)
     if card and !card.owns.blank?
       link_to shelf_my_path do
         image_tag( 'shelf.png', class: 'star', title: "Movie is on shelf")
       end
     else
-      link_to own_movie_path(movie) , remote: true , class: "shelf_link" do
+      link_to own_movie_path(movie) , remote: true , class: "own_link" do
         image_tag( 'shelf_plus.png', class: 'star', title: "Add this to shelf if you've watched this")
       end
     end
@@ -30,11 +30,11 @@ module MoviesHelper
   def hide_link(movie, card)
     if card and !card.hidden.blank?
       link_to hidden_list_my_path, remote: true, class: "hide_link" do
-        image_tag( 'hide_text.png', class: 'star', title: "Movie hidden")
+        image_tag( 'hide_text.png', class: 'card-icon', title: "Movie hidden")
       end
     else
       link_to hide_movie_path(movie), remote: true , class: "hide_link" do
-        image_tag( 'hide_text.png' , class: 'star' , title: "Hide this movie")
+        image_tag( 'hide_text.png' , class: 'card-icon' , title: "Hide this movie")
       end
     end
   end
