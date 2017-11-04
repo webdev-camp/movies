@@ -63,8 +63,4 @@ Rails.application.routes.draw do
     resources :movies
   end
 
-  resources :conversations do
-  resources :messages
- end
-
 end
