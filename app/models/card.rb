@@ -10,7 +10,8 @@ class Card < ApplicationRecord
   scope :for_user, ->(user) { where(user: user) }
   scope :with_dvd, -> {where.not(dvd_id: nil)}
   scope :hidden, -> { where.not(hidden: nil)}
-
+  has_many :notifications, as: :object
+  
   def add_dvd(dvd)
     self.dvd = dvd
     self.selling = Time.now if self.dvd.price > 0

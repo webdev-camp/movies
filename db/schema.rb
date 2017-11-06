@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026132417) do
+ActiveRecord::Schema.define(version: 20171104131537) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -77,6 +77,16 @@ ActiveRecord::Schema.define(version: 20171026132417) do
     t.integer "tmdb_vote"
     t.integer "revenue", limit: 8
     t.integer "budget", limit: 8
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "object_type"
+    t.integer "object_id"
+    t.string "subject"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "people", force: :cascade do |t|

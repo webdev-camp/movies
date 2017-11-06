@@ -44,13 +44,14 @@ Rails.application.routes.draw do
       get :wish
       get :hide
     end
+
+
   end
+
+  resources :notifications
+
   resources :people, only: [:show]
   resources :cards, path: 'movies', except: [:create, :show, :update] do
-    member do
-
-    end
-
     resource :review
     resource :dvd
     resource :purchase, only: [:create]

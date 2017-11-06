@@ -5,9 +5,7 @@
     -@movies.each do |movie|
       =render 'movies/movie', movie: movie, card_size: 'card-4'
 .col-3
-  %br
   =render 'social'
-
 
 .col-12
   %h4=link_to "Wishlist", wishlist_my_path
@@ -22,6 +20,9 @@
   .flickity3
     -@cards_for_sale.each do |card|
       = render 'movies/movie', movie: card.movie, card: card
+
+
+
 
 :javascript
   var options =  {
