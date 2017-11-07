@@ -48,6 +48,7 @@ Rails.application.routes.draw do
 
   end
 
+  mount ActionCable.server => '/cable'
   resources :notifications
 
   resources :people, only: [:show]

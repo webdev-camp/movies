@@ -1,38 +1,41 @@
-%h4
-  Buy:
-  = @movie.title
-.first.row
-  .col-2
-    = image_tag @movie.poster.url(:thumb), class: "img-fluid" if @movie.poster?
+.row.mx-3
+  .col-4
+    %h5 Buy:
   .col-8
+    %h5= @movie.title
+
+.first.row
+  .col-1.py-3.mx-4
+    = image_tag @movie.poster.url(:thumb), class: "img-fluid" if @movie.poster?
+  .col-8.py-3
     = @movie.summary
   .col-2
     = search_form_for @q,url: sale_list_movie_path(@movie) do |f|
       = f.label :price_cont
       = f.search_field :dvd_price_cont
-
       = f.label :condition_cont
       = f.search_field :dvd_condition_cont
-
       = f.submit
 %br
-%table
-  %thead
-    %tr
-      %th Movie format
-      %th Language
-      %th= sort_link(@q, :dvd_price)
-      %th= sort_link(@q, :dvd_condition)
-      %th Review of user
-
-  %tbody
-    - @cards.each do |card|
-      %tr
-        %td DVD/Blueray/VHS
-        %td English/Finnish/Swedish
-        %td= card.dvd.price
-        %td= card.dvd.condition
-        %td ReviewOfUser
-        %td
-          = form_for(Purchase.new , url: card_purchase_path(card)) do |f|
-            =f.submit
+.row
+  .col-2
+  .col-10
+    %table
+      %thead
+        %tr
+          %th Movie format
+          %th Language
+          %th Price
+          %th Condition
+          %th Review of user
+      %tbody
+        - @cards.each do |card|
+          %tr
+            %td DVD/Blueray/VHS
+            %td English/Finnish/Swedish
+            %td= card.dvd.price
+            %td= card.dvd.condition
+            %td review of user
+            %td
+              = form_for(Purchase.new , url: card_purchase_path(card)) do |f|
+                =f.submit

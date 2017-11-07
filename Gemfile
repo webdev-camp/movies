@@ -25,7 +25,7 @@ gem "sucker_punch"
 gem 'stripe'
 gem 'vuejs-rails'
 gem 'gon'
-
+gem 'redis', "~> 3.0"
 group :production do
   gem 'mysql2'
 end

@@ -1,0 +1,16 @@
+.card.card-block.notification-card
+  .row
+    .col-3.card-image
+      = notification_image notification
+    .col-9
+      .card-text
+        = notification.subject
+      .card-text
+        = notification_link notification
+      .row
+        .col-9
+          = time_ago_in_words notification.created_at
+          ago
+        .col-3
+          %a.btn.btn-sm.btn-danger-outline.pull-left
+            %p.wrong &#10006;
