@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108075504) do
+ActiveRecord::Schema.define(version: 20171108082618) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20171108075504) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.string "summary"
+    t.text "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "poster_file_name"
@@ -86,13 +86,13 @@ ActiveRecord::Schema.define(version: 20171108075504) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "red"
+    t.date "read"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "people", force: :cascade do |t|
     t.string "name"
-    t.string "bio"
+    t.text "bio"
     t.string "picture_file_name"
     t.string "picture_content_type"
     t.integer "picture_file_size"

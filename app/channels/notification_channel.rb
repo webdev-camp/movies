@@ -7,6 +7,9 @@ class NotificationChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def notify
+  def read(id)
+    not = Not.find(id)
+    not.read = Time.now
+    not.save
   end
 end

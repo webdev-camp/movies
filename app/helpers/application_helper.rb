@@ -1,6 +1,6 @@
 module ApplicationHelper
   def user_notifications
-    Notification.where(user_id: current_user.id).limit(10)
+    Notification.where(read: nil, user_id: current_user.id).limit(10)
   end
 
   def notification_link(notification)
