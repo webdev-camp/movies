@@ -1,7 +1,7 @@
 %h4=@card.movie.title
-%p Change the details of your DVD for sale:
-%br
+
 .container
+  %p Change the details of your DVD for sale:
   .col
   = simple_form_for([@card, @dvd], url: card_dvd_path(@card)) do |f|
     = f.error_notification

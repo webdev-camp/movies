@@ -3,7 +3,7 @@ class DvdsController < AuthenticatedController
 
   def new
     @movie = Movie.find(params[:card_id])
-    @card = Card.find_or_create_by(movie: @movie, user: current_user)
+    @card = Card.create_with(owns: Time.now).find_or_create_by(movie: @movie, user: current_user)
     if @card.dvd
       redirect_to edit_card_dvd_path(@card)
     else
