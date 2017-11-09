@@ -7,7 +7,7 @@ module ApplicationHelper
     object = notification.object
     if object.is_a? Dvd
       movie = object.card.movie
-      link_to movie.title , movie_path( movie)
+      link_to movie.title , movie_path(movie), "data-notification" => notification.id
     else
       "unknown type#{object.class}"
     end

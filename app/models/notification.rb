@@ -5,4 +5,5 @@ class Notification < ApplicationRecord
   validates :object_type, presence: true
 
   belongs_to :object, polymorphic: true
+  belongs_to :user
 end

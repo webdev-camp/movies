@@ -20,7 +20,7 @@ class DvdsController < AuthenticatedController
     respond_to do |format|
       if @dvd.save
         @card.add_dvd(@dvd)
-        format.html { redirect_to for_sale_my_path, notice: 'DVD sale was successfully created.' }
+        format.html { redirect_to cards_path, notice: 'DVD sale was successfully created.' }
       else
         format.html { render :new }
       end

@@ -1,4 +1,4 @@
-.card.card-block.notification-card
+.card.card-block.notification-card{id: "notification_#{notification.id}"}
   .row
     .col-3.card-image
       = notification_image notification
@@ -12,5 +12,7 @@
           = time_ago_in_words notification.created_at
           ago
         .col-3
-          %a.btn.btn-sm.btn-danger-outline.pull-left
-            %p.wrong &#10006;
+          //TODO set up notifications id with word data
+
+          %a.notification-button.btn.btn-sm.btn-danger-outline.pull-left{href: '#' , "data-notification" => notification.id}
+            %p.wrong &#215;
