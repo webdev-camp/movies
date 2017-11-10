@@ -15,7 +15,8 @@ class Movie < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews
   has_many :cards
-  
+  has_many :genres
+
 
 
   def poster_remote_url=(url_value)
