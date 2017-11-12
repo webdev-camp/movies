@@ -12,6 +12,7 @@ class GetMovieJob < ApplicationJob
     movie.revenue = tm.revenue
     movie.release_date = tm.release_date
     movie.poster_remote_url = "https://image.tmdb.org/t/p/original/" + tm.poster_path
+    movie.genre = tm.genres.collect{|g|g.name}.join(",")
     movie.save!
     GetCastJob.perform_later(tmdb_id)
   end

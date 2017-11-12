@@ -20,6 +20,11 @@ RSpec.describe GetMovieJob, :vcr, type: :job do
     expect(Movie.where(tmdb_id:500).first.poster?).to be true
   end
 
+  it 'gets the genre(s) of a movie' do
+    GetMovieJob.perform_now(500)
+    expect(Movie.where(tmdb_id:500).first.genre).to include("Thriller")
+  end
+
   it "matches with enqueued job" do
     ActiveJob::Base.queue_adapter = :test
     expect {
