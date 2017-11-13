@@ -6,7 +6,7 @@ class RecommendationsController < AuthenticatedController
   end
 
   def make
-    add_to_shelf(owns: false)
+    add_to_shelf(wish: Time.now)
   end
 
   def shelf
@@ -16,13 +16,12 @@ class RecommendationsController < AuthenticatedController
   private
 
   def add_to_shelf(options)
-    owns = options[:owns]
     @movie = Movie.find(params[:id])
     card_length = Card.for_user(current_user).where( movie: @movie).length
     if card_length > 0
       redirect_to recommendations_path
     else
-      @card = Card.create(user: current_user, movie: @movie, owns: owns)
+      @card = Card.create({user: current_user, movie: @movie}.merge(options))
     end
   end
 

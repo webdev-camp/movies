@@ -28,7 +28,7 @@
       %tr
         %td= image_tag movie.poster.url(:thumb)
         %td= movie.title
-        %td= movie.summary[0..200]
+        %td.small= movie.summary[0..200]
         %td= movie.language
         %td= link_to 'imdb', movie.imdb_link, target: :blank
         %td= link_to 'tmdb', movie.tmdb_link, target: :blank

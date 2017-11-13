@@ -2,15 +2,16 @@
   margin: 5px
   padding: 5px
   background-color: $black-color
-  text-align: center
   &:hover .movie-img
     transition: all .3s ease-in-out
     transform: scale(1.1)
     transform-origin: top
   .movie-header
     .star
-      margin-left: 5px
-      padding-left: 12px
+      width: 25px
+      height: 25px
+      margin-left: 15px
+      margin-bottom: 5px
   .movie-content
     position: relative
     &:hover .movie-overlay
@@ -19,7 +20,6 @@
       transform: scale(1.1)
       transform-origin: top
     .movie-overlay
-      text-align: center
       height: 100%
       width: 100%
       visibility: hidden
@@ -30,14 +30,22 @@
       background-color: rgba(0, 0, 0, 0.8)
       h3
         color: white
+        text-align: center
         text-decoration: none
         font-size: 1em
+      .summary
+        text-align: justify
+        font-weight: lighter
+        color: white
+        margin-left: 5px
+        margin-right: 5px
       .movie-actions
         position: absolute
-        bottom: 0
+        bottom: 20px
         .card-icon
-          width: 3em
-          height: 3em
+          width: 2.5em
+          height: 2.5em
+          margin-left: 5px
 
 .card-3
   width: 33%

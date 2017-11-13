@@ -15,14 +15,34 @@ class MoviesController < AuthenticatedController
     @movie = Movie.find(params[:id])
     @card = Card.find_or_create_by(movie: @movie, user: current_user)
     @card.update owns: Time.now
-    redirect_to movie_path(@movie)
+
+    respond_to do |format|
+      @card.save
+      format.js { render params[:show] ? "own_show" : "own_card" }
+    end
   end
 
   def wish
     @movie = Movie.find(params[:id])
     @card = Card.find_or_create_by(movie: @movie, user: current_user)
     @card.update wish: Time.now
-    redirect_to wishlist_my_path(@movie)
+
+    respond_to do |format|
+      @card.save
+      format.js { render params[:show] ? "wish_show" : "wish_card" }
+    end
   end
+
+  def hide
+    @movie = Movie.find(params[:id])
+    @card = Card.find_or_create_by(movie: @movie, user: current_user)
+    @card.update hidden: DateTime.new
+
+    respond_to do |format|
+      @card.save
+      format.js { render params[:show] ? "hide_show" : "hide_card" }
+    end
+  end
+
 
 end

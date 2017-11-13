@@ -5,58 +5,33 @@
   .movie-header
     .row
       =link_to card_review_path(movie) do
-        = image_tag '5star', class: 'star', :title => "Click to see all reviews for this movie"
-
-      - if card
-        - if card.dvd.blank?
-          = link_to wishlist_my_path(movie) do
-            = image_tag 'wishlist', class: 'star', :title => "Added to wishlist"
-        - else
-          = link_to wish_movie_path(movie) do
-            = image_tag 'wishlist', class: 'star', :title => "Add to wishlist?"
-      - else
-        = link_to wish_movie_path(movie) do
-          = image_tag 'wishlist', class: 'star', :title => "Add to wishlist"
-
-      - if card
-        - if card.dvd.blank?
-          = link_to shelf_my_path(movie) do
-            = image_tag 'shelf', class: 'star', :title => "Add to shelf"
-        - else
-          = link_to shelf_my_path(movie) do
-            = image_tag 'shelf', class: 'star', :title => "Movie is on shelf"
-      - else
-        = link_to own_movie_path(movie) do
-          = image_tag 'shelf', class: 'star', :title => "Add this to shelf if you have watched this"
+        = image_tag '5star.png', class: 'star', :title => "Click to see all reviews for this movie"
+      = wish_link(movie, card)
+      = own_link(movie, card)
 
   .movie-content
     =link_to movie_path(movie) do
       = image_tag movie.poster.url(:medium) , class: "img-fluid rounded movie-img"
+
       .movie-overlay
         %h3= movie.title
+        %p.summary.small=movie.summary[0 .. 200]
         .movie-actions
-          - if card
-            - if card.dvd.blank?
-              = link_to sale_list_movie_path(movie) do
-                = image_tag 'buy_text', class: 'card-icon', :title => "Sorry can we notify you when there is DVD for sale?"
-            - else
-              = link_to sale_list_movie_path(movie) do
-                = image_tag 'buy_text', class: 'card-icon', :title => "Look at your sale options"
+          = link_to sale_list_movie_path(movie) do
+            = image_tag 'buy_text.png', class: 'card-icon', :title => "DVDs on sale!"
+
+          = hide_link(movie, card)
+
+          - if card and card.dvd
+            = link_to edit_card_dvd_path(card.dvd) do
+              = image_tag 'selling_text.png', class: 'card-icon', :title => "Edit your DVD for sale"
           - else
-            = link_to sale_list_movie_path(movie) do
-              = image_tag 'buy_text', class: 'card-icon', :title => "Look at your sale options"
+            = link_to new_card_dvd_path(movie) do
+              = image_tag 'sell_text.png', class: 'card-icon', :title => "Put your DVD up for sale"
 
-          = link_to hide_card_path(movie) do
-            = image_tag 'hide_text', class: 'card-icon'
-
-
-          -if card
-            - if card.dvd
-              = link_to edit_card_dvd_path(card) do
-                = image_tag 'selling_text', class: 'card-icon', :title => "Edit your DVD for sale"
-            - else
-              = link_to new_card_dvd_path(card) do
-                = image_tag 'sell_text', class: 'card-icon', :title => "Put your DVD up for sale"
-
-          -else
-            = render partial: 'recommendations/recommended_actions', locals: {movie: movie}
+          - if card and card.review
+            = link_to edit_card_review_path(card) do
+              = image_tag 'reviewed_text.png', class: 'card-icon', :title => "Edit your review"
+          - else
+            = link_to new_card_review_path(movie) do
+              = image_tag 'review_text.png', class: 'card-icon', :title => "Review this movie!"

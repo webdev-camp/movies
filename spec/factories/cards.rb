@@ -4,8 +4,7 @@ FactoryGirl.define do
     movie
     owns false
     factory :card_on_shelf do
-      dvd
-      owns true
+      owns Time.now
     end
     factory :card_for_sale do
       dvd

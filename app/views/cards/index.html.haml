@@ -1,26 +1,28 @@
-
-.col-8
+.col-9
   %h4=link_to 'Recommend me some movies', recommendations_path
+  %p.small Tell us your preferences and we can make better recommendations for you!
   .flickity1
     -@movies.each do |movie|
-      =render 'movies/movie', movie: movie, card_size: 'card-4'
+      =render 'movies/movie', movie: movie, card_size: 'card-6'
 .col-3
-  %br
   =render 'social'
 
 .col-12
   %h4=link_to "Wishlist", wishlist_my_path
-  %p Add movies to your wishlist and we notify you when a good deal comes up!
+  %p.small Add movies to your wishlist and we notify you when a good deal comes up!
   .flickity2
     -@cards_on_wishlist.each do |card|
       = render 'movies/movie', movie: card.movie, card: card
 
 .col-12
-  %h4=link_to 'Your DVDs for sale', for_sale_my_path
-  %p Share the love and put your DVDs up for sale on MovieFan.Club!
+  %h4=link_to 'DVD Shelf', for_sale_my_path
+  %p.small A personal page that displays all your DVDs for sale!
   .flickity3
     -@cards_for_sale.each do |card|
       = render 'movies/movie', movie: card.movie, card: card
+
+
+
 
 :javascript
   var options =  {

@@ -1,8 +1,14 @@
 class DvdsController < AuthenticatedController
-  before_action :set_card
+  before_action :set_card, except: [:new]
 
   def new
-    @dvd = Dvd.new
+    @movie = Movie.find(params[:card_id])
+    @card = Card.create_with(owns: Time.now).find_or_create_by(movie: @movie, user: current_user)
+    if @card.dvd
+      redirect_to edit_card_dvd_path(@card)
+    else
+      @dvd = Dvd.new
+    end
   end
 
   def edit
@@ -14,7 +20,7 @@ class DvdsController < AuthenticatedController
     respond_to do |format|
       if @dvd.save
         @card.add_dvd(@dvd)
-        format.html { redirect_to for_sale_my_path, notice: 'DVD sale was successfully created.' }
+        format.html { redirect_to cards_path, notice: 'DVD sale was successfully created.' }
       else
         format.html { render :new }
       end

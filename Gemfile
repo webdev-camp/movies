@@ -25,7 +25,7 @@ gem "sucker_punch"
 gem 'stripe'
 gem 'vuejs-rails'
 gem 'gon'
-
+gem 'redis', "~> 3.0"
 group :production do
   gem 'mysql2'
 end
@@ -43,6 +43,7 @@ group :development do
   gem 'spring'
   gem 'guard-rspec', require: false
   gem 'spring-commands-rspec'
+  gem 'pry-rails'
 end
 
 group :test do

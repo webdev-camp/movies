@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026132417) do
+ActiveRecord::Schema.define(version: 20171112074733) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 20171026132417) do
     t.string "token"
   end
 
+  create_table "crews", force: :cascade do |t|
+    t.string "department"
+    t.string "crew_list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dvds", force: :cascade do |t|
     t.string "condition"
     t.integer "price"
@@ -61,9 +68,15 @@ ActiveRecord::Schema.define(version: 20171026132417) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.string "summary"
+    t.text "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "poster_file_name"
@@ -77,11 +90,23 @@ ActiveRecord::Schema.define(version: 20171026132417) do
     t.integer "tmdb_vote"
     t.integer "revenue", limit: 8
     t.integer "budget", limit: 8
+    t.string "genre"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "object_type"
+    t.integer "object_id"
+    t.string "subject"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "read"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "people", force: :cascade do |t|
     t.string "name"
-    t.string "bio"
+    t.text "bio"
     t.string "picture_file_name"
     t.string "picture_content_type"
     t.integer "picture_file_size"

@@ -9,8 +9,7 @@
         %h3 Plot Score
         = f.hidden_field :plot_score
         %rating-component{'hidden'=>'review_plot_score'}
-        = f.input :plot_comment, label: false, class: 'comment-box'
-
+        = f.input :plot_comment, label: false, class: 'comment-box', autofocus: true, placeholder: 'Your thoughts on the plot here'
       .col-2
         = link_to movie_path(@card.movie) do
           = image_tag @card.movie.poster.url(:medium) , class: "img-fluid rounded"
@@ -20,7 +19,7 @@
         %h3 Acting Score
         = f.hidden_field :acting_score
         %rating-component{'hidden'=>'review_acting_score'}
-        = f.input :acting_comment, label: false, class: 'comment-box'
+        = f.input :acting_comment, label: false, class: 'comment-box', autofocus: true, placeholder: 'Comments on the acting here'
 
     .row
       &nbsp

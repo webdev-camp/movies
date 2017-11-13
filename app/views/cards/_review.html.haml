@@ -1,12 +1,24 @@
-%b Your review for this movie:
-Plot score:
-=@card.review.plot_score
-Plot comment:
-=@card.review.plot_comment
-Acting score:
-=@card.review.acting_score
-Acting comment:
-=@card.review.acting_comment
+%h6
+  %strong Your review for this movie:
+%hr
+.container
+  .row
+    %dt Plot score:
+  .row
+    %dd
+      =@card.review.plot_score
+      &mdash;
+      =@card.review.plot_comment
+  .row
+    %dt Acting score:
+  .row
+    %dd
+      =@card.review.acting_score
+      &mdash;
+      =@card.review.acting_comment
 
-
-= link_to 'Edit my review', edit_card_review_path(@card), class: 'btn btn-link'
+  %hr
+  .row
+    .col-7
+    .col-4
+      = link_to 'Edit my review', edit_card_review_path(@card), class: "btn btn-light"

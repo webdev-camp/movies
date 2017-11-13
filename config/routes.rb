@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :home
       get :wishlist
       get :more_shelf
+      get :hidden_list
     end
   end
 
@@ -41,14 +42,17 @@ Rails.application.routes.draw do
       get :sale_list
       get :own
       get :wish
-    end
-  end
-  resources :people, only: [:show]
-  resources :cards, path: 'movies', except: [:create, :show, :update] do
-    member do
       get :hide
     end
 
+
+  end
+
+  mount ActionCable.server => '/cable'
+  resources :notifications
+
+  resources :people, only: [:show]
+  resources :cards, path: 'movies', except: [:create, :show, :update] do
     resource :review
     resource :dvd
     resource :purchase, only: [:create]
@@ -60,4 +64,5 @@ Rails.application.routes.draw do
     resources :people
     resources :movies
   end
+
 end

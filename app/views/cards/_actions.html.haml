@@ -1,7 +1,0 @@
-x- unless card.owns.blank?
-  x- if card.dvd
-    x= link_to edit_card_dvd_path(card) do
-      x= image_tag 'selling_text', class: 'card-icon'
-  x- else
-    x= link_to new_card_dvd_path(card) do
-      x= image_tag 'sell_text', class: 'card-icon'

@@ -1,0 +1,3 @@
+var wish_link = '<%=wish_link(@movie, @card)%>';
+$('#id_<%=@movie.id%> .wish_link').html(wish_link)
+$('.notice').html('Added to your wishlist!').show().fadeOut( 3000 )

@@ -22,11 +22,6 @@ class CardsController < AuthenticatedController
   def show
   end
 
-  def hide
-    @card.update hidden: DateTime.new
-    redirect_to cards_path
-  end
-
   def edit
   end
 

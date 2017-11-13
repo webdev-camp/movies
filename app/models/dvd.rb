@@ -3,4 +3,5 @@ class Dvd < ApplicationRecord
   validates :price, :numericality => true, if: :condition
   has_one :card
   has_one :purchase
+  
 end
