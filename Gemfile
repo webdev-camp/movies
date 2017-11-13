@@ -28,6 +28,7 @@ gem 'gon'
 gem 'redis', "~> 3.0"
 group :production do
   gem 'mysql2'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do

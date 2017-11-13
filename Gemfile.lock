@@ -190,6 +190,7 @@ GEM
     mysql2 (0.4.9)
     nenv (0.3.0)
     netrc (0.11.0)
+    newrelic_rpm (4.5.0.337)
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -384,6 +385,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2
+  newrelic_rpm
   paperclip
   poltergeist
   pry-rails
