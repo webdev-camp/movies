@@ -26,6 +26,7 @@ gem 'stripe'
 gem 'vuejs-rails'
 gem 'gon'
 gem 'redis', "~> 3.0"
+gem 'rollbar'
 
 group :production do
   gem 'mysql2'
