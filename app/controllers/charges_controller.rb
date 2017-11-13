@@ -11,7 +11,6 @@ class ChargesController < AuthenticatedController
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
     )
-    #retrieve customer id if existing customer. Stripe::Charge.retrieve(customer_id)
     current_user.customer_id = customer.id
     current_user.save!
 

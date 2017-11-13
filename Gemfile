@@ -26,8 +26,12 @@ gem 'stripe'
 gem 'vuejs-rails'
 gem 'gon'
 gem 'redis', "~> 3.0"
+gem 'rollbar'
+
 group :production do
   gem 'mysql2'
+  gem 'newrelic_rpm'
+  gem "skylight"
 end
 
 group :development, :test do
