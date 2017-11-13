@@ -8,14 +8,17 @@
       %li.nav-item.active
         =link_to 'Home', root_path, :class => 'nav-link'
       %li.nav-item.active
-        =link_to 'People', root_path, :class => 'nav-link'
-      %li.nav-item.active
         =link_to 'Recommendations', recommendations_path, :class => 'nav-link'
-      %li.nav-item.active
-        =link_to 'Friends', relationships_path, :class => 'nav-link'
 
-    %form.form-inline.my-2.my-lg-0
-      %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
+      -# %li.nav-item.active
+      -#   =link_to 'Friends', relationships_path, :class => 'nav-link'
+      -# %li.nav-item.active
+      -#   =link_to 'People', root_path, :class => 'nav-link'
+
+    = search_form_for( (@search || Movie.ransack(params[:search])) ,url: search_movies_path,
+                        method: :get, class: "form-inline.my-2.my-lg-0") do |f|
+      = f.search_field :title_cont, placeholder: "Put title - press enter" , class: "form-control mr-sm-2"
+
     %ul.navbar-nav.mr-right
       - if user_signed_in?
         %li.nav-item.active

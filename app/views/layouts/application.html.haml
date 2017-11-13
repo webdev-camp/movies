@@ -8,7 +8,7 @@
 
     %title Movies
     = csrf_meta_tags
-    = action_cable_meta_tag 
+    = action_cable_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag "https://js.stripe.com/v3/"
     = javascript_include_tag 'application'
@@ -19,5 +19,6 @@
         .col-12
           %p.notice= notice
           %p.alert= alert
-        = yield
+        .col-12
+          = yield
     =render 'layouts/footer'

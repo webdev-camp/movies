@@ -1,6 +1,13 @@
-%h1 Wishlist
+.row.wishlist-header
+  .col-6
+    %h3 My Wishlist
+  .col-6
+    =sort_link(@q, :wish,"Sort by date added")
+
 .row
   - @cards.each do |card|
-    = render 'movies/movie', movie: card.movie, card: card  
+    = render 'movies/movie', movie: card.movie, card: card
+
 .row
-  %h5= link_to 'Recommend more movies >>', recommendations_path
+  .col
+    %h5= link_to 'Recommend more movies >>', recommendations_path

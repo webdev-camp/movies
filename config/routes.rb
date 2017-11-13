@@ -38,14 +38,15 @@ Rails.application.routes.draw do
 
   resources :charges
   resources :movies, path: 'movie', only: [:show] do
+    collection do
+      get :search
+    end
     member do
       get :sale_list
       get :own
       get :wish
       get :hide
     end
-
-
   end
 
   mount ActionCable.server => '/cable'

@@ -1,0 +1,10 @@
+.row
+  .col-6
+    %h3 Search results
+  .col-6
+    =sort_link(@q, :revenue, "Sort by Revenue")
+    =sort_link(@q, :release_date, "Sort by Release Date")
+
+.row
+  - @movies.each do |movie|
+    = render 'movies/movie', movie: movie
