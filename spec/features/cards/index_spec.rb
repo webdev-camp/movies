@@ -1,7 +1,7 @@
 
 RSpec.describe "cards/index" do
   before(:each) do
-    @cards = create_list(:card, 10, user: sign_user_in)
+    @cards = create_list(:card, 10, wish: true, user: sign_user_in)
     visit cards_path
   end
 

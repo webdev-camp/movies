@@ -25,6 +25,8 @@
           =link_to 'Account', edit_user_registration_path, :class => 'nav-link'
         %li.nav-item.active
           =link_to 'Log out', destroy_user_session_path, :class => 'nav-link', method: 'delete'
+        %li.nav-item.active
+          %i.fa.fa-bell.fa-inverse.fa-2x
       - else
         %li.nav-item.active
           =link_to 'Log in', new_user_session_path, :class => 'nav-link'

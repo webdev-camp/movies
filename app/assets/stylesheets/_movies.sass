@@ -1,21 +1,29 @@
 .movie-card
   margin: 5px
   padding: 5px
-  background-color: $black-color
-  &:hover .movie-img
+  // TODO Add hover to image
+  
+  // background-color: $black-color
+  // &:hover .movie-img
     transition: all .3s ease-in-out
+    filter: grayscale(100%)
     transform: scale(1.1)
     transform-origin: top
   .movie-header
-    .star
-      width: 25px
-      height: 25px
-      margin-left: 15px
-      margin-bottom: 5px
+    .header-wrapper
+      margin: 0 auto
+      .star
+        width: 25px
+        height: 25px
+        margin-left: 15px
+        margin-bottom: 5px
+
   .movie-content
     position: relative
-    &:hover .movie-overlay
+    // &:hover .movie-overlay
       visibility: visible
+      background-color: $black-color
+      opacity: 0.9
       transition: all .3s ease-in-out
       transform: scale(1.1)
       transform-origin: top
@@ -43,6 +51,7 @@
         position: absolute
         bottom: 20px
         .card-icon
+          margin-left: 0 auto
           width: 2.5em
           height: 2.5em
           margin-left: 5px
