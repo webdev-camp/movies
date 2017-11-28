@@ -1,7 +1,7 @@
 .col-12.index-gallery
   .gallery-title-top
     %h1=link_to 'Recommend me some movies', recommendations_path
-    %h4 Tell us your preferences and we can make better recommendations for you!
+    %h4 Tell us your preferences and we can make better recommendations for you
   .flickity1
     -@movies.each do |movie|
       =render 'movies/movie', movie: movie, card_size: 'card-6'
@@ -11,12 +11,12 @@
 .col-12.index-gallery
   -if @cards_on_wishlist.empty?
     .empty-wishlist.empty
-      %h1 You haven't added any films to your wishlist yet.
+      %h1 You haven't added any movies to your wishlist yet.
       %h4=link_to "Why not make a start? Go to recommendations.", recommendations_path
   -else
     .gallery-title
       %h1=link_to "Wishlist", wishlist_my_path
-      %h4 Add movies to your wishlist and we notify you when a good deal comes up!
+      %h4 Add movies to your wishlist and we'll notify you when they're for sale
     .flickity2
       -@cards_on_wishlist.each do |card|
         = render 'movies/movie', movie: card.movie, card: card
@@ -24,12 +24,12 @@
 .col-12.index-gallery
   -if @cards_for_sale.empty?
     .empty-sale.empty
-      %h1 You aren't selling any films yet.
+      %h1 You aren't selling any movies yet.
       %h4=link_to "Got some movies you want to sell? Search for the movie and add it to your shelf to begin.", recommendations_path
   -else
     .gallery-title
       %h1=link_to 'DVD Shelf', for_sale_my_path
-      %h4 A personal page that displays all your DVDs for sale!
+      %h4 View and edit your DVDs for sale
     .flickity3
       -@cards_for_sale.each do |card|
         = render 'movies/movie', movie: card.movie, card: card

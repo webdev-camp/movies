@@ -17,7 +17,7 @@
 
     = search_form_for( (@search || Movie.ransack(params[:search])) ,url: search_movies_path,
                         method: :get, class: "form-inline.my-2.my-lg-0") do |f|
-      = f.search_field :title_cont, placeholder: "Put title - press enter" , class: "form-control mr-sm-2"
+      = f.search_field :title_cont, placeholder: "Enter movie title" , class: "form-control mr-sm-2"
 
     %ul.navbar-nav.mr-right
       - if user_signed_in?
