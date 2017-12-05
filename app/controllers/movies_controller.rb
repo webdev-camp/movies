@@ -45,7 +45,7 @@ class MoviesController < AuthenticatedController
   end
 
   def search
-    @search = Movie.ransack(params[:search])
+    @search = Movie.all.ransack(params[:q])
     @movies = @search.result(distinct: true).page params[:page]
   end
 end

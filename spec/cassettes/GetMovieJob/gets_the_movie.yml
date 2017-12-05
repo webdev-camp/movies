@@ -681,4 +681,54 @@ http_interactions:
         eyJiaXJ0aGRheSI6IjE5MjAtMDktMjIiLCJkZWF0aGRheSI6IjE5NzgtMDktMDEiLCJpZCI6NDA1MzksIm5hbWUiOiJEZW5pc2UgUMOpcm9ubmUiLCJhbHNvX2tub3duX2FzIjpbIkRlbmlzZSBQZXJyb25uZSJdLCJnZW5kZXIiOjEsImJpb2dyYXBoeSI6IiIsInBvcHVsYXJpdHkiOjAuMDAwMzg3LCJwbGFjZV9vZl9iaXJ0aCI6IlBvcnJlbnRydXksIFN3aXR6ZXJsYW5kIiwicHJvZmlsZV9wYXRoIjoiXC8xNGF0SkkzRmxpU2hER0xEVFdqYlY2TmpFQ2guanBnIiwiYWR1bHQiOmZhbHNlLCJpbWRiX2lkIjoibm0wNzAyNDQ2IiwiaG9tZXBhZ2UiOm51bGx9
     http_version: 
   recorded_at: Tue, 28 Nov 2017 19:07:39 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/person/40539?api_key=<api_key_is_hidden>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.4.1p111
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.themoviedb.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Dec 2017 12:06:30 GMT
+      Etag:
+      - 9dfcd5e558dfa04aaf37f137a1d9d3e5
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1512475600'
+      Content-Length:
+      - '311'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJiaXJ0aGRheSI6IjE5MjAtMDktMjIiLCJkZWF0aGRheSI6IjE5NzgtMDktMDEiLCJpZCI6NDA1MzksIm5hbWUiOiJEZW5pc2UgUMOpcm9ubmUiLCJhbHNvX2tub3duX2FzIjpbIkRlbmlzZSBQZXJyb25uZSJdLCJnZW5kZXIiOjEsImJpb2dyYXBoeSI6IiIsInBvcHVsYXJpdHkiOjAuMTIsInBsYWNlX29mX2JpcnRoIjoiUG9ycmVudHJ1eSwgU3dpdHplcmxhbmQiLCJwcm9maWxlX3BhdGgiOiJcLzE0YXRKSTNGbGlTaERHTERUV2piVjZOakVDaC5qcGciLCJhZHVsdCI6ZmFsc2UsImltZGJfaWQiOiJubTA3MDI0NDYiLCJob21lcGFnZSI6bnVsbH0=
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 12:06:30 GMT
 recorded_with: VCR 3.0.3

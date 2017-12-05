@@ -15,9 +15,10 @@
       -# %li.nav-item.active
       -#   =link_to 'People', root_path, :class => 'nav-link'
 
-    = search_form_for( (@search || Movie.ransack(params[:search])) ,url: search_movies_path,
-                        method: :get, class: "form-inline.my-2.my-lg-0") do |f|
-      = f.search_field :title_cont, placeholder: "Enter movie title" , class: "form-control mr-sm-2"
+    = search_form_for( (@search || Movie.all.ransack(params[:q])) ,url: search_movies_path,
+                        method: :get, class: "form-inline") do |f|
+      = f.search_field :title_cont, placeholder: "Enter movie title" , class: "form-control"
+      = f.submit id: "nav-search-button"
 
     %ul.navbar-nav.mr-right
       - if user_signed_in?

@@ -22,12 +22,12 @@ RSpec.describe "users/index" do
   end
   it 'searches for a person by name' do
     fill_in(:q_name_cont, with: 'john')
-    click_button('Search')
+    find('#commit').click
     expect(page).to have_content('john')
   end
   it 'searches for a person by email' do
     fill_in(:q_email_cont, with: 'example')
-    click_button('Search')
+    find('#commit').click
     expect(page).to have_content('example')
   end
 end
